@@ -1,0 +1,133 @@
+td, th {
+    vertical-align: middle !important;
+    }
+.left, .right {
+        float:left;
+        height:100vh;
+    }
+    
+.left {
+        /*background: #337ab7;*/
+        position: absolute;
+        z-index: 1000;
+        background: #445979;
+        display: inline-block;
+        white-space: nowrap;
+        width: 50px;
+        transition: width 1s ;
+        position: fixed;
+        top: auto;
+    }
+
+.container-inside {
+        background: #fff;
+        width: 100%;
+        transition: width 1s;
+        border-style:solid;
+        border-color:#ccc;
+        border-width:1px;
+    }    
+
+.left:hover {
+        width: 250px;
+        overflow-y: scroll;
+    }   
+        
+.left .glyphicon {
+        margin:15px;
+        width:20px;
+        color:#fff;
+    }
+    
+.right .glyphicon {
+        color:#a9a9a9;
+    }
+span.glyphicon.glyphicon-refresh{
+    font-size:17px;
+    vertical-align: middle !important;
+    }
+    
+.item {
+        height:50px;
+        overflow:hidden;
+        color:#fff;
+    }
+.title {
+        background-color:#eee;
+        border-style:solid;
+        border-color:#ccc;
+        border-width:1px;
+        box-sizing: border-box;
+    }
+.search:hover {
+        border-color:#4aa9fb;
+        border-width:1px;
+    }
+.search {
+    padding:3px 8px 3px !important;
+    }
+input[type=search] {
+    padding: 10px 0px 10px;
+	border: 0px solid #fff;
+	background: #eee;
+	-webkit-appearance: none;
+    width:90%;
+    float:none;
+}
+input[type=search]:focus {
+    outline:none;
+    }
+.type{
+    height: 47px;;
+    }
+.date{
+    background-color:#f7f7f7
+    }
+.docdate {
+    vertical-align:bottom !important;
+    }
+.distr {
+    margin: 0 0 5px;
+    font-size: 12px;
+    }
+.ndoc {
+    margin: 0 0 5px;
+    }
+.storage {
+    margin: 0;
+    color: #aaa !important;
+    font-size: 12px;
+    }
+        
+    
+    
+   
+.item>.fas{margin-left: 15px;margin-top: 15px;}
+.item>i{width: 50px; height: 50px;}
+.item:hover{cursor: pointer; /*background-color:#92cecf;*/ background: #ccc; color: #000;}
+.active:hover{background-color: #4CAF50; color:#fff; cursor: default;} 
+
+.scrollbar{
+    max-height: 100%; overflow-y: hidden;
+}
+.scrollbar::-webkit-scrollbar{
+        width:8px;
+        background-color:#51555d;};
+    }
+.scrollbar::-webkit-scrollbar:horizontal{
+        height:8px;
+    }
+
+.scrollbar::-webkit-scrollbar-thumb{
+        background-color:#000000;
+        border:1px solid #000000;
+        border-radius:16px;
+    }
+.scrollbar::-webkit-scrollbar-thumb:hover{
+        background-color:#2e7cc4;
+        border:1px solid #333333;
+    }
+.scrollbar::-webkit-scrollbar-thumb:active{
+        background-color:#000000;
+        border:1px solid #333333;
+    }
