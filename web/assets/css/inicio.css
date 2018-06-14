@@ -1,0 +1,25 @@
+body{margin: 0px;}
+img.imgFondo{position: absolute;z-index: -1;width: 100%;height: 100%;}
+img.degradadoEsq{position: absolute;z-index: 0;width: 100%;height: 100%;}
+.contenedor{z-index: 1; position: absolute;width: 100%;color: #FFF;margin-top: 7%;}
+h1.titles{
+	font-size: 90px;
+	font-family: 'Black Han Sans', sans-serif;font-weight: bold;}
+.btnIn{border-radius: 200px 200px 200px 200px; padding: 10px 0px; background: #009fff;font-weight: bold;color: #FFF;}
+.btnIn:hover{cursor: pointer;text-decoration: none;
+	background: #0778bd; color: #FFF;}
+.btn-transparent{background: transparent; border: 2px solid #009fff; color: #009fff;}
+.subtitle{
+	font-family: tahoma; font-size: 25px;
+}
+.titles-sections-2::first-line{font-family: tahoma; font-size: 50px;}
+.titles-sections-2{font-size: 70px; border-bottom: 1px solid #FFF;}
+.nav{background: #000;opacity: 0.6;}
+.img-title{width: 400px;border-bottom: 1px solid #FFF;}
+.img-title, .subtitle{margin-top: 30px;}
+
+@media screen and (max-width: 990px) {
+  .hidden-xs{
+	display: none;
+  }
+  }

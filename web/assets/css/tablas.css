@@ -1,0 +1,7 @@
+.cont-table{background: #ffffffb0;border-radius: 4px;}
+.pagination{position: relative;float: right;}
+tbody.cursor-pointer>tr:hover{
+	cursor: pointer;
+}
+
+.dataTables_filter{text-align: right;}
