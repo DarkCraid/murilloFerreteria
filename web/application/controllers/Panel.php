@@ -24,12 +24,12 @@ class Panel extends CI_Controller {
 	}
 
 	public function getView(){
-		//if (is_file(base_url().'views\Panel\\'.$this->input->post('page').'.php'))
+		if (is_file(APPPATH.'views\Panel\\'.$this->input->post('page').'.php'))
 	        $this->load->view('Panel/'.$this->input->post('page'),$this->input->post('data'));
-       // else{
-        	//echo APPPATH.'views\Panel\\'.$this->input->post('page').'.php';
-          //  $this->load->view('Panel/404');	
-        //}
+        else{
+        	echo APPPATH.'views\Panel\\'.$this->input->post('page').'.php';
+            $this->load->view('Panel/404');	
+        }
 	}
 
 	public function getEstadisticas(){
