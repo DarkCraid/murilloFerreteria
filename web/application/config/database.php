@@ -79,11 +79,7 @@ $db['default'] = array(
 	'username' => 'root',
 	'password' => '',
 	'database' => 'ferreteriamurillo',
-	/*'hostname' => 'sitiospruebadb.cnw6cp4b7sj3.us-west-2.rds.amazonaws.com',
-	'username' => 'batterymatters',
-	'password' => 'B7pbBnsm',
-	'database' => 'batterymatters',
-	*/'dbdriver' => 'mysqli',
+	'dbdriver' => 'mysqli',
 	
 	'dbprefix' => '',
 	'pconnect' => FALSE,
