@@ -8,11 +8,12 @@ class Inicio extends CI_Controller
 		parent::__construct();
 		//$this->load->model("Restaurant/ReservacionModel");
 		//$this->load->model("Restaurant/ContactoModel");
+		$this->load->model('M_panel');
 	}
 
 	public function index()
-	{
-		$this->load->view('Panel/Inicio');		
+	{	$data['dataMenu'] = $this->M_panel->getMenu();
+		$this->load->view('Panel/Inicio',$data);		
 	}
 	/*public function Error404()
 	{
@@ -32,58 +33,58 @@ class Inicio extends CI_Controller
 	}*/
 
 	public function Empleados()//1
-	{
-		$this->load->view('Empleados');
+	{	$data['dataMenu'] = $this->M_panel->getMenu();
+		$this->load->view('Empleados',$data);
 	}
 
 	public function ListEmpleados()//2
-	{
-		$this->load->view('ListEmpleados');
+	{	$data['dataMenu'] = $this->M_panel->getMenu();
+		$this->load->view('ListEmpleados',$data);
 	}
 
 	public function Proveedores()//3
-	{
-		$this->load->view('Proveedores');
+	{$data['dataMenu'] = $this->M_panel->getMenu();
+		$this->load->view('Proveedores',$data);
 	}
 
 	public function ListProveedores()//4
-	{
-		$this->load->view('ListProveedores');
+	{$data['dataMenu'] = $this->M_panel->getMenu();
+		$this->load->view('ListProveedores',$data);
 	}
 
 	public function Inventario()//5
-	{
-		$this->load->view('Inventario');
+	{$data['dataMenu'] = $this->M_panel->getMenu();
+		$this->load->view('Inventario',$data);
 	}
 
 	public function Venta()//6
-	{
-		$this->load->view('Venta');
+	{$data['dataMenu'] = $this->M_panel->getMenu();
+		$this->load->view('Venta',$data);
 	}
 
 	public function Historial()//7
-	{
-		$this->load->view('Historial');
+	{$data['dataMenu'] = $this->M_panel->getMenu();
+		$this->load->view('Historial',$data);
 	}
 
 	public function Clientes()//8
-	{
-		$this->load->view('Clientes');
+	{$data['dataMenu'] = $this->M_panel->getMenu();
+		$this->load->view('Clientes',$data);
 	}
 
 	public function ClientesFrecuentes()//9
-	{
-		$this->load->view('ClientesFrecuentes');
+	{$data['dataMenu'] = $this->M_panel->getMenu();
+		$this->load->view('ClientesFrecuentes',$data);
 	}
 
 	public function Caja()//10
-	{
-		$this->load->view('Caja');
+	{$data['dataMenu'] = $this->M_panel->getMenu();
+		$this->load->view('Caja',$data);
 	}
 
 	public function Compra()//11
-	{
-		$this->load->view('Compra');
+	{$data['dataMenu'] = $this->M_panel->getMenu();
+		$this->load->view('Compra',$data);
 	}
 
 }

@@ -114,79 +114,20 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">Barra de Navegacion</li>
-
-        <li class="treeview ">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Menu</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li ><a href="#"><i class="fa fa-circle-o"></i> Barra de Navegacion</a></li>
-            <li ><a href="#"><i class="fa fa-circle-o"></i> Comidas</a></li>
-            <li ><a href="#"><i class="fa fa-circle-o"></i> Especialidades</a></li>
-
-            <li class="treeview">
-              <a href="#"><i class="fa fa-circle-o"></i> Galeria
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle-o"></i> Restaurante</a></li>
-                <li><a href="#"><i class="fa fa-circle-o"></i> Comidas</a></li>
-              </ul>
-            </li>
-						<li><a href="<?php echo base_url('index.php/Admin/NosotrosActualizar') ?>"><i class="fa fa-circle-o"></i>Actualizar Sobre Nosotros</a></li>
-            <li><a href="<?php echo base_url('index.php/Administrador/Reservaciones'); ?>"><i class="fa fa-circle-o"></i>Reservaciones</a></li>
-            <li><a href="<?php echo base_url('index.php/Administrador/Contacto'); ?>"><i class="fa fa-circle-o"></i>Contacto</a></li>
-          </ul>
-        </li>
-
-        <li class="treeview ">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Usuarios</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li ><a href="<?php echo base_url('index.php/Administrador/Registro');?>"><i class="fa fa-circle-o"></i> Agregar</a></li>
-            <li ><a href="<?php echo base_url('index.php/Administrador/CambiarContrasena');?>"><i class="fa fa-circle-o"></i> Cambiar Contraseña</a></li>
-          </ul>
-        </li>
-
-        <!--<li class="treeview">
-          <a href="#">
-            <i class="fa fa-files-o"></i>
-            <span>Lorem</span>
-            <span class="pull-right-container">
-              <span class="label label-primary pull-right">4</span>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> Lorem</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Lorem</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Lorem</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Lorem</a></li>
-          </ul>
-        </li>-->
-
-        <!--<li>
-          <a href="#">
-            <i class="fa fa-th"></i> <span>Lorem</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-green">Nuevo</small>
-            </span>
-          </a>
-        </li>-->
-
         <li>
           <a href="#">
             <i class="fa fa-share"></i> <span>Cerrar Sesion</span>
           </a>
         </li>
+
+        <?php foreach ($dataMenu as $m) { ?>
+          <li id="" class="item menu-l">
+            <a href="<?= base_url('index.php/'.$m->ruta); ?>">
+              <i class="fa <?= $m->icono; ?> fa-lg"></i>
+              <span> <?= $m->descripcion; ?></span>
+            </a>
+          </li>
+        <?php } ?>
 
       </ul>
     </section>

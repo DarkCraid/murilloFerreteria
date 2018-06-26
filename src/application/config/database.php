@@ -78,8 +78,9 @@ $db['default'] = array(
 	'hostname' => 'localhost',
 	'username' => 'root',
 	'password' => '',
-	'database' => 'restaurant',
+	'database' => 'ferreteriamurillo',
 	'dbdriver' => 'mysqli',
+	
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
