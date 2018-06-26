@@ -125,12 +125,20 @@ CREATE TABLE `menu` (
   `icono` text NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 /*Data for the table `menu` */
 
 insert  into `menu`(`id`,`descripcion`,`ruta`,`icono`,`status`) values 
-(1,'Inicio','InicioPanel','fa-home',1);
+(1,'Inicio','Inicio/index','fa-home',1),
+(2,'Ventas','Inicio/venta','fa-credit-card',1),
+(3,'Compras','Inicio/Compra','fa-shopping-cart',1),
+(4,'Empleados','Inicio/Empleados','fa-user',1),
+(5,'Proveedores','Inicio/Proveedores','fa-industry',1),
+(6,'Inventario','Inicio/Inventario','fa-archive',1),
+(7,'Historial','Inicio/Historial','fa-history',1),
+(8,'Clientes','Inicio/Clientes','fa-users',1),
+(9,'Caja','Inicio/Caja','fa-briefcase',1);
 
 /*Table structure for table `movimiento` */
 
