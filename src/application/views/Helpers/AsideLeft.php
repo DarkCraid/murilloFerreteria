@@ -114,11 +114,6 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">Barra de Navegacion</li>
-        <li>
-          <a href="#">
-            <i class="fa fa-share"></i> <span>Cerrar Sesion</span>
-          </a>
-        </li>
 
         <?php foreach ($dataMenu as $m) { ?>
           <li id="" class="item menu-l">
@@ -128,6 +123,13 @@
             </a>
           </li>
         <?php } ?>
+
+        <hr>
+        <li>
+          <a href="#">
+            <i class="fa fa-share"></i> <span>Cerrar Sesion</span>
+          </a>
+        </li>
 
       </ul>
     </section>
