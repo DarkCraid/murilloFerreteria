@@ -1,0 +1,14 @@
+.containerTable{
+	background-color: #fbd5b1;
+	margin-bottom: 10%;
+}
+.containerTable .trStyle{
+	background-color: #ffffff;
+	margin-bottom: 3%;
+	border:2px solid #fbd5b1;
+
+}
+th,td,tr{
+	border:2px solid #f7ad6e;
+	padding-left: 10px;	
+}

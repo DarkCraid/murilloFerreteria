@@ -2,130 +2,50 @@
 <?php $this->load->view('Helpers/AsideLeft');?>
 
   
-
+<link rel="stylesheet" href="<?= base_url('assets/sources/css/global.css'); ?>">
 
 
 
 <div class="content-wrapper" style="background: white;">
     <section class="content">
 
-<!--asdasd-->
-        <div class="panel-group" id="accordion">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Venta</a>
-                    </h4>
-                </div>
-                <!-- INFORMACIÓN GENERAL DE INSTITUCIÓN-->
-                <div id="collapse1" class="panel-collapse collapse in">
-                <div class="panel-body">
-                <!--<p>*********</p>-->
 
-
-                <section class="row">
-                <div class="container-fluid">
-
-
-                <div class="col-md-12">
-                <div class="row form-group">
-                <div class="col-sm-4 col-md-3 col-lg-2 text-right">
-                <label for="tipo" class="col-form-label mr-2 control-label" id="label_representanteLegal">NOmbre del producto: </label>
-                </div>
-                <div class="col-sm-12 col-md-9 col-lg-9">
-                <input type="text" name="representanteLegal" id="representanteLegal" class="form-control" value="" disabled>
-                </div>
-                </div>
-                </div>
-                </div>
-
-
-
-
-
-                <div class="container-fluid">
-
-
-                <div class="col-md-12">
-                <div class="row form-group">
-                <div class="col-sm-4 col-md-3 col-lg-2 text-right">
-                <label for="tipo" class="col-form-label mr-2 control-label" id="label_representanteLegal">Cantidada: </label>
-                </div>
-                <div class="col-sm-12 col-md-9 col-lg-9">
-                <input type="text" name="representanteLegal" id="representanteLegal" class="form-control" value="" disabled>
-                </div>
-                </div>
-                </div>
-                </div>
-
-
-
-
-
-                <div class="container-fluid">
-
-
-                <div class="col-md-12">
-                <div class="row form-group">
-                <div class="col-sm-4 col-md-3 col-lg-2 text-right">
-                <label for="tipo" class="col-form-label mr-2 control-label" id="label_representanteLegal">Nombre del empleado: </label>
-                </div>
-                <div class="col-sm-12 col-md-9 col-lg-9">
-                <input type="text" name="representanteLegal" id="representanteLegal" class="form-control" value="" disabled>
-                </div>
-                </div>
-                </div>
-                </div>
-
-
-
-
-
-                <div class="container-fluid">
-
-
-                <div class="col-md-12">
-                <div class="row form-group">
-                <div class="col-sm-4 col-md-3 col-lg-2 text-right">
-                <label for="tipo" class="col-form-label mr-2 control-label" id="label_representanteLegal">Cliente frecuente: </label>
-                </div>
-                <div class="col-sm-12 col-md-9 col-lg-9">
-               <select name="" id="">
-                   <option value="si">si</option>
-                   <option value="no">no</option>
-               </select>
-                </div>
-                </div>
-                </div>
-                </div>
-
-
-
-
-                <div class="container-fluid">
-
-
-                <div class="col-md-12">
-                <div class="row form-group">
-                <div class="col-sm-4 col-md-3 col-lg-2 text-right">
-                <label for="tipo" class="col-form-label mr-2 control-label" id="label_representanteLegal">Cliente: </label>
-                </div>
-                <div class="col-sm-12 col-md-9 col-lg-9">
-                     <select name="" id="">
-                   <option value="0">Adrian Zamudio</option>
-                   <option value="1">Fernanda Murillo</option>
-                   <option value="2">Daniel Perez</option>
-                   <option value="3">Tom Eliezer</option>
-               </select>
-                </div>
-                </div>
-                </div>
-                </div>
-                </section>
-
-
-            </div>
-        </div>
+	<h1 class="titulo">Ventas</h1>
+	<div class="container containerGeneral">
+		<form>
+			<div class="form-group">
+				<label for="productoVenta">Nombre del producto</label>
+				<input type="text" class="form-control" name="productoVenta" id="productoVenta">
+			</div>
+			<div class="form-group">
+				<label for="cantidadVenta">Cantidad</label>
+				<input type="text" class="form-control" name="cantidadVenta" id="cantidadVenta">
+			</div>
+			<div class="form-group">
+				<label for="nombreEmpleado">Nombre del empleado que realiza la venta</label>
+				<input type="text" class="form-control" name="nombreEmpleado" id="nombreEmpleado">
+			</div>
+			<div class="form-group">
+				<label for="clienteFrecuente">Cliente frecuente</label>
+				  	<select class="form-control" id="clienteFrecuente">
+				      	<option value="0">Si</option>
+				      	<option value="1">No</option>
+    				</select>
+			</div>
+			<div class="form-group">
+				<label for="cliente">Cliente</label>
+				  	<select class="form-control" id="cliente">
+				      	<option>Omar Pérez</option>
+				      	<option>Jorge Flores</option>
+				      	<option>Itzel Verdugo</option>
+    				</select>
+			</div>
+			<div class="form-group center ">
+				<button type="submit" class="btn  btn-lg btn-general ">Realizar compra</button>
+			</div>	
+		</form>
+	</div>
+     
 
     </section>
 </div>
@@ -139,6 +59,9 @@
 <?php $this->load->view('Helpers/Footer');?>
 
 
-  
+
+
+
+
 
 
