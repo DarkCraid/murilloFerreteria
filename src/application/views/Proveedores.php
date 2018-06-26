@@ -1,159 +1,58 @@
 <?php $this->load->view('Helpers/Header');?>
 <?php $this->load->view('Helpers/AsideLeft');?>
 
-  
-
-
+<link rel="stylesheet" href="<?= base_url('assets/sources/css/global.css'); ?>">
 
 
 <div class="content-wrapper" style="background: white;">
     <section class="content">
-
-<!--asdasd-->
-        <div class="panel-group" id="accordion">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Proveedores</a>
-                    </h4>
+        <h1 class="titulo">Proveedores</h1>
+        <div class="container containerGeneral ">
+            <form>
+                <div class="form-group">
+                        <label for="nombreProveedorProvedores">Nombre del producto</label>
+                        <input type="text" class="form-control" name="nombreProveedorProvedores" id="nombreProveedorProvedores">
                 </div>
-                <!-- INFORMACIÓN GENERAL DE INSTITUCIÓN-->
-                <div id="collapse1" class="panel-collapse collapse in">
-                <div class="panel-body">
-                <!--<p>*********</p>-->
-
-
-                <section class="row">
-                <div class="container-fluid">
-
-
-                  <div class="col-md-12">
-                <div class="row form-group">
-                <div class="col-sm-4 col-md-3 col-lg-2 text-right">
-                <label for="tipo" class="col-form-label mr-2 control-label" id="label_representanteLegal">Nombre: </label>
+                <div class="form-group">
+                        <label for="calleProvedores">Calle</label>
+                        <input type="text" class="form-control" name="calleProvedores" id="calleProvedores">
                 </div>
-                <div class="col-sm-12 col-md-9 col-lg-9">
-                <input type="text" name="representanteLegal" id="representanteLegal" class="form-control" value="" disabled>
+                <div class="form-group">
+                        <label for="coloniaProvedores">Colonia</label>
+                        <input type="text" class="form-control" name="coloniaProvedores" id="coloniaProvedores">
                 </div>
+                <div class="form-group">
+                        <label for="numCalleProvedores">Número de la Calle</label>
+                        <input type="text" class="form-control" name="numCalleProvedores" id="numCalleProvedores">
                 </div>
+                <div class="form-group">
+                        <label for="RFCProvedores">RFC</label>
+                        <input type="text" class="form-control" name="RFCProvedores" id="RFCProvedores">
                 </div>
+                <div class="form-group">
+                        <label for="numTelProvedores">Número de teléfono</label>
+                        <input type="text" class="form-control" name="numTelProvedores" id="numTelProvedores">
                 </div>
-
-
-
-
-
-                <div class="container-fluid">
-
-
-                <div class="col-md-12">
-                <div class="row form-group">
-                <div class="col-sm-4 col-md-3 col-lg-2 text-right">
-                <label for="tipo" class="col-form-label mr-2 control-label" id="label_representanteLegal">RFC: </label>
-                </div>
-                <div class="col-sm-12 col-md-9 col-lg-9">
-                <input type="text" name="representanteLegal" id="representanteLegal" class="form-control" value="" disabled>
-                </div>
-                </div>
-                </div>
-                </div>
-
-
-
-
-
-                <div class="container-fluid">
-
-
-                <div class="col-md-12">
-                <div class="row form-group">
-                <div class="col-sm-4 col-md-3 col-lg-2 text-right">
-                <label for="tipo" class="col-form-label mr-2 control-label" id="label_representanteLegal">Calle: </label>
-                </div>
-                <div class="col-sm-12 col-md-9 col-lg-9">
-                <input type="text" name="representanteLegal" id="representanteLegal" class="form-control" value="" disabled>
-                </div>
-                </div>
-                </div>
-                </div>
-
-
-
-
-
-                <div class="container-fluid">
-
-
-                <div class="col-md-12">
-                <div class="row form-group">
-                <div class="col-sm-4 col-md-3 col-lg-2 text-right">
-                <label for="tipo" class="col-form-label mr-2 control-label" id="label_representanteLegal">Colonia: </label>
-                </div>
-                <div class="col-sm-12 col-md-9 col-lg-9">
-                <input type="text" name="representanteLegal" id="representanteLegal" class="form-control" value="" disabled>
-                </div>
-                </div>
-                </div>
-                </div>
-
-
-
-
-                <div class="container-fluid">
-
-
-                <div class="col-md-12">
-                <div class="row form-group">
-                <div class="col-sm-4 col-md-3 col-lg-2 text-right">
-                <label for="tipo" class="col-form-label mr-2 control-label" id="label_representanteLegal">Numero de la calle: </label>
-                </div>
-                <div class="col-sm-12 col-md-9 col-lg-9">
-                <input type="text" name="representanteLegal" id="representanteLegal" class="form-control" value="" disabled>
-                </div>
-                </div>
-                </div>
-                </div>
-
-
-
-
-                <div class="container-fluid">
-                <div class="col-md-12">
-                <div class="row form-group">
-                <div class="col-sm-4 col-md-3 col-lg-2 text-right">
-                <label for="tipo" class="col-form-label mr-2 control-label" id="label_representanteLegal">Numero de Telefono: </label>
-                </div>
-                <div class="col-sm-12 col-md-9 col-lg-9">
-                <input type="text" name="representanteLegal" id="representanteLegal" class="form-control" value="" disabled>
-                </div>
-                </div>
-                </div>
-                </div>
-
-
-
-
-
-
-
-
-                <div class="container-fluid">
-                <div class="col-md-12">
-                <div class="row form-group">
-                <a class="btn btn-sm btn-success btn-flat pull-right" id="Dictamen" style="padding: 5px 30px; font-weight: bold; font-size: 1em; border-radius: 5px;" >Agregar</a>
-                <a class="btn btn-sm btn-success btn-flat pull-right" id="Oficio" style="padding: 5px 30px; font-weight: bold; font-size: 1em; border-radius: 5px;" >MOdificar</a>
-                <a  class="btn btn-sm btn-success btn-flat pull-right" id="GenerarDoc" style="padding: 5px 30px; font-weight: bold; font-size: 1em; border-radius: 5px;" >Eliminar</a>
-                </div>
-                </div>
-                </div>
-
-
-
-                </section>
-
-
-            </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group center ">
+                            <button type="submit" class="btn  btn-lg btn-general ">Agregar</button>
+                        </div>  
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group center ">
+                            <button type="submit" class="btn  btn-lg btn-general ">Modificar</button>
+                        </div>  
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group center ">
+                            <button type="submit" class="btn  btn-lg btn-general ">Eliminar</button>
+                        </div>  
+                    </div>                      
+                </div>      
+            </form>
         </div>
+
 
     </section>
 </div>

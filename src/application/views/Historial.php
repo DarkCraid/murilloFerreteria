@@ -4,181 +4,122 @@
   
 
 
-
+<link rel="stylesheet" href="<?= base_url('assets/sources/css/global.css'); ?>">
+<link rel="stylesheet" href="<?= base_url('assets/sources/css/tableGlobal.css'); ?>">
 
 <div class="content-wrapper" style="background: white;">
     <section class="content">
 
-<!--asdasd-->
-        <div class="panel-group" id="accordion">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Compra</a>
-                    </h4>
-                </div>
-                <!-- INFORMACIÓN GENERAL DE INSTITUCIÓN-->
-                <div id="collapse1" class="panel-collapse collapse in">
-                <div class="panel-body">
-                <!--<p>*********</p>-->
-
-
-                <section class="row">
-                <div class="container-fluid">
-
-                <table id="Exportar_a_Excel" class="table table-hover no-margin">
-                <thead>
-                <tr>
-                <th>Dato 1</th>
-                <th>Dato 2</th>
-                <th>Dato 3</th>
-                <th>Dato 4</th>
-                <th>Dato 5</th>
-                </tr>
-                </thead>
-                <tbody id="contenido_tabla"></tbody>
-                <tr >
-                <td>lorem</td>
-                <td>lorem</td>
-                <td>lorem</td>
-                <td>lorem</td>
-                <td>lorem</td>
-                </tr>
-                </table>
-                </section>
-
-            </div>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Ventas</a>
-      </h4>
-    </div>
-    <div id="collapse2" class="panel-collapse collapse">
-      <div class="panel-body">
-                <!--<p>*********</p>-->
-
-
-                <section class="row">
-                <div class="container-fluid">
-
-                <table id="Exportar_a_Excel" class="table table-hover no-margin">
-                <thead>
-                <tr>
-                <th>Dato 1</th>
-                <th>Dato 2</th>
-                <th>Dato 3</th>
-                <th>Dato 4</th>
-                <th>Dato 5</th>
-                </tr>
-                </thead>
-                <tbody id="contenido_tabla"></tbody>
-                <tr >
-                <td>lorem</td>
-                <td>lorem</td>
-                <td>lorem</td>
-                <td>lorem</td>
-                <td>lorem</td>
-                </tr>
-                </table>
-                </section>
-
-            </div>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Devoluciones</a>
-      </h4>
-    </div>
-    <div id="collapse3" class="panel-collapse collapse">
-      <div class="panel-body">
-                <!--<p>*********</p>-->
-
-
-                <section class="row">
-                <div class="container-fluid">
-
-                <table id="Exportar_a_Excel" class="table table-hover no-margin">
-                <thead>
-                <tr>
-                <th>Dato 1</th>
-                <th>Dato 2</th>
-                <th>Dato 3</th>
-                <th>Dato 4</th>
-                <th>Dato 5</th>
-                </tr>
-                </thead>
-                <tbody id="contenido_tabla"></tbody>
-                <tr >
-                <td>lorem</td>
-                <td>lorem</td>
-                <td>lorem</td>
-                <td>lorem</td>
-                <td>lorem</td>
-                </tr>
-                </table>
-                </section>
-
-            </div>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<h1 class="titulo">Historial</h1>
+
+<div class="container  containerTable">
+    <h2 >Compra</h4>
+    <table id="Exportar_a_Excel"  class="table table-hover no-margin">
+        <thead>
+            <tr>
+                <th>Nombre del empleado que afectuò la venta</th>
+                <th>Nombre del empleado quea fetuò la compra</th>
+                <th>Nombre del cliente</th>
+                <th>Precio</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody id="contenido_tabla"></tbody>
+            <tr class="trStyle">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="trStyle">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="trStyle">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+    </table>
+</div>
+<div class="container  containerTable">
+    <h2>Venta</h2>
+    <table id="Exportar_a_Excel"  class="table table-hover no-margin">
+        <thead>
+            <tr>
+                <th>Nombre del empleado que afectuò la venta</th>
+                <th>Nombre del empleado quea fetuò la compra</th>
+                <th>Nombre del cliente</th>
+                <th>Precio</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody id="contenido_tabla"></tbody>
+            <tr class="trStyle">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="trStyle">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="trStyle">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+    </table>
+</div>
+<div class="container  containerTable">
+    <h2>Devoluciones</h2>
+    <table id="Exportar_a_Excel"  class="table table-hover no-margin">
+        <thead>
+            <tr>
+                <th>Nombre del empleado que afectuò la venta</th>
+                <th>Nombre del empleado quea fetuò la compra</th>
+                <th>Nombre del cliente</th>
+                <th>Precio</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody id="contenido_tabla"></tbody>
+            <tr class="trStyle">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="trStyle">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="trStyle">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+    </table>
+</div>
 
     </section>
 </div>

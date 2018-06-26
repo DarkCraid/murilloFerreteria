@@ -1,58 +1,52 @@
 <?php $this->load->view('Helpers/Header');?>
 <?php $this->load->view('Helpers/AsideLeft');?>
 
-  
 
-
-
+<link rel="stylesheet" href="<?= base_url('assets/sources/css/global.css'); ?>">
+<link rel="stylesheet" href="<?= base_url('assets/sources/css/tableGlobal.css'); ?>">
 
 <div class="content-wrapper" style="background: white;">
     <section class="content">
-
-<!--asdasd-->
-        <div class="panel-group" id="accordion">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Inventario</a>
-                    </h4>
-                </div>
-                <!-- INFORMACIÓN GENERAL DE INSTITUCIÓN-->
-                <div id="collapse1" class="panel-collapse collapse in">
-                <div class="panel-body">
-                <!--<p>*********</p>-->
-
-
-
-
-
-
-                <table id="Exportar_a_Excel" class="table table-hover no-margin">
+        <h1 class="titulo">Inventario</h1>
+        <div class="container  containerTable">
+            <table id="Exportar_a_Excel" class="table table-hover no-margin">
                 <thead>
-                <tr>
-                <th>Dato 1</th>
-                <th>Dato 2</th>
-                <th>Dato 3</th>
-                <th>Dato 4</th>
-                <th>Dato 5</th>
-                </tr>
+                    <tr>
+                        <th>Costo de compra</th>
+                        <th>Impuesto</th>
+                        <th>Ganancia</th>
+                        <th>Total</th>
+                    </tr>
                 </thead>
                 <tbody id="contenido_tabla"></tbody>
-                <tr >
-                <td>lorem</td>
-                <td>lorem</td>
-                <td>lorem</td>
-                <td>lorem</td>
-                <td>lorem</td>
-                </tr>
+                    <tr class="trStyle">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="trStyle">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="trStyle">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="trStyle">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
                 </table>
-
-
-                </section>
-
-
-            </div>
         </div>
+
+
 
     </section>
 </div>
