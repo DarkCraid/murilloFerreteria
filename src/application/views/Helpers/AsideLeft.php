@@ -4,7 +4,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>Adm</b></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Administrador</b></span>
+      <span class="logo-lg"><b>Murillo's</b></span>
     </a>
 
     <!-- Header Navbar: style can be found in header.less -->
@@ -113,7 +113,7 @@
 
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">Barra de Navegacion</li>
+        <!--li class="header">Barra de Navegacion</li-->
 
         <?php foreach ($dataMenu as $m) { ?>
           <li id="" class="item menu-l">

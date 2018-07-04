@@ -87,4 +87,9 @@ class Inicio extends CI_Controller
 		$this->load->view('Compra',$data);
 	}
 
+	public function Reportes()//11
+	{$data['dataMenu'] = $this->M_panel->getMenu();
+		$this->load->view('try',$data);
+	}
+
 }
