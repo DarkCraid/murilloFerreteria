@@ -8,7 +8,8 @@
 	border:2px solid #fbd5b1;
 
 }
-th,td,tr{
+td,tr{
 	border:2px solid #f7ad6e;
 	padding-left: 10px;	
 }
+tr>th{background: #ffd79a; border: 2px solid #f7ad6e;}
