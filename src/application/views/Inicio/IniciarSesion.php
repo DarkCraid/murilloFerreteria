@@ -118,7 +118,7 @@ function result(from,data){
       if(data.type == "error"){
         $('.error').text(data.msg);
       }else
-        alert('exito');
+         getAjax('POST','Inicio',{},false);
       break;
   }
 }

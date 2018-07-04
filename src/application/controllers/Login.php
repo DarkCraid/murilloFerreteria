@@ -9,7 +9,8 @@ class Login extends CI_Controller {
 	}
 
 	public function index()
-	{
+	{	if($this->session->userdata('login') == true)
+            redirect(base_url().'index.php/Inicio');
 		$this->load->view('Inicio/IniciarSesion');
 	}
 
