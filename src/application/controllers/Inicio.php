@@ -12,7 +12,9 @@ class Inicio extends CI_Controller
 	}
 
 	public function index()
-	{	$data['dataMenu'] = $this->M_panel->getMenu();
+	{	if($this->session->userdata('login') == false)
+            redirect(base_url());
+		$data['dataMenu'] = $this->M_panel->getMenu();
 		$this->load->view('Panel/Inicio',$data);		
 	}
 	/*public function Error404()
@@ -33,62 +35,86 @@ class Inicio extends CI_Controller
 	}*/
 
 	public function Empleados()//1
-	{	$data['dataMenu'] = $this->M_panel->getMenu();
+	{	if($this->session->userdata('login') == false)
+            redirect(base_url());
+		$data['dataMenu'] = $this->M_panel->getMenu();
 		$this->load->view('Empleados',$data);
 	}
 
 	public function ListEmpleados()//2
-	{	$data['dataMenu'] = $this->M_panel->getMenu();
+	{	if($this->session->userdata('login') == false)
+            redirect(base_url());
+		$data['dataMenu'] = $this->M_panel->getMenu();
 		$this->load->view('ListEmpleados',$data);
 	}
 
 	public function Proveedores()//3
-	{$data['dataMenu'] = $this->M_panel->getMenu();
+	{	if($this->session->userdata('login') == false)
+            redirect(base_url());
+		$data['dataMenu'] = $this->M_panel->getMenu();
 		$this->load->view('Proveedores',$data);
 	}
 
 	public function ListProveedores()//4
-	{$data['dataMenu'] = $this->M_panel->getMenu();
+	{	if($this->session->userdata('login') == false)
+            redirect(base_url());
+		$data['dataMenu'] = $this->M_panel->getMenu();
 		$this->load->view('ListProveedores',$data);
 	}
 
 	public function Inventario()//5
-	{$data['dataMenu'] = $this->M_panel->getMenu();
+	{	if($this->session->userdata('login') == false)
+            redirect(base_url());
+		$data['dataMenu'] = $this->M_panel->getMenu();
 		$this->load->view('Inventario',$data);
 	}
 
 	public function Venta()//6
-	{$data['dataMenu'] = $this->M_panel->getMenu();
+	{	if($this->session->userdata('login') == false)
+            redirect(base_url());
+		$data['dataMenu'] = $this->M_panel->getMenu();
 		$this->load->view('Venta',$data);
 	}
 
 	public function Historial()//7
-	{$data['dataMenu'] = $this->M_panel->getMenu();
+	{	if($this->session->userdata('login') == false)
+            redirect(base_url());
+		$data['dataMenu'] = $this->M_panel->getMenu();
 		$this->load->view('Historial',$data);
 	}
 
 	public function Clientes()//8
-	{$data['dataMenu'] = $this->M_panel->getMenu();
+	{	if($this->session->userdata('login') == false)
+            redirect(base_url());
+		$data['dataMenu'] = $this->M_panel->getMenu();
 		$this->load->view('Clientes',$data);
 	}
 
 	public function ClientesFrecuentes()//9
-	{$data['dataMenu'] = $this->M_panel->getMenu();
+	{	if($this->session->userdata('login') == false)
+            redirect(base_url());
+		$data['dataMenu'] = $this->M_panel->getMenu();
 		$this->load->view('ClientesFrecuentes',$data);
 	}
 
 	public function Caja()//10
-	{$data['dataMenu'] = $this->M_panel->getMenu();
+	{	if($this->session->userdata('login') == false)
+            redirect(base_url());
+		$data['dataMenu'] = $this->M_panel->getMenu();
 		$this->load->view('Caja',$data);
 	}
 
 	public function Compra()//11
-	{$data['dataMenu'] = $this->M_panel->getMenu();
+	{	if($this->session->userdata('login') == false)
+            redirect(base_url());
+		$data['dataMenu'] = $this->M_panel->getMenu();
 		$this->load->view('Compra',$data);
 	}
 
 	public function Reportes()//11
-	{$data['dataMenu'] = $this->M_panel->getMenu();
+	{	if($this->session->userdata('login') == false)
+            redirect(base_url());
+		$data['dataMenu'] = $this->M_panel->getMenu();
 		$this->load->view('try',$data);
 	}
 

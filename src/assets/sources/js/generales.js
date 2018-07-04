@@ -95,7 +95,7 @@ function getAjax(type,ruta,atrib,from){
        if(from)
         result(from,response);
       else{
-        startLoader('body');
+        //startLoader('body');
         window.location.replace(ruta_base+ruta);
       }
     });
