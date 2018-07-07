@@ -1,5 +1,5 @@
 <?php $this->load->view('Helpers/Header');?>
-<?php $this->load->view('Helpers/AsideLeft');?>
+<?php $this->load->view('Helpers/AsideLeft',array('text'=>'Inicio'));?>
 
   
 
@@ -8,8 +8,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Administrador
-        <small>1.0</small>
+        definir que sera lo que se mostrará en inicio o quitar la opcion del menu
       </h1>
     </section>
   </div>

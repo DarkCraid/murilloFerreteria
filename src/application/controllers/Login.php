@@ -14,7 +14,7 @@ class Login extends CI_Controller {
 		$this->load->view('Inicio/IniciarSesion');
 	}
 
-	public function entrar(){
+	public function loginMe(){
 		$user = $this->input->post('user');
 		$pssw = $this->input->post('pssw');
 		if($user!="" && $pssw!=""){

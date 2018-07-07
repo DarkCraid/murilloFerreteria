@@ -99,7 +99,7 @@
           </li>
         </ul>
       </div>
-
+      <strong class="opcionMenuOpen"><?= $text; ?></strong>
     </nav>
   </header>
 

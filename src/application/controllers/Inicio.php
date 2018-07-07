@@ -104,18 +104,25 @@ class Inicio extends CI_Controller
 		$this->load->view('Caja',$data);
 	}
 
-	public function Compra()//11
-	{	if($this->session->userdata('login') == false)
-            redirect(base_url());
-		$data['dataMenu'] = $this->M_panel->getMenu();
-		$this->load->view('Compra',$data);
-	}
-
 	public function Reportes()//11
 	{	if($this->session->userdata('login') == false)
             redirect(base_url());
 		$data['dataMenu'] = $this->M_panel->getMenu();
 		$this->load->view('try',$data);
+	}
+
+
+
+
+
+
+	public function getView(){
+		//if (is_file(base_url().'views\Panel\\'.$this->input->post('page').'.php'))
+	        $this->load->view($this->input->post('page'),$this->input->post('data'));
+       // else{
+        	//echo APPPATH.'views\Panel\\'.$this->input->post('page').'.php';
+          //  $this->load->view('Panel/404');	
+        //}
 	}
 
 }
