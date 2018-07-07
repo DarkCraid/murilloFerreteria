@@ -97,7 +97,7 @@
   });
 
   var dataLogin = function(){
-  getAjax('POST','Login/entrar',{
+  getAjax('POST','Login/loginMe',{
     'user': $('#user').val(),
     'pssw': $('#pssw').val()
     },
@@ -113,7 +113,6 @@ $('.btn-success').click(function(){
 function result(from,data){
   switch(from){
     case "loginMe":
-    console.log(data);
       data = JSON.parse(data);
       if(data.type == "error"){
         $('.error').text(data.msg);
