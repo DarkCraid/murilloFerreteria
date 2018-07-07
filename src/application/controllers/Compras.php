@@ -17,4 +17,8 @@ class Compras extends CI_Controller
 		$data['dataMenu'] = $this->M_panel->getMenu();
 		$this->load->view('Panel/compras/index',$data);		
 	}
+
+	public function getProducts(){
+		echo json_encode($this->M_panel->getProductos());
+	}
 }

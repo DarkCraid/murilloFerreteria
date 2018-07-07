@@ -13,4 +13,11 @@ class M_panel extends CI_Model{
         $this->db->close();
         return $this->db->get()->result();
     }
+
+    function getProductos(){
+        $this->db->select('*');
+        $this->db->from('inventario');
+        $this->db->close();
+        return $this->db->get()->result();
+    }
 }
