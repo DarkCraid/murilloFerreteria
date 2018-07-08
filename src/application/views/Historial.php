@@ -1,5 +1,5 @@
 <?php $this->load->view('Helpers/Header');?>
-<?php $this->load->view('Helpers/AsideLeft');?>
+<?php $this->load->view('Helpers/AsideLeft',array('text'=>'Historial'));?>
 
 <link rel="stylesheet" href="<?= base_url('assets/sources/css/global.css'); ?>">
 <link rel="stylesheet" href="<?= base_url('assets/sources/css/tableGlobal.css'); ?>">
