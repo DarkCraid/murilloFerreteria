@@ -34,10 +34,16 @@ $('#agregar').click(function(){
             'cantidad': $('#cantidad').val(),
             'costo': $('#monto').val()
         });
+        $('.total').children('span').text(
+            parseFloat($('.total').children('span').text())+
+            (parseFloat($('#monto').val())*parseInt($('#cantidad').val()))
+        );
 
         $('#tbContent').children().remove();
         for (var i = 0; i < productos.length; i++) {
-            var cont = '<tr><td class="text-left">'+productos[i].nombre+'</td><td>'+productos[i].cantidad+'</td></tr>';
+            var cont = '<tr><td class="text-left">'+productos[i].nombre+'</td><td class="text-center">'+
+            productos[i].cantidad+' | $ '+productos[i].costo+'</td><td class="text-right">$ '+
+            (parseFloat(productos[i].cantidad)*parseFloat(productos[i].costo))+'</td></tr>';
             $('#tbContent').append(cont);
         }
         $('#finalizar').attr('disabled',false);
@@ -49,7 +55,13 @@ $('#agregar').click(function(){
 });
 
 $('#finalizar').click(function(){
-    getAjax('POST','Compras/setPedido',{'data':productos},'confirmarCompra');
+    getAjax('POST','Compras/setPedido',{
+        'data':productos,
+        'folio':$('.folio').children('strong').text(),
+        'proveedor':$("#proveedor").val(),
+        'total':$('.total').children('span').text(),
+        'nota':$('#nota').val()
+    },'confirmarCompra');
 });
 
 $('#proveedor').change(function(){

@@ -11,26 +11,18 @@
 					<thead>
 						<tr>
 							<th>FOLIO</th>
-							<th>MATERIAL</th>
-							<th>CANTIDAD</th>
+							<th>FECHA</th>
+							<th>TOTAL</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>asd</td>
-							<td>asd</td>
-							<td>asd</td>
-						</tr>
-						<tr>
-							<td>asd</td>
-							<td>asd</td>
-							<td>asd</td>
-						</tr>
-						<tr>
-							<td>asd</td>
-							<td>asd</td>
-							<td>asd</td>
-						</tr>	
+						<?php foreach ($compras as $c): ?>
+							<tr class="cursor-pointer">
+								<td><?= $c->folio; ?></td>
+								<td><?= str_replace("`","",$c->fecha); ?></td>
+								<td>$ <?= $c->total; ?></td>
+							</tr>
+						<?php endforeach ?>							
 					</tbody>
 				</table>
 			</div>

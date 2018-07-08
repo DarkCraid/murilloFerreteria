@@ -25,7 +25,7 @@ function result(from,data){
 		        cssClass: 'btn-default',
 		        action: function(dialogItself){ location.reload(); }
 		    }];
-			modal('danger','large','ATENCION',data,false);
+			modal('default','large','ATENCION',data,false);
 			break;
 	}
 }
