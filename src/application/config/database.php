@@ -78,7 +78,7 @@ $db['default'] = array(
 	'hostname' => 'localhost',
 	'username' => 'root',
 	'password' => '',
-	'database' => 'ferreteriamurillo',
+	'database' => 'murilloferreteria',
 	'dbdriver' => 'mysqli',
 	
 	'dbprefix' => '',

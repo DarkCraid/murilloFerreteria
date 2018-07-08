@@ -2,7 +2,7 @@ var availableTags = {'text':[],'cost':[]};
 
 $(document).ready(function(){
 	getAjax('POST','Compras/getProducts',{},'productos');
-	getAjax('POST','Inicio/getView',{'page':'Panel/compras/nuevoPedido'},'view');
+	getAjax('POST','Compras/getView',{'page':'nuevoPedido'},'view');
 });
 
 
@@ -17,6 +17,15 @@ function result(from,data){
 				availableTags.text.push(item.descripcion);
 				availableTags.cost.push(item.costo_unidad);
 			});
+			break;
+		case "confirmarCompra":
+			cleanBotonesModal(false);
+			botonesModal=[{ 
+			    label: 'Aceptar',
+		        cssClass: 'btn-default',
+		        action: function(dialogItself){ location.reload(); }
+		    }];
+			modal('danger','large','ATENCION',data,false);
 			break;
 	}
 }
