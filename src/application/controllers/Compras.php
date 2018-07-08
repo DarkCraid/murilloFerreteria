@@ -26,7 +26,10 @@ class Compras extends CI_Controller
 	public function getView(){
 		switch($this->input->post('page')){
 			case "nuevoPedido":
-				$data['proveedores']	= $this->M_panel->getProveedores();
+				$data = $this->getDataNuevoPedido();
+				break;
+			case "listaPedidos":
+				$data = $this->getDataListaPedidos();
 				break;
 			default:
 				$data = null;
@@ -40,7 +43,47 @@ class Compras extends CI_Controller
 		for ($i=0; $i < count($data); $i++) { 
 			$data[$i] = (object) $data[$i];
 		}
-		
-		echo '<strong>'.$data[0]->nombre.'</strong>';
+		$compra = array(
+			'folio' 		=> $this->input->post('folio'),
+			'id_proveedor'	=> $this->input->post('proveedor'),
+			'total'			=> $this->input->post('total'),
+			'nota'			=> $this->input->post('nota')
+		);
+		echo '<strong>'.$this->M_compras->setCompra($compra,$data).'</strong>';
+	}
+
+
+
+
+
+
+
+	private function getDataNuevoPedido(){
+		$data['folio']			= $this->getFolioStruct();
+		$data['proveedores']	= $this->M_panel->getProveedores();
+		return $data;
+	}
+
+	private function getFolioStruct(){
+		//(((date('d')-1)<10)? $fecha = '0'.(date('d')-1): $fecha = (date('d')-1));
+		$fecha = date("dmy");
+
+		if($this->M_compras->getLastFolio()){
+			$dat 	= (array)$this->M_compras->getLastFolio();
+			$dat 	= explode('P',$dat['folio']);
+			$dat 	= explode('-',$dat[1]);
+			$n 		= (intval($dat[0])+1);
+			if((intval($dat[0])+1)<100)
+				$n = '0'.(intval($dat[0])+1);
+			if((intval($dat[0])+1)<10)
+				$n = '00'.(intval($dat[0])+1);
+			return $data['folio']	= 'P'.$n.'-'.$fecha;
+		}else			
+			return $data['folio']	= 'P001-'.$fecha;
+	}
+
+	private function getDataListaPedidos(){
+		$data['compras'] = $this->M_compras->getCompras();
+		return $data;
 	}
 }

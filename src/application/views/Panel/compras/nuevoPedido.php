@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="col-xs-12 col-lg-8 col-normal">
             <section class="optionsTop">
-                <span class="folio">Folio pedido: <strong>P001070718</strong></span>
+                <span class="folio">Folio pedido: <strong><?= $folio; ?></strong></span>
                 <button class="btn btn-info btn-lg subMenu" disabled id="nuevoPedido">Nuevo pedido</button>
                 <button class="btn btn-info btn-lg subMenu" id="listaPedidos">Lista de pedidos</button>
             </section> 
@@ -50,6 +50,11 @@
                     
                 </div>
                 <hr>
+                <div class="form-group">
+                    <div class="row container-fluid">
+                        <strong class="total pull-right">Total: $<span>0</span></strong>
+                    </div>
+                </div>
             </section>
         </div>  
         <div class="col-xs-12 col-lg-4 text-center col-info">
@@ -59,7 +64,8 @@
                     <thead>
                         <tr>
                             <th>Producto</th>
-                            <th>Cantidad</th>
+                            <th class="text-center">Cantidad | $/u</th>
+                            <th class="text-right">Costo</th>
                         </tr>
                     </thead>
                     <tbody id="tbContent"></tbody>
@@ -68,7 +74,9 @@
             <div class="row text-left">
                 <div class="container-fluid">
                     <label>Proveedor: </label>
-                    <span class="proveedor"></span>
+                    <span class="proveedor"></span><br>
+                    <label>Agregar nota (opcional)</label>
+                    <textarea  id="nota" class="form-control" cols="30" rows="5"></textarea><br>
                     <button class="btn btn-success btn-block btn-lg" id="finalizar" disabled>Finalizar</button>
                 </div>
             </div>
