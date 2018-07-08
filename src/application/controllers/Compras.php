@@ -26,7 +26,7 @@ class Compras extends CI_Controller
 	public function getView(){
 		switch($this->input->post('page')){
 			case "nuevoPedido":
-				$data['proveedores']	= $this->M_panel->getProveedores();
+				$data = $this->getDataNuevoPedido();
 				break;
 			default:
 				$data = null;
@@ -42,5 +42,23 @@ class Compras extends CI_Controller
 		}
 		
 		echo '<strong>'.$data[0]->nombre.'</strong>';
+	}
+
+
+
+
+
+
+
+	private function getDataNuevoPedido(){
+		(((date('d')-1)<10)? $fecha = '0'.(date('d')-1): $fecha = (date('d')-1));
+		$fecha = $fecha.date("my");
+
+		(($this->M_compras->getLastFolio())?
+			$data['folio']			= $this->M_compras->getLastFolio():
+			$data['folio']			= 'P001-'.$fecha
+		);
+		$data['proveedores']	= $this->M_panel->getProveedores();
+		return $data;
 	}
 }

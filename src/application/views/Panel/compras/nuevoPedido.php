@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="col-xs-12 col-lg-8 col-normal">
             <section class="optionsTop">
-                <span class="folio">Folio pedido: <strong>P001070718</strong></span>
+                <span class="folio">Folio pedido: <strong><?= $folio; ?></strong></span>
                 <button class="btn btn-info btn-lg subMenu" disabled id="nuevoPedido">Nuevo pedido</button>
                 <button class="btn btn-info btn-lg subMenu" id="listaPedidos">Lista de pedidos</button>
             </section> 

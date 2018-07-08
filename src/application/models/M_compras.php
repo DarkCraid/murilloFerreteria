@@ -13,4 +13,11 @@ class M_compras extends CI_Model{
         $this->db->close();
         return $this->db->get()->result();
     }
+
+    function getLastFolio(){
+        $this->db->select('folio');
+        $this->db->from('compras');
+        $this->db->close();
+        return $this->db->get()->result();
+    }
 }
