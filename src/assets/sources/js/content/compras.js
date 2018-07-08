@@ -2,7 +2,7 @@ var availableTags = {'text':[],'cost':[]};
 
 $(document).ready(function(){
 	getAjax('POST','Compras/getProducts',{},'productos');
-	getAjax('POST','Inicio/getView',{'page':'Panel/compras/nuevoPedido'},'view');
+	getAjax('POST','Compras/getView',{'page':'nuevoPedido'},'view');
 });
 
 

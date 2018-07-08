@@ -2,8 +2,8 @@
 <div class="row">
     <div class="container-fluid">
     	<section class="optionsTop col-xs-12">
-            <button class="btn btn-info btn-lg" id="nuevoPedido">Nuevo pedido</button>
-            <button class="btn btn-info btn-lg" disabled id="listaPedidos">Lista de pedidos</button>
+            <button class="btn btn-info btn-lg subMenu" id="nuevoPedido">Nuevo pedido</button>
+            <button class="btn btn-info btn-lg subMenu" disabled id="listaPedidos">Lista de pedidos</button>
         </section> 
         <section id="content-dinamic">
 			<div class="col-xs-12">
@@ -39,7 +39,7 @@
 </div>
 
 <script>
-    $('.btn').click(function(){
-    getAjax('POST','Inicio/getView',{'page':'Panel/compras/'+this.id},'view');
-});
+    $('.subMenu').click(function(){
+	    getAjax('POST','Compras/getView',{'page':this.id},'view');
+	});
 </script>
