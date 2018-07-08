@@ -31,6 +31,7 @@
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   <link rel="stylesheet" href="<?= base_url('assets/sources/css/adminLTE.css'); ?>">
+  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/sources/css/bootstrap-dialog.min.css'); ?>">
 </head>
 <body class="hold-transition skin-red sidebar-mini fixed">
 <div class="wrapper">

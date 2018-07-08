@@ -18,5 +18,14 @@ function result(from,data){
 				availableTags.cost.push(item.costo_unidad);
 			});
 			break;
+		case "confirmarCompra":
+			cleanBotonesModal(false);
+			botonesModal=[{ 
+			    label: 'Aceptar',
+		        cssClass: 'btn-default',
+		        action: function(dialogItself){ location.reload(); }
+		    }];
+			modal('danger','large','ATENCION',data,false);
+			break;
 	}
 }

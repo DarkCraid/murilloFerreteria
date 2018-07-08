@@ -49,7 +49,7 @@ $('#agregar').click(function(){
 });
 
 $('#finalizar').click(function(){
-    alert('asd');
+    getAjax('POST','Compras/setPedido',{'data':productos},'confirmarCompra');
 });
 
 $('#proveedor').change(function(){
