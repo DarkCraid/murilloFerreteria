@@ -34,19 +34,8 @@ class Inicio extends CI_Controller
 		$this->load->view('Panel/CambiarContrasena');
 	}*/
 
-	public function Empleados()//1
-	{	if($this->session->userdata('login') == false)
-            redirect(base_url());
-		$data['dataMenu'] = $this->M_panel->getMenu();
-		$this->load->view('Empleados',$data);
-	}
 
-	public function ListEmpleados()//2
-	{	if($this->session->userdata('login') == false)
-            redirect(base_url());
-		$data['dataMenu'] = $this->M_panel->getMenu();
-		$this->load->view('ListEmpleados',$data);
-	}
+
 
 	public function Proveedores()//3
 	{	if($this->session->userdata('login') == false)
@@ -62,12 +51,6 @@ class Inicio extends CI_Controller
 		$this->load->view('ListProveedores',$data);
 	}
 
-	public function Inventario()//5
-	{	if($this->session->userdata('login') == false)
-            redirect(base_url());
-		$data['dataMenu'] = $this->M_panel->getMenu();
-		$this->load->view('Inventario',$data);
-	}
 
 	public function Venta()//6
 	{	if($this->session->userdata('login') == false)
@@ -83,19 +66,6 @@ class Inicio extends CI_Controller
 		$this->load->view('Historial',$data);
 	}
 
-	public function Clientes()//8
-	{	if($this->session->userdata('login') == false)
-            redirect(base_url());
-		$data['dataMenu'] = $this->M_panel->getMenu();
-		$this->load->view('Clientes',$data);
-	}
-
-	public function ClientesFrecuentes()//9
-	{	if($this->session->userdata('login') == false)
-            redirect(base_url());
-		$data['dataMenu'] = $this->M_panel->getMenu();
-		$this->load->view('ClientesFrecuentes',$data);
-	}
 
 	public function Caja()//10
 	{	if($this->session->userdata('login') == false)
