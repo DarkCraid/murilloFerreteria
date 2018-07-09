@@ -10,6 +10,7 @@ class M_compras extends CI_Model{
     function getProveedores(){
         $this->db->select('CONCAT(nombre," ",a_p," ",a_m) AS nombre, id');
         $this->db->from('proveedores');
+        $this->db->where('status',1);
         $this->db->close();
         return $this->db->get()->result();
     }
@@ -44,9 +45,41 @@ class M_compras extends CI_Model{
     }
 
     function getCompras(){
-        $this->db->select('DATE_FORMAT(fecha,"%d %M, %Y") as fecha,folio,total');
+        $this->db->select('DATE_FORMAT(fecha,"%d %M, %Y") as fecha,folio,total,nota');
         $this->db->from('compras');
+        $this->db->where('status',1);
         $this->db->close();
         return $this->db->get()->result();
+    }
+
+    function getPedidoFrom($folio){
+        $this->db->select('*');
+        $this->db->from('pedidos');
+        $this->db->where('folio_compra',$folio);
+        $this->db->where('status',1);
+        $this->db->close();
+        return $this->db->get()->result();
+    }
+
+    function deleteCompra($folio){
+        $this->db->trans_start();
+        $this->db->where('folio',$folio);
+        $this->db->set(array('status' => 0));
+        $this->db->update('compras');
+        $this->db->trans_complete();
+
+        if ($this->db->trans_status() === FALSE)
+            return 'Error al canlear la compra.';
+        else
+            return 'Se ha cancelado la compra con folio: '.$folio.'.';
+    }
+
+    function getProveedor($folio){
+        $this->db->select('CONCAT(nombre," ",a_p," ",a_m) AS nombre, id');
+        $this->db->from('compras');
+        $this->db->join('proveedores','proveedores.id = compras.id_proveedor','left');
+        $this->db->where('compras.folio',$folio);
+        $this->db->close();
+        return $this->db->get()->row();
     }
 }

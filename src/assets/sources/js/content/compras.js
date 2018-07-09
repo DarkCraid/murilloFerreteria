@@ -27,5 +27,21 @@ function result(from,data){
 		    }];
 			modal('default','large','ATENCION',data,false);
 			break;
+		case "showPedidosFrom":
+			cleanBotonesModal(true);
+			modal('default','wide','Detalles',data,false);
+			break;
+		case "DeletedCompra":
+			cleanBotonesModal(false);
+			botonesModal=[{ 
+			    label: 'Aceptar',
+		        cssClass: 'btn-primary',
+		        action: function(dialogItself){ 
+		        	getAjax('POST','Compras/getView',{'page':'listaCompras'},'view'); 
+		        	closeAllModals();
+		        }
+		    }];
+			modal('info','large','ATENCION',data,false);
+			break;
 	}
-}
+}//$('.full-container').html(data.page);

@@ -1,37 +1,40 @@
-<script> $('.opcionMenuOpen').text('Compras > Lista de pedidos');</script>
+<style>
+	.cancelar{position: absolute;right: 5px;top: -50px;}
+</style>
 <div class="row">
-    <div class="container-fluid">
-    	<section class="optionsTop col-xs-12">
-            <button class="btn btn-info btn-lg subMenu" id="nuevoPedido">Nuevo pedido</button>
-            <button class="btn btn-info btn-lg subMenu" disabled id="listaPedidos">Lista de pedidos</button>
-        </section> 
-        <section id="content-dinamic">
-			<div class="col-xs-12">
-				<table class="table table-hover table-stripet">
-					<thead>
-						<tr>
-							<th>FOLIO</th>
-							<th>FECHA</th>
-							<th>TOTAL</th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php foreach ($compras as $c): ?>
-							<tr class="cursor-pointer">
-								<td><?= $c->folio; ?></td>
-								<td><?= str_replace("`","",$c->fecha); ?></td>
-								<td>$ <?= $c->total; ?></td>
-							</tr>
-						<?php endforeach ?>							
-					</tbody>
-				</table>
-			</div>
-		</section>
+	<button class="btn btn-danger btn-lg cancelar">CANCELAR COMPRA</button>
+	<div class="col-xs-12">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th width="60%">ARTICULO</th>
+					<th width="5%">CANTIDAD</th>
+					<th class="text-right" width="20%">COSTO UNITARIO</th>
+					<th class="text-right" width="15%">RESUMEN $</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php $total = 0; ?>
+				<?php foreach ($productos as $p): ?>
+					<tr>
+						<td><?= $p->articulo; ?></td>
+						<td><?= $p->cantidad; ?></td>
+						<td class="text-right">$ <?= $p->costo_unitario; ?></td>
+						<td class="text-right">$ <?= $p->cantidad*$p->costo_unitario; ?></td>
+					</tr>
+					<?php $total += $p->cantidad*$p->costo_unitario; ?> 
+				<?php endforeach ?>
+			</tbody>
+		</table>
+		<hr>
+		<label>Proveedor: </label><span> <?= $proveedor->nombre; ?></span><br>
+		<label>Total: </label><span> $ <?= $total; ?></span>
+		
 	</div>
 </div>
 
 <script>
-    $('.subMenu').click(function(){
-	    getAjax('POST','Compras/getView',{'page':this.id},'view');
+	$('.cancelar').click(function(){
+		getAjax('POST','Compras/deleteCompra',{'folio':'<?= $productos[0]->folio_compra ?>'},'DeletedCompra');
 	});
 </script>

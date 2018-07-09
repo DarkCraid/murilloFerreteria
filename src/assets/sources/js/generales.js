@@ -66,7 +66,12 @@ function modal(tipe,size,titleMod,msg,close){
     buttons: botonesModal
   });
 }
-
+//--------------------------------------------------------------------------------------------------- close all modals
+function closeAllModals(){
+  try {
+      BootstrapDialog.closeAll();
+  }catch (err) {}
+}
 // -------------------------------------------------------------------------------------------------- limpia los botones
 function cleanBotonesModal(type){
   if(type){

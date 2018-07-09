@@ -28,8 +28,8 @@ class Compras extends CI_Controller
 			case "nuevoPedido":
 				$data = $this->getDataNuevoPedido();
 				break;
-			case "listaPedidos":
-				$data = $this->getDataListaPedidos();
+			case "listaCompras":
+				$data = $this->getDataListaCompras();
 				break;
 			default:
 				$data = null;
@@ -50,6 +50,17 @@ class Compras extends CI_Controller
 			'nota'			=> $this->input->post('nota')
 		);
 		echo '<strong>'.$this->M_compras->setCompra($compra,$data).'</strong>';
+	}
+
+	public function getPedidoFrom(){
+		$data['productos'] = $this->M_compras->getPedidoFrom($this->input->post('folio'));
+		$data['proveedor'] = $this->M_compras->getProveedor($this->input->post('folio'));
+		$this->load->view('Panel/compras/listaPedidos',$data);
+	}
+
+	public function deleteCompra(){
+		$result = $this->M_compras->deleteCompra($this->input->post('folio'));
+		echo 	 '<strong>'.$result.'</strong>';
 	}
 
 
@@ -82,7 +93,7 @@ class Compras extends CI_Controller
 			return $data['folio']	= 'P001-'.$fecha;
 	}
 
-	private function getDataListaPedidos(){
+	private function getDataListaCompras(){
 		$data['compras'] = $this->M_compras->getCompras();
 		return $data;
 	}
