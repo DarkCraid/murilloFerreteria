@@ -21,8 +21,8 @@ USE `murilloferreteria`;
 DROP TABLE IF EXISTS `compras`;
 
 CREATE TABLE `compras` (
-  `folio` varchar(9) COLLATE utf8_spanish2_ci NOT NULL,
-  `nota` text COLLATE utf8_spanish2_ci NOT NULL,
+  `folio` varchar(10) COLLATE utf8_spanish2_ci NOT NULL,
+  `nota` text COLLATE utf8_spanish2_ci,
   `id_proveedor` int(10) unsigned NOT NULL,
   `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `total` double NOT NULL,
@@ -31,6 +31,10 @@ CREATE TABLE `compras` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `compras` */
+
+insert  into `compras`(`folio`,`nota`,`id_proveedor`,`fecha`,`total`,`status`) values 
+('P001-07071','',1,'2018-07-08 01:31:38',6112.5,1),
+('P002-07071','qweqwe',1,'2018-07-08 01:42:17',60,1);
 
 /*Table structure for table `inventario` */
 
@@ -69,11 +73,11 @@ insert  into `menu`(`id`,`descripcion`,`ruta`,`icono`,`status`) values
 (1,'Inicio','Inicio','fa-home',1),
 (2,'Ventas','Inicio/venta','fa-credit-card',1),
 (3,'Compras','Compras','fa-shopping-cart',1),
-(4,'Empleados','Inicio/Empleados','fa-user',1),
+(4,'Empleados','Empleado','fa-user',1),
 (5,'Proveedores','Inicio/Proveedores','fa-industry',1),
-(6,'Inventario','Inicio/Inventario','fa-archive',1),
+(6,'Inventario','Inventario','fa-archive',1),
 (7,'Historial','Inicio/Historial','fa-history',1),
-(8,'Clientes','Inicio/Clientes','fa-users',1),
+(8,'Clientes','Cliente','fa-users',1),
 (9,'Caja','Inicio/Caja','fa-briefcase',1),
 (10,'Reportes','Inicio/Reportes','',1);
 
@@ -83,16 +87,22 @@ DROP TABLE IF EXISTS `pedidos`;
 
 CREATE TABLE `pedidos` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `folio_compra` varchar(9) COLLATE utf8_spanish2_ci NOT NULL,
+  `folio_compra` varchar(10) COLLATE utf8_spanish2_ci NOT NULL,
   `articulo` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
   `cantidad` int(11) NOT NULL,
+  `costo_unitario` double NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
-  KEY `folio_compra` (`folio_compra`),
-  CONSTRAINT `folio_compra` FOREIGN KEY (`folio_compra`) REFERENCES `compras` (`folio`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+  KEY `folio_compra` (`folio_compra`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `pedidos` */
+
+insert  into `pedidos`(`id`,`folio_compra`,`articulo`,`cantidad`,`costo_unitario`,`status`) values 
+(1,'P001-07071','tornillo',5,5,1),
+(2,'P001-07071','matraca',7,12.5,1),
+(3,'P001-07071','hojas',100,60,1),
+(4,'P002-07071','123',12,5,1);
 
 /*Table structure for table `proveedores` */
 
