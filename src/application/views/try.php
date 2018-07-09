@@ -1,5 +1,5 @@
 <?php $this->load->view('Helpers/Header');?>
-<?php $this->load->view('Helpers/AsideLeft');?>
+<?php $this->load->view('Helpers/AsideLeft',array('text'=>'Reportes'));?>
 
 <script src="https://code.highcharts.com/highcharts.js"></script>
 	<script src="https://code.highcharts.com/modules/series-label.js"></script>
