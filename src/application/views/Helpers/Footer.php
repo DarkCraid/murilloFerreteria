@@ -46,5 +46,7 @@
 
 <script src="<?= base_url('assets/sources/js/generales.js'); ?>"></script>
 <script src="<?= base_url('assets/sources/js/bootstrap-dialog.min.js'); ?>"></script>
+<!-- para los autocompletados -->
+<script src="<?= base_url('assets/sources/js/jquery-ui.js'); ?>"></script>
 </body>
 </html>
