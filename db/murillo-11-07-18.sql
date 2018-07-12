@@ -79,8 +79,7 @@ CREATE TABLE `compras` (
 /*Data for the table `compras` */
 
 insert  into `compras`(`folio`,`nota`,`id_proveedor`,`fecha`,`total`,`status`) values 
-('P001-090718','vamo a ver que pasa',1,'2018-07-09 08:41:12',2281.5,0),
-('P002-110718','sdfsdf',1,'2018-07-11 00:00:00',234,1);
+('P001-120718','el producto es faltante para la remodelacion de la casa #24',1,'2018-07-11 22:40:34',2500,1);
 
 /*Table structure for table `empleados` */
 
@@ -138,7 +137,7 @@ insert  into `menu`(`id`,`descripcion`,`ruta`,`icono`,`status`) values
 (2,'Ventas','Inicio/venta','fa-credit-card',1),
 (3,'Compras','Compras','fa-shopping-cart',1),
 (4,'Empleados','Empleado','fa-user',1),
-(5,'Proveedores','Inicio/Proveedores','fa-industry',1),
+(5,'Proveedores','Proveedores','fa-industry',1),
 (6,'Inventario','Inventario','fa-archive',1),
 (7,'Historial','Inicio/Historial','fa-history',1),
 (8,'Clientes','Cliente','fa-users',1),
@@ -179,8 +178,8 @@ CREATE TABLE `pedidos` (
 /*Data for the table `pedidos` */
 
 insert  into `pedidos`(`id`,`folio_compra`,`articulo`,`cantidad`,`costo_unitario`,`status`) values 
-(1,'P001-090718','torniquete',39,58.5,1),
-(2,'P002-110718','tornillo',3,78,1);
+(1,'P001-120718','torniquete',30,80,1),
+(2,'P001-120718','madera de roble',20,5,1);
 
 /*Table structure for table `productos_proveedores` */
 
@@ -209,12 +208,13 @@ CREATE TABLE `proveedores` (
   `domicilio` text COLLATE utf8_spanish2_ci NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `proveedores` */
 
 insert  into `proveedores`(`id`,`nombre`,`a_p`,`a_m`,`domicilio`,`status`) values 
-(1,'Jesus Daniel','Perez','Duran','mi casa',1);
+(1,'Jesus Daniel','Perez','Duran','mi casa',1),
+(2,'Carlos','Lopez','Pardo','su casa',1);
 
 /*Table structure for table `telefonos` */
 
@@ -227,12 +227,16 @@ CREATE TABLE `telefonos` (
   `tipo` enum('Empleado','Proveedor','Cliente') COLLATE utf8_spanish2_ci NOT NULL DEFAULT 'Proveedor' COMMENT 'tipo de telefono, si es usuario o proveedor',
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `telefonos` */
 
 insert  into `telefonos`(`id`,`numero`,`id_person`,`tipo`,`status`) values 
-(1,'4871537745',1,'Proveedor',1);
+(1,'4871537745',1,'Proveedor',1),
+(2,'2343456548',1,'Proveedor',1),
+(3,'1212121212',2,'Proveedor',1),
+(4,'9999999999',2,'Proveedor',1),
+(5,'6780000000',2,'Proveedor',1);
 
 /*Table structure for table `tipo_movimientos` */
 

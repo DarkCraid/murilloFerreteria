@@ -25,7 +25,6 @@
 <!-- jQuery 3 -->
 <script src="<?php echo base_url('assets/AdminLTE/bower_components/jquery/dist/jquery.min.js');?>"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="<?php echo base_url('assets/AdminLTE/bower_components/bootstrap/dist/js/bootstrap.min.js');?>"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url('assets/AdminLTE/bower_components/fastclick/lib/fastclick.js');?>"></script>
 <!-- AdminLTE App -->
@@ -45,8 +44,12 @@
 <script src="<?php echo base_url('assets/AdminLTE/dist/js/demo.js');?>"></script>
 
 <script src="<?= base_url('assets/sources/js/generales.js'); ?>"></script>
-<script src="<?= base_url('assets/sources/js/bootstrap-dialog.min.js'); ?>"></script>
 <!-- para los autocompletados -->
 <script src="<?= base_url('assets/sources/js/jquery-ui.js'); ?>"></script>
+<!-- para los toltip -->
+<script src="<?= base_url('assets/sources/js/popper.min.js'); ?>"></script>
+<script src="<?= base_url('assets/sources/js/bootstrap.min.js'); ?>"></script>
+
+<script src="<?= base_url('assets/sources/js/bootstrap-dialog.min.js'); ?>"></script>
 </body>
 </html>
