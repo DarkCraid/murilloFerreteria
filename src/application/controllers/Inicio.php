@@ -17,39 +17,6 @@ class Inicio extends CI_Controller
 		$data['dataMenu'] = $this->M_panel->getMenu();
 		$this->load->view('Panel/Inicio',$data);		
 	}
-	/*public function Error404()
-	{
-		$this->load->view('Panel/Error/Error404');
-	}
-	public function Error500()
-	{
-		$this->load->view('Panel/Error/Error500');
-	}
-	public function Registro()
-	{
-		$this->load->view('Panel/Registro');
-	}
-	public function CambiarContrasena()
-	{
-		$this->load->view('Panel/CambiarContrasena');
-	}*/
-
-
-
-
-	public function Proveedores()//3
-	{	if($this->session->userdata('login') == false)
-            redirect(base_url());
-		$data['dataMenu'] = $this->M_panel->getMenu();
-		$this->load->view('Proveedores',$data);
-	}
-
-	public function ListProveedores()//4
-	{	if($this->session->userdata('login') == false)
-            redirect(base_url());
-		$data['dataMenu'] = $this->M_panel->getMenu();
-		$this->load->view('ListProveedores',$data);
-	}
 
 
 	public function Venta()//6
@@ -80,10 +47,6 @@ class Inicio extends CI_Controller
 		$data['dataMenu'] = $this->M_panel->getMenu();
 		$this->load->view('try',$data);
 	}
-
-
-
-
 
 
 	public function getView(){
