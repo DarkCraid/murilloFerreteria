@@ -35,6 +35,19 @@
 
 <script>
 	$('.cancelar').click(function(){
-		getAjax('POST','Compras/deleteCompra',{'folio':'<?= $productos[0]->folio_compra ?>'},'DeletedCompra');
+		cleanBotonesModal(false);
+		botonesModal=[{ 
+		    label: 'NO',
+	        cssClass: 'btn-primary',
+	        action: function(dialogItself){ dialogItself.close(); }
+	    },{ 
+		    label: 'SI',
+	        cssClass: 'btn-primary',
+	        action: function(dialogItself){ 
+	        	getAjax('POST','Compras/deleteCompra',{'folio':'<?= $productos[0]->folio_compra ?>'},'DeletedCompra');
+	        }
+	    }];	
+	    var question = "<strong>¿Desea canselar la compra?</strong>";
+	    modal('warning','large','ATENCION',question,false);			
 	});
 </script>

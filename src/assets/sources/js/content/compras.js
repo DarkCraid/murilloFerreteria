@@ -33,28 +33,15 @@ function result(from,data){
 			break;
 		case "DeletedCompra":
 			cleanBotonesModal(false);
-			botonesModal=[{ 
-			    label: 'NO',
-		        cssClass: 'btn-primary',
-		        action: function(dialogItself){ dialogItself.close(); }
-		    },{ 
-			    label: 'SI',
+        	botonesModal=[{ 
+			    label: 'Aceptar',
 		        cssClass: 'btn-primary',
 		        action: function(dialogItself){ 
-		        	cleanBotonesModal(false);
-		        	botonesModal=[{ 
-					    label: 'Aceptar',
-				        cssClass: 'btn-primary',
-				        action: function(dialogItself){ 
-				        	getAjax('POST','Compras/getView',{'page':'listaCompras'},'view'); 
-				        	closeAllModals();
-				        }
-				    }];
-					modal('info','large','ATENCION',data,false);
+		        	getAjax('POST','Compras/getView',{'page':'listaCompras'},'view'); 
+		        	closeAllModals();
 		        }
-		    }];	
-		    var question = "<strong>¿Desea canselar la compra?</strong>";
-		    modal('warning','large','ATENCION',question,false);		
+		    }];
+			modal('info','large','ATENCION',data,false);	
 			break;
 	}
 }//$('.full-container').html(data.page);
