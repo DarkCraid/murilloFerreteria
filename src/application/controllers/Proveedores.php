@@ -34,4 +34,16 @@ class Proveedores extends CI_Controller
 		return $data;
 	}
 
+	public function getPhonesFrom(){
+		$data['telefonos'] = $this->M_proveedores->getPhonesFrom($this->input->post('id'),'Proveedor');
+		$str = '<ul>';
+		foreach ($data['telefonos'] as $t) {
+			$str .="<li>".$t->numero."</li>";
+		}
+		echo json_encode(array(
+			'proveedor' => "nombre",
+			'msg'		=> $str
+		));
+	}
+
 }
