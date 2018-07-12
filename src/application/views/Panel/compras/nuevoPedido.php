@@ -85,10 +85,6 @@
     </div>
 </div>
 
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
 <style>
     .select-proveedor{margin-left: -15px;}
     #nuevoProve,#agregar{right: -45px !important; width: 110%;
