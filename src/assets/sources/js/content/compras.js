@@ -43,5 +43,14 @@ function result(from,data){
 		    }];
 			modal('info','large','ATENCION',data,false);	
 			break;
+		case "nuevoProveedor":
+			cleanBotonesModal(true);
+			botonesModal.push({ 
+		    label: 'Guardar',
+		        cssClass: 'btn-success',
+		        action: function(dialogItself){ finalizar(); }
+		    });
+			modal('primary','wide','Nuevo proveedor',data,false);
+			break;
 	}
 }//$('.full-container').html(data.page);

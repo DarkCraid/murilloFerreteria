@@ -39,7 +39,7 @@
 <!-- ChartJS -->
 <script src="<?php echo base_url('assets/AdminLTE/bower_components/chart.js/Chart.js');?>"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="<?php echo base_url('assets/AdminLTE/dist/js/pages/dashboard2.js');?>"></script>
+<!--script src="<?php// echo base_url('assets/AdminLTE/dist/js/pages/dashboard2.js');?>"></script-->
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url('assets/AdminLTE/dist/js/demo.js');?>"></script>
 
