@@ -78,3 +78,7 @@ function getErrors(errors){
     }
     return '<ul>'+err+'</ul>';
 }
+
+$('#nuevoProve').click(function(){
+    getAjax('POST','Proveedores/getView',{'page':'nuevoProveedor'},'nuevoProveedor');
+});

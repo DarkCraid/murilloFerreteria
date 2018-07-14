@@ -12,5 +12,14 @@ function result(from,data){
 			cleanBotonesModal(true);
 			modal('info','large','Telefonos de '+data.proveedor,'<strong>'+data.msg+'</strong>',false);
 			break;
+		case "nuevoProveedor":
+			cleanBotonesModal(true);
+			botonesModal.push({ 
+		    label: 'Guardar',
+		        cssClass: 'btn-success',
+		        action: function(dialogItself){ finalizar(); }
+		    });
+			modal('primary','wide','Nuevo proveedor',data,false);
+			break;
 	}
 }

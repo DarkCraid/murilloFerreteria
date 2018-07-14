@@ -9,26 +9,7 @@
         <h1 class="titulo">Proveedores</h1>
         <div class="container containerGeneral ">
             <form>
-                <div class="form-group">
-                        <label for="nombreProveedorProvedores">Nombre del producto</label>
-                        <input type="text" class="form-control" name="nombreProveedorProvedores" id="nombreProveedorProvedores">
-                </div>
-                <div class="form-group">
-                        <label for="calleProvedores">Calle</label>
-                        <input type="text" class="form-control" name="calleProvedores" id="calleProvedores">
-                </div>
-                <div class="form-group">
-                        <label for="coloniaProvedores">Colonia</label>
-                        <input type="text" class="form-control" name="coloniaProvedores" id="coloniaProvedores">
-                </div>
-                <div class="form-group">
-                        <label for="numCalleProvedores">Número de la Calle</label>
-                        <input type="text" class="form-control" name="numCalleProvedores" id="numCalleProvedores">
-                </div>
-                <div class="form-group">
-                        <label for="RFCProvedores">RFC</label>
-                        <input type="text" class="form-control" name="RFCProvedores" id="RFCProvedores">
-                </div>
+              
                 <div class="form-group">
                         <label for="numTelProvedores">Número de teléfono</label>
                         <input type="text" class="form-control" name="numTelProvedores" id="numTelProvedores">
