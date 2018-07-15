@@ -52,5 +52,10 @@ function result(from,data){
 		    });
 			modal('primary','wide','Nuevo proveedor',data,false);
 			break;
+		case "setProveedor":
+			data = JSON.parse(data);
+			cleanBotonesModal(true);
+			modal(data.type,'large','ATENCIÓN',data.msg,false);
+			break;
 	}
 }//$('.full-container').html(data.page);

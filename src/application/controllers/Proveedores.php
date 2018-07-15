@@ -46,4 +46,40 @@ class Proveedores extends CI_Controller
 		));
 	}
 
+	public function setProveedor(){
+		$errors = array();
+		if(! $this->input->post('nombre'))
+			array_push($errors, 'Capture el nombre del proveedor.');
+		if(! $this->input->post('a_p'))
+			array_push($errors, 'Capture el apellido paterno.');
+		if(! $this->input->post('a_m'))
+			array_push($errors, 'Capture el apellido materno.');
+		if(! $this->input->post('colonia'))
+			array_push($errors, 'Capture la colonia.');
+		if(! $this->input->post('calle'))
+			array_push($errors, 'Capture la calle.');
+		if(! $this->input->post('num_ca'))
+			array_push($errors, 'Capture el número de la casa u local.');
+		if(! $this->input->post('rfc'))
+			array_push($errors, 'Capture el rfc del proveedor.');
+		if(! $this->input->post('telefonos'))
+			array_push($errors, 'Ingrese por lo menos un telefono del proveedor.');
+
+		$response = "<ul>";
+		for ($i=0; $i < count($errors); $i++) { 
+			$response.="<li>".$errors[$i]."</li>";
+		}
+		if(count($errors)>0)
+			echo json_encode(array(
+				'type'	=> 'danger',
+				'msg'	=> '<strong>'.$response.'</ul></strong>'
+			));
+		else
+			echo json_encode(array(
+				'type'	=> 'success',
+				'msg'	=> '<strong>Exito</strong>'
+			));
+	}
+
+
 }
