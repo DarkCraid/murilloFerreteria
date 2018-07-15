@@ -54,8 +54,24 @@ function result(from,data){
 			break;
 		case "setProveedor":
 			data = JSON.parse(data);
-			cleanBotonesModal(true);
+			cleanBotonesModal(false);
+			botonesModal=[{ 
+			    label: 'Aceptar',
+		        cssClass: 'btn-primary',
+		        action: function(dialogItself){ 
+		        	dropDataCombo('proveedor');
+		        	getAjax('POST','Proveedores/getProveedores',{},'getProveedores'); 
+		           	closeAllModals();
+		        }
+		    }];
 			modal(data.type,'large','ATENCIÓN',data.msg,false);
+			break;
+		case "getProveedores":
+			var op = '<option value="0">- Seleccionar -</option>';
+			$.each(JSON.parse(data),function(i,item){
+				op = '<option value="'+item.id+'">'+item.nombre+'</option>';
+				$('#proveedor').append(op);
+			});
 			break;
 	}
 }//$('.full-container').html(data.page);

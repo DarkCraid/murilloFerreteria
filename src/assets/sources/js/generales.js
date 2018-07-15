@@ -107,12 +107,12 @@ function getAjax(type,ruta,atrib,from){
 }
 
 // -------------------------------------------------------------------------------------------------- validaciones inputs
-function validCaracteres(e,tipo){
+function validCaracteres(e,id){
     key=e.keyCode || e.which;
     teclado=String.fromCharCode(key).toLowerCase();
     var caracteres;
     especiales = "8-09";
-    switch(tipo){
+    switch($("#"+id).attr('type')){
         case 'text-number': caracteres = " abcdefghijklmnopqrstuvwxyz1234567890";  break;
         case 'text':        caracteres = " abcdefghijklmnopqrstuvwxyzáéíóúü";     break;
         case 'number':      caracteres = "1234567890";                            break;
@@ -125,7 +125,7 @@ function validCaracteres(e,tipo){
             break;
         }
     }
-    if(caracteres.indexOf(teclado)==-1 && !teclado_especial)
+    if(caracteres.indexOf(teclado)==-1 && !teclado_especial || $("#"+id).val()=="" && key=="32")
         return false;
 }
 
