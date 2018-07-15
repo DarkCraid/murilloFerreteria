@@ -42,8 +42,23 @@
 
 <script>
  	$('.eliminar').click(function(){
- 		alert('eliminar ');
+ 		cleanBotonesModal(false);
+ 		let id = $(this).parent('td').parent('tr').attr('id');
+		botonesModal=[{ 
+		    label: 'Cancelar',
+	        cssClass: 'btn-default',
+	        action: function(dialogItself){ dialogItself.close(); }
+	    },{ 
+		    label: 'Eliminar',
+	        cssClass: 'btn-danger',
+	        action: function(dialogItself){ 
+	        	getAjax('POST','Proveedores/deleteProveedor',{'id':id},'deleteProveedor');
+	        }
+	    }];
+	    var question = '<strong>¿Desea eliminar al proveedor '+$('#'+id).children('.nombreP').text()+'?</strong>';
+		modal('warning','large','ATENCIÓN',question,false);
  	});
+
  	$('.editar').click(function(){
  		alert('editar');
  	});
