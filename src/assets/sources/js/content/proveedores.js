@@ -28,8 +28,10 @@ function result(from,data){
 			    label: 'Aceptar',
 		        cssClass: 'btn-primary',
 		        action: function(dialogItself){ 
-		        	getAjax('POST','Proveedores/getView',{'page':'listaProveedores'},'view'); 
-		        	closeAllModals();
+		        	if(data.type=="success"){
+			        	getAjax('POST','Proveedores/getView',{'page':'listaProveedores'},'view'); 
+		        		closeAllModals();
+			        }else{ dialogItself.close(); }
 		        }
 		    }];
 			modal(data.type,'large','ATENCIÓN',data.msg,false);

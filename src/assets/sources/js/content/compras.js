@@ -59,9 +59,11 @@ function result(from,data){
 			    label: 'Aceptar',
 		        cssClass: 'btn-primary',
 		        action: function(dialogItself){ 
-		        	dropDataCombo('proveedor');
-		        	getAjax('POST','Proveedores/getProveedores',{},'getProveedores'); 
-		           	closeAllModals();
+		        	if(data.type=="success"){
+		        		dropDataCombo('proveedor');
+			        	getAjax('POST','Proveedores/getProveedores',{},'getProveedores'); 
+			           	closeAllModals();
+			           }else{ dialogItself.close(); }
 		        }
 		    }];
 			modal(data.type,'large','ATENCIÓN',data.msg,false);
