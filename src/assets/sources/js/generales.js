@@ -106,6 +106,29 @@ function getAjax(type,ruta,atrib,from){
     });
 }
 
+// -------------------------------------------------------------------------------------------------- validaciones inputs
+function validCaracteres(e,tipo){
+    key=e.keyCode || e.which;
+    teclado=String.fromCharCode(key).toLowerCase();
+    var caracteres;
+    especiales = "8-09";
+    switch(tipo){
+        case 'text-number': caracteres = " abcdefghijklmnopqrstuvwxyz1234567890";  break;
+        case 'text':        caracteres = " abcdefghijklmnopqrstuvwxyzáéíóúü";     break;
+        case 'number':      caracteres = "1234567890";                            break;
+        default: caracteres = " abcdefghijklmnopqrstuvwxyz.,;:áéíóúü1234567890";  break;
+    }
+    teclado_especial=false;
+    for(var i in especiales){
+        if(key==especiales[i]){
+            teclado_especial=true;
+            break;
+        }
+    }
+    if(caracteres.indexOf(teclado)==-1 && !teclado_especial)
+        return false;
+}
+
 // -------------------------------------------------------------------------------------------------- Graficas (requieren sus respectivos scripts cargados antes que generales.js)
 function Gpastel(type,data,title,id){
   $('#'+id).children('#g').remove();
