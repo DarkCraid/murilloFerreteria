@@ -46,4 +46,17 @@ class M_proveedores extends CI_Model{
         else
             return 'Se ha guardado exitosamente al proveedor.';
     }
+
+    function deleteProveedor($id){
+        $this->db->trans_start();
+        $this->db->where('id',$id);
+        $this->db->set(array('status' => 0));
+        $this->db->update('proveedores');
+        $this->db->trans_complete();
+
+        if ($this->db->trans_status() === FALSE)
+            return 'Error al eliminar el proveedor.';
+        else
+            return 'Se ha eliminado al proveedor exitosamente.';
+    }
 }

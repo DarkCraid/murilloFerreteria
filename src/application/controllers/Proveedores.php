@@ -95,5 +95,9 @@ class Proveedores extends CI_Controller
 		echo json_encode($this->M_proveedores->getProveedores());
 	}
 
+	public function deleteProveedor(){
+		echo '<strong>'.$this->M_proveedores->deleteProveedor($this->input->post('id')).'</strong>';
+	}
+
 
 }

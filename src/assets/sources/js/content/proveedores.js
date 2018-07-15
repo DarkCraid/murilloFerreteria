@@ -36,5 +36,16 @@ function result(from,data){
 		    }];
 			modal(data.type,'large','ATENCIÓN',data.msg,false);
 			break;
+		case "deleteProveedor":
+			cleanBotonesModal(false);
+			botonesModal=[{ 
+			    label: 'Aceptar',
+		        cssClass: 'btn-primary',
+		        action: function(dialogItself){ 
+		        	location.reload();
+		        }
+		    }];
+			modal('success','large','ATENCIÓN',data,false);
+			break;
 	}
 }
