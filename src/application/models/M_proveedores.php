@@ -26,4 +26,24 @@ class M_proveedores extends CI_Model{
         $this->db->close();
         return $this->db->get()->result();
     }
+
+    function setProveedor($data,$tel){
+        $this->db->trans_start();
+        $this->db->insert('proveedores',$data);
+        $id = $this->db->insert_id();
+        for ($i=0; $i < count($tel) ; $i++) { 
+            $data = array(
+                'numero'        => $tel[$i],
+                'id_person'     => $id,
+                'tipo'          => 'Proveedor'
+            );
+            $this->db->insert('telefonos',$data);
+        }
+        $this->db->trans_complete();
+        $this->db->close();
+        if ($this->db->trans_status() === FALSE)
+            return 'error al guardar la al proveedor.';
+        else
+            return 'Se ha guardado exitosamente al proveedor.';
+    }
 }

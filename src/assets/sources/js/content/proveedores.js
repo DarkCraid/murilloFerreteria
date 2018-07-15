@@ -23,7 +23,15 @@ function result(from,data){
 			break;
 		case "setProveedor":
 			data = JSON.parse(data);
-			cleanBotonesModal(true);
+			cleanBotonesModal(false);
+			botonesModal=[{ 
+			    label: 'Aceptar',
+		        cssClass: 'btn-primary',
+		        action: function(dialogItself){ 
+		        	getAjax('POST','Proveedores/getView',{'page':'listaProveedores'},'view'); 
+		        	closeAllModals();
+		        }
+		    }];
 			modal(data.type,'large','ATENCIÓN',data.msg,false);
 			break;
 	}

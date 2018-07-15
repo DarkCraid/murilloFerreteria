@@ -74,11 +74,25 @@ class Proveedores extends CI_Controller
 				'type'	=> 'danger',
 				'msg'	=> '<strong>'.$response.'</ul></strong>'
 			));
-		else
+		else{
+			$data = array(
+				'nombre' 	=> $this->input->post('nombre'),
+				'a_p'		=> $this->input->post('a_p'),
+				'a_m'		=> $this->input->post('a_m'),
+				'rfc'		=> $this->input->post('rfc'),
+				'domicilio'	=> $this->input->post('colonia').', '.$this->input->post('calle').', '.$this->input->post('num_ca')
+			);
+			$response = $this->M_proveedores->setProveedor($data,$this->input->post('telefonos'));
+
 			echo json_encode(array(
 				'type'	=> 'success',
-				'msg'	=> '<strong>Exito</strong>'
+				'msg'	=> '<strong>'.$response.'</strong>'
 			));
+		}
+	}
+
+	public function getProveedores(){
+		echo json_encode($this->M_proveedores->getProveedores());
 	}
 
 

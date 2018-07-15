@@ -112,6 +112,6 @@
 	}
 
 	$('input').keypress(function(event){
-	    return validCaracteres(event,$(this).attr('type'));
+	    return validCaracteres(event,this.id);
 	});
 </script>
