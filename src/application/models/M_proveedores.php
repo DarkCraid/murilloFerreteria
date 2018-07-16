@@ -68,4 +68,17 @@ class M_proveedores extends CI_Model{
         $this->db->close();
         return $this->db->get()->row();
     }
+
+    function updateProveedor($data,$tel,$id){
+        $this->db->trans_start();
+        $this->db->where('id',$id);
+        $this->db->set($data);
+        $this->db->update('proveedores');
+        $this->db->trans_complete();
+
+        if ($this->db->trans_status() === FALSE)
+            return 'Error al actualizar la información.';
+        else
+            return 'Se ha actualizado al proveedor exitosamente.';
+    }
 }

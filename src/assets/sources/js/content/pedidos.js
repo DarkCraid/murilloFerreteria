@@ -82,3 +82,7 @@ function getErrors(errors){
 $('#nuevoProve').click(function(){
     getAjax('POST','Proveedores/getView',{'page':'nuevoProveedor'},'nuevoProveedor');
 });
+
+$('input').keypress(function(event){
+    return validCaracteres(event,this.id);
+});
