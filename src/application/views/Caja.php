@@ -7,10 +7,19 @@
 
         <h1 class="titulo">Caja</h1>
         <div class="container containerGeneral">
-            <div class="form-group" >
-                <label for="tipo" id="label_representanteLegal">Dinero en Caja:</label>
-                <input type="text" name="representanteLegal" id="representanteLegal" class="form-control" value="" disabled>
-            </div>
+                <div class="form-group" >
+                    <label for="tipo" id="label_representanteLegal">Monto Inicial:</label>
+                    <input type="text" name="representanteLegal" id="dineroEnCaja" class="form-control" value="">
+                </div>
+                <div class="form-group" >
+                    <label for="tipo" id="label_representanteLegal">Ingresos de hoy:</label>
+                    <input type="text" name="representanteLegal" id="ingresosDiarios" class="form-control" value="">
+                </div>
+                <div class="form-group" >
+                    <label for="tipo" id="label_representanteLegal">Retiros:</label>
+                    <input type="text" name="representanteLegal" id="retirosDiarios" class="form-control" value="">
+                </div>
+                <button class="btn btn-primary" >Calcular Monto</button>                               
         </div>
     </section>
 </div>

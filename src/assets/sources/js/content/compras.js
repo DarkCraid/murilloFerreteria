@@ -6,7 +6,7 @@ $(document).ready(function(){
 });
 
 
-
+ 
 function result(from,data){
 	switch(from){
 		case "view":
