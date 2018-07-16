@@ -31,14 +31,9 @@ class M_proveedores extends CI_Model{
         $this->db->trans_start();
         $this->db->insert('proveedores',$data);
         $id = $this->db->insert_id();
-        for ($i=0; $i < count($tel) ; $i++) { 
-            $data = array(
-                'numero'        => $tel[$i],
-                'id_person'     => $id,
-                'tipo'          => 'Proveedor'
-            );
-            $this->db->insert('telefonos',$data);
-        }
+        
+        $this->setPhones($id,$tel);
+
         $this->db->trans_complete();
         $this->db->close();
         if ($this->db->trans_status() === FALSE)
@@ -74,11 +69,29 @@ class M_proveedores extends CI_Model{
         $this->db->where('id',$id);
         $this->db->set($data);
         $this->db->update('proveedores');
+
+        $this->db->where('id_person', $id);
+        $this->db->where('tipo', 'Proveedor');
+        $this->db->delete('telefonos'); 
+
+        $this->setPhones($id,$tel);
+
         $this->db->trans_complete();
 
         if ($this->db->trans_status() === FALSE)
             return 'Error al actualizar la información.';
         else
             return 'Se ha actualizado al proveedor exitosamente.';
+    }
+
+    private function setPhones($id,$tel){
+        for ($i=0; $i < count($tel) ; $i++) { 
+            $data = array(
+                'numero'        => $tel[$i],
+                'id_person'     => $id,
+                'tipo'          => 'Proveedor'
+            );
+            $this->db->insert('telefonos',$data);
+        }
     }
 }
