@@ -19,6 +19,12 @@ class M_session extends CI_Model{
 						return null;
 			}
     }
+    function getidEmploye($iduser){
+        $this->db->select('id');
+        $this->db->from('empleados');
+        $this->db->where('id_user',$iduser);
+        return $this->db->get()->row();
+    }
 
     function updatePassword($user,$pssw){
         $this->db->trans_start();
