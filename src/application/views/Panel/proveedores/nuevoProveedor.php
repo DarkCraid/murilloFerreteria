@@ -9,14 +9,14 @@
 </div>
 <div class="row from-group">
 	<div class="col-xs-6">
-		<input type="text" class="form-control" id="nombre" required>
+		<input type="text" class="form-control" id="nombre" value="<?= $prov->nombre; ?>" required>
 	</div>
 	<div class="col-xs-6">
 		<div class="col-xs-6">
-			<input type="text" class="form-control" id="a_p" placeholder="Paterno" required>
+			<input type="text" class="form-control" id="a_p" value="<?= $prov->a_p; ?>" placeholder="Paterno" required>
 		</div>
 		<div class="col-xs-6">
-			<input type="text" class="form-control" id="a_m" placeholder="Materno" required>
+			<input type="text" class="form-control" id="a_m" value="<?= $prov->a_m; ?>" placeholder="Materno" required>
 		</div>
 	</div>
 </div>
@@ -29,7 +29,7 @@
 		<label>Calle: </label>
 	</div>
 	<div class="col-xs-9">
-		<input type="text-number" class="form-control" id="calle" required>
+		<input type="text-number" class="form-control" id="calle" value="<?= $prov->calle; ?>" required>
 	</div>
 </div>
 <div class="row form-group">
@@ -37,7 +37,7 @@
 		<label>Colonia: </label>
 	</div>
 	<div class="col-xs-9">
-		<input type="text-number" class="form-control" id="colonia" requierd>
+		<input type="text-number" class="form-control" id="colonia" value="<?= $prov->colonia; ?>" requierd>
 	</div>
 </div>
 <div class="row form-group">
@@ -45,7 +45,7 @@
 		<label>Número exterior: </label>
 	</div>
 	<div class="col-xs-4">
-		<input type="text-number" class="form-control" id="num" required>
+		<input type="text-number" class="form-control" id="num" value="<?= $prov->num; ?>" required>
 	</div>
 </div>
 <div class="row form-group">
@@ -53,7 +53,7 @@
 		<label>RFC: </label>
 	</div>
 	<div class="col-xs-4">
-		<input type="text-number" class="form-control" id="rfc" required>
+		<input type="text-number" class="form-control" id="rfc" value="<?= $prov->rfc; ?>" required>
 	</div>
 </div>
 <div class="row">
@@ -106,7 +106,8 @@
 			'colonia': 	$('#colonia').val(),
 			'num_ca': 	$('#num').val(),
 			'rfc': 		$('#rfc').val(),
-			'telefonos':numeros
+			'telefonos':numeros,
+			'id': 		'<?= $prov->id ?>'
 
 		},'setProveedor');
 	}

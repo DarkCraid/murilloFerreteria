@@ -59,4 +59,13 @@ class M_proveedores extends CI_Model{
         else
             return 'Se ha eliminado al proveedor exitosamente.';
     }
+
+    function getDataFromProv($id){
+        $this->db->select('nombre, a_p, a_m, id, domicilio, rfc');
+        $this->db->from('proveedores');
+        $this->db->where('status',1);
+        $this->db->where('id',$id);
+        $this->db->close();
+        return $this->db->get()->row();
+    }
 }
