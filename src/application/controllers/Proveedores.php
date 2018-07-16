@@ -70,7 +70,11 @@ class Proveedores extends CI_Controller
 			if(! $this->input->post('id'))
 				$response = $this->M_proveedores->setProveedor($data,$this->input->post('telefonos'));
 			else
-				$response = $this->input->post('id');
+				$response = $this->M_proveedores->updateProveedor(
+					$data,
+					$this->input->post('telefonos'),
+					$this->input->post('id')
+				);
 
 			echo json_encode(array(
 				'type'	=> 'success',
@@ -98,6 +102,7 @@ class Proveedores extends CI_Controller
 			'colonia'	=> '',
 			'id'		=> ''
 		];
+		$data['telefonos'] = array();
 		return $data;
 	}
 
@@ -115,6 +120,7 @@ class Proveedores extends CI_Controller
 			'colonia'	=> $domicilio[0],
 			'id'		=> $data['id']
 		];
+		$data['telefonos'] = $this->M_proveedores->getPhonesFrom($id,'Proveedor');
 		return $data;
 	}
 
