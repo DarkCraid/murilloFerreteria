@@ -3,6 +3,10 @@
 	.btn-md{margin-top: 5px;}
 	label,table{font-size: 20px;}
 </style>
+<script>
+	var numeros = [];
+</script>
+
 <div class="row">
 	<div class="col-xs-6"><label>Nombre</label></div>
 	<div class="col-xs-6 text-center"><label>Apellidos</label></div>
@@ -77,14 +81,23 @@
 				<th>Lista de telefonos</th>
 				</tr>
 			</thead>
-			<tbody id="numerosTB"></tbody>
+			<tbody id="numerosTB">
+				<?php foreach ($telefonos as $t): ?>
+					<tr>
+						<td><?= $t->numero; ?></td>
+					</tr>
+					<script>
+						numeros.push('<?= $t->numero ?>');
+					</script>
+				<?php endforeach ?>
+			</tbody>
 		</table>
 	</div>
 </div>
 
 
 <script>
-	var numeros = [];
+	
 		
 	$('.btn-md').click(function(){
 		if($('#tel').val()!=""){
