@@ -22,6 +22,12 @@ class Proveedores extends CI_Controller
 			case "listaProveedores":
 				$data = $this->getDataListaProveedores();
 				break;
+			case "nuevoProveedor":
+				if($this->input->post('id'))
+					$data = $this->getDataFromProv($this->input->post('id'));
+				else
+					$data = $this->getDataProvNull();
+				break;
 			default:
 				$data = null;
 				break;
@@ -47,6 +53,72 @@ class Proveedores extends CI_Controller
 	}
 
 	public function setProveedor(){
+		$errors = $this->validateDataProv();
+		if(count($errors['errors'])>0)
+			echo json_encode(array(
+				'type'	=> 'danger',
+				'msg'	=> '<strong>'.$errors['string'].'</ul></strong>'
+			));
+		else{
+			$data = array(
+				'nombre' 	=> $this->input->post('nombre'),
+				'a_p'		=> $this->input->post('a_p'),
+				'a_m'		=> $this->input->post('a_m'),
+				'rfc'		=> $this->input->post('rfc'),
+				'domicilio'	=> $this->input->post('colonia').', '.$this->input->post('calle').', '.$this->input->post('num_ca')
+			);
+			if(! $this->input->post('id'))
+				$response = $this->M_proveedores->setProveedor($data,$this->input->post('telefonos'));
+			else
+				$response = $this->input->post('id');
+
+			echo json_encode(array(
+				'type'	=> 'success',
+				'msg'	=> '<strong>'.$response.'</strong>'
+			));
+		}
+	}
+
+	public function getProveedores(){
+		echo json_encode($this->M_proveedores->getProveedores());
+	}
+
+	public function deleteProveedor(){
+		echo '<strong>'.$this->M_proveedores->deleteProveedor($this->input->post('id')).'</strong>';
+	}
+
+	private function getDataProvNull(){
+		$data['prov'] = (object)[
+			'nombre'	=> '',
+			'a_p'		=> '',
+			'a_m'		=> '',
+			'num'		=> '',
+			'rfc'		=> '',
+			'calle'		=> '',
+			'colonia'	=> '',
+			'id'		=> ''
+		];
+		return $data;
+	}
+
+	private function getDataFromProv($id){
+		$data = (array) $this->M_proveedores->getDataFromProv($id);
+		$domicilio = str_replace(", ", ",", $data['domicilio']);
+		$domicilio = explode(",", $domicilio);
+		$data['prov'] = (object)[
+			'nombre'	=> $data['nombre'],
+			'a_p'		=> $data['a_p'],
+			'a_m'		=> $data['a_m'],
+			'num'		=> $domicilio[2],
+			'rfc'		=> $data['rfc'],
+			'calle'		=> $domicilio[1],
+			'colonia'	=> $domicilio[0],
+			'id'		=> $data['id']
+		];
+		return $data;
+	}
+
+	private function validateDataProv(){
 		$errors = array();
 		if(! $this->input->post('nombre'))
 			array_push($errors, 'Capture el nombre del proveedor.');
@@ -65,39 +137,12 @@ class Proveedores extends CI_Controller
 		if(! $this->input->post('telefonos'))
 			array_push($errors, 'Ingrese por lo menos un telefono del proveedor.');
 
-		$response = "<ul>";
+		$response['errors'] = $errors;
+		$response['string'] = "<ul>";
 		for ($i=0; $i < count($errors); $i++) { 
-			$response.="<li>".$errors[$i]."</li>";
+			$response['string'].="<li>".$errors[$i]."</li>";
 		}
-		if(count($errors)>0)
-			echo json_encode(array(
-				'type'	=> 'danger',
-				'msg'	=> '<strong>'.$response.'</ul></strong>'
-			));
-		else{
-			$data = array(
-				'nombre' 	=> $this->input->post('nombre'),
-				'a_p'		=> $this->input->post('a_p'),
-				'a_m'		=> $this->input->post('a_m'),
-				'rfc'		=> $this->input->post('rfc'),
-				'domicilio'	=> $this->input->post('colonia').', '.$this->input->post('calle').', '.$this->input->post('num_ca')
-			);
-			$response = $this->M_proveedores->setProveedor($data,$this->input->post('telefonos'));
-
-			echo json_encode(array(
-				'type'	=> 'success',
-				'msg'	=> '<strong>'.$response.'</strong>'
-			));
-		}
+		return $response;
 	}
-
-	public function getProveedores(){
-		echo json_encode($this->M_proveedores->getProveedores());
-	}
-
-	public function deleteProveedor(){
-		echo '<strong>'.$this->M_proveedores->deleteProveedor($this->input->post('id')).'</strong>';
-	}
-
 
 }

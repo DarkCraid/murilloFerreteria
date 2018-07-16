@@ -60,7 +60,10 @@
  	});
 
  	$('.editar').click(function(){
- 		alert('editar');
+ 		getAjax('POST','Proveedores/getView',{
+ 			'page': 'nuevoProveedor',
+ 			'id': $(this).parent('td').parent('tr').attr('id')
+ 		},'nuevoProveedor');
  	});
  	$('.verTel').click(function(){
  		getAjax('POST','Proveedores/getPhonesFrom',{
