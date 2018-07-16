@@ -15,7 +15,7 @@ $('#producto').keyup(function(){
     }
     $( "#monto" ).val(availableTags.cost[pos]);
 });
-
+ 
 $('#agregar').click(function(){
     var errors      = [];
 

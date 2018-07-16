@@ -37,7 +37,7 @@ class Compras extends CI_Controller
 		}
 	    $this->load->view('Panel/compras/'.$this->input->post('page'),$data);
 	}
-
+ 
 	public function setPedido(){
 		$data = $this->input->post('data');
 		for ($i=0; $i < count($data); $i++) { 
