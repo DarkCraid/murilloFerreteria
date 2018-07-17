@@ -32,11 +32,4 @@ class Inicio extends CI_Controller
 		$this->load->view('Historial',$data);
 	}
 
-	public function Caja()//10
-	{	if($this->session->userdata('login') == false)
-            redirect(base_url());
-		$data['dataMenu'] = $this->M_panel->getMenu();
-		$this->load->view('Caja',$data);
-	}
-
 }
