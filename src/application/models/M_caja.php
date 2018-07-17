@@ -7,14 +7,27 @@ class M_caja extends CI_Model{
         $this->load->database();
     }
 
-	function setCaja($Caja,$result){
+	function setCaja($Caja){
 		$this->db->trans_start();
         $this->db->insert('caja',$Caja);
         $this->db->trans_complete();
          if ($this->db->trans_status() === FALSE)
             return 'error al registrar la ganancias de hoy.';
         else
-            return ''.$result;
+            return 'Se han regristado las ganancias exitosamente.';
         $this->db->close();
+	}
+	function setMontoInicial($Caja){
+		$this->db->trans_start();
+        $this->db->insert('caja',$Caja);
+        $this->db->trans_complete();
+         if ($this->db->trans_status() === FALSE)
+            return 'error al registrar la ganancias de hoy.';
+        else
+            return 'Se han regristado las ganancias exitosamente.';
+        $this->db->close();		
+	}
+	function setNewRetiro($Caja){
+		
 	}
 }

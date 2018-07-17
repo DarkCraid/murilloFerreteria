@@ -32,6 +32,21 @@ class Caja extends CI_Controller
 			
 	}
 
+	public function setMontoInicial(){
+		$Caja = array(
+			'monto_inicial' => $this->input->post('caja'),
+			'monto_entrada'=> $this->input->post('ingreso'),
+			'monto_salida'=> $this->input->post('retiro'),
+			'empleado_id' => $this->input->post('empleado')			
+		);
+		echo '<strong>'.$this->M_caja->setMontoInicial($Caja).'</strong>';
+	}
+	public function setNewRetiro(){
+		$Caja = array(
+			'monto_salida'=> $this->input->post('retiro')		
+		);
+	}
+
 		
 			
 	
