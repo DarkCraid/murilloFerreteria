@@ -1,29 +1,23 @@
-<?php $this->load->view('Helpers/Header');?>
-<?php $this->load->view('Helpers/AsideLeft',array('text'=>'Reportes'));?>
+<script src="<?= base_url('assets/sources/js/graficas/highcharts.js');?>"></script>
+<script src="<?= base_url('assets/sources/js/graficas/series-label.js');?>"></script>
+<script src="<?= base_url('assets/sources/js/graficas/exporting.js');?>"></script>
+<script src="<?= base_url('assets/sources/js/graficas/jquery-3.1.1.min.js');?>"></script>
+<script src="<?= base_url('assets/sources/js/graficas/highcharts-3d.js');?>"></script>
 
-<script src="https://code.highcharts.com/highcharts.js"></script>
-	<script src="https://code.highcharts.com/modules/series-label.js"></script>
-	<script src="https://code.highcharts.com/modules/exporting.js"></script>
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script src="https://code.highcharts.com/highcharts-3d.js"></script>
-
-<div class="content-wrapper" style="background: white;">
+<!--div class="content-wrapper" style="background: white;">
     <section class="content">
 		
-		<div id="container" style="width:100%; height:400px;"></div>
-
-  
-
 
 	
 
-	<div id="container"></div>
-
-	<div id="container2" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
-
-	<div id="container3" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+	
 
 	<div id="container4"></div>
+
+
+
+
+
 	<div id="sliders">
 	    <table>
 	        <tr>
@@ -42,12 +36,7 @@
 	</div>
 
 	
-
-  </section>
-</div>
-
-<?php $this->load->view('Helpers/AsideRight');?>
-<?php $this->load->view('Helpers/Footer');?>
+</div-->
 
 
 <script>

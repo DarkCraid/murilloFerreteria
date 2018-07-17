@@ -7,14 +7,6 @@ class M_compras extends CI_Model{
         $this->load->database();
     }
     
-    function getProveedores(){
-        $this->db->select('CONCAT(nombre," ",a_p," ",a_m) AS nombre, id');
-        $this->db->from('proveedores');
-        $this->db->where('status',1);
-        $this->db->close();
-        return $this->db->get()->result();
-    }
-
     function getLastFolio(){
         $this->db->select('folio');
         $this->db->from('compras');
