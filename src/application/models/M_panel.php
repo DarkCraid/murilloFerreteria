@@ -24,6 +24,7 @@ class M_panel extends CI_Model{
     function getProveedores(){
         $this->db->select('CONCAT(nombre," ",a_p," ",a_m) AS nombre, id');
         $this->db->from('proveedores');
+        $this->db->where('status',1);
         $this->db->close();
         return $this->db->get()->result();
     }
