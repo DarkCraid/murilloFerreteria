@@ -45,6 +45,7 @@ class Caja extends CI_Controller
 		$Caja = array(
 			'monto_salida'=> $this->input->post('retiro')		
 		);
+		echo '<strong>'.$this->M_caja->setNewRetiro($Caja).'</strong>';
 	}
 
 		

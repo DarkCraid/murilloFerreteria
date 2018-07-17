@@ -5,8 +5,6 @@
   <link rel="stylesheet" href="<?= base_url('assets/sources/css/caja.css'); ?>">
 <div class="content-wrapper" style="background: white;">
     <section class="content">
-
-        <h1 class="titulo">Caja</h1>
         <div class="container containerCaja">
             <div class="row">
                 <div class="col-md-12">
