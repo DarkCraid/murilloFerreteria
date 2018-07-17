@@ -145,7 +145,7 @@ insert  into `menu`(`id`,`descripcion`,`ruta`,`icono`,`status`) values
 (6,'Inventario','Inventario','fa-archive',1),
 (7,'Historial','Inicio/Historial','fa-history',1),
 (8,'Clientes','Cliente','fa-users',1),
-(9,'Caja','Inicio/Caja','fa-briefcase',1),
+(9,'Caja','Caja','fa-briefcase',1),
 (10,'Reportes','Reportes','fa-line-chart',1);
 
 /*Table structure for table `movimientos` */
