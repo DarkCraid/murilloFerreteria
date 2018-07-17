@@ -28,6 +28,6 @@ class M_caja extends CI_Model{
         $this->db->close();		
 	}
 	function setNewRetiro($Caja){
-		
+		$this->db->order_by('id','DESC');
 	}
 }
