@@ -66,6 +66,37 @@
 			'color': '#5bd05f'
 		}];
 		Gpastel('monto',data,'Compras y ventas','CV');
+
+		data = [{
+        name: "Ingresos",
+        color: "blue",
+        data: [
+            [Date.UTC(1971, 5, 24), 1],
+            [Date.UTC(1971, 5, 29), 2],
+            [Date.UTC(1971, 6,  3), 3],
+            [Date.UTC(1971, 6,  4), 4]
+        ]
+    }, {
+        name: "Retiros",
+        color: "red",
+        data: [
+            [Date.UTC(1971, 5, 24), 4],
+            [Date.UTC(1971, 5, 29), 4],
+            [Date.UTC(1971, 6,  3), 5],
+            [Date.UTC(1971, 6,  4), 2]
+        ]
+    }, {
+        name: "Ganancias",
+        color: "green",
+        data: [
+            [Date.UTC(1971, 5, 24), 6],
+            [Date.UTC(1971, 5, 29), 6],
+            [Date.UTC(1971, 6,  3), 4],
+            [Date.UTC(1971, 6,  4), 2]
+        ]
+    }];
+
+		Gtimeline('YTEXT',data,'TITLE','IRG');
 	});
 </script>
 
