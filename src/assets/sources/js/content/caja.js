@@ -1,6 +1,14 @@
+$(document).ready(function(){
+    if ($("#dineroEnCaja").val()!=0) {
+        $("#MontoInicialbtn").hide(500);
+        $( "#dineroEnCaja" ).prop( "disabled", true );
+        $("#DataAfterMonto").show(500);
+    }
+});
 
 $("#MontoInicialbtn").click(function(){
-var errors = [];
+    var errors = [];
+    var success =[];
     if($("#dineroEnCaja").val()==0)
          errors.push('Es obligatorio ingresar el monton con el que se inicio el dia');
     if(errors.length<=0){
@@ -15,7 +23,12 @@ var errors = [];
                 ingreso:1,
                 retiro:1,
                 empleado:1                
-             }
+             },
+            success: function(data){
+               $("#retirosDiarios").val("0");
+               success.push("Datos agregados Exitosamente");
+               modal('success','large','Caja a sido agregada!',getErrors(success),true);
+             }              
             });
     }
 
@@ -24,37 +37,45 @@ var errors = [];
 
 $("#addRetiros").click(function(){
     var errors = [];
+    var success =[];
         if($("#retirosDiarios").val()==0)
         errors.push('Es obligatorio ingresar el retiro que obtuvo este dia');
         $.ajax({ 
             type: 'POST',   
-            url: window.location.origin+'/murilloFerreteria/src/index.php/' + 'Caja/setMontoInicial',   
+            url: window.location.origin+'/murilloFerreteria/src/index.php/' + 'Caja/setNewRetiro',   
             data: {
                 ingreso:$("#retirosDiarios").val(),                  
-             }
+             },
+            success: function(data){
+               $("#retirosDiarios").val("0");
+               success.push("nuevo retiro a sido agregado");
+               modal('success','large','Nuevo retiro!',getErrors(success),true);
+             } 
         });
 
 
 });
 $("#calcularMonto").click(function(){
 	var errors = [];
-	if($("#dineroEnCaja").val()==0)
-		 errors.push('Es obligatorio ingresar el monton con el que se inicio el dia');
 	if($("#ingresosDiarios").val()==0)
 		errors.push('Es obligatorio ingresar el ingreso que obtuvo este dia');
-	if($("#retirosDiarios").val()==0)
-		errors.push('Es obligatorio ingresar el retiro que obtuvo este dia');	
-
 	  if(errors.length<=0){
 	  	$.ajax({ 
         	type: 'POST',   
         	url: window.location.origin+'/murilloFerreteria/src/index.php/' + 'Caja/setCaja',   
         	data: {
-        		caja:$("#dineroEnCaja").val(),
-        		ingreso:$("#ingresosDiarios").val(),
-        		retiro:$("#retirosDiarios").val(),
-        		empleado:1
-        	}
+        		ingreso:$("#ingresosDiarios").val()
+        	},
+            success: function(data){
+                $("#retirosDiarios").val("0");
+                $("#ingresosDiarios").val("0");
+                $("#dineroEnCaja").val("0");
+                $("#MontoInicialbtn").show(500);
+                $( "#dineroEnCaja" ).prop( "disabled", false );
+                $("#DataAfterMonto").hide(500);
+               success.push("Corte del dia elaborado exitosamente!");
+               modal('success','large','Fin del dia!',getErrors(success),true);
+             } 
     		});
 	}else{
         cleanBotonesModal(true);

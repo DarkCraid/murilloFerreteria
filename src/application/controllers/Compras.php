@@ -37,7 +37,7 @@ class Compras extends CI_Controller
 		}
 	    $this->load->view('Panel/compras/'.$this->input->post('page'),$data);
 	}
- 
+  
 	public function setPedido(){
 		$data = $this->input->post('data');
 		for ($i=0; $i < count($data); $i++) { 
@@ -53,7 +53,7 @@ class Compras extends CI_Controller
 		echo '<strong>'.$this->M_compras->setCompra($compra,$data).'</strong>';
 	}
 
-	public function getPedidoFrom(){
+	public function getPedidoFrom(){ 
 		$data['productos'] = $this->M_compras->getPedidoFrom($this->input->post('folio'));
 		$data['proveedor'] = $this->M_compras->getProveedor($this->input->post('folio'));
 		$this->load->view('Panel/compras/listaPedidos',$data);

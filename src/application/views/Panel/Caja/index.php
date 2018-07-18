@@ -9,8 +9,10 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group" >
-                        <label for="tipo" id="label_representanteLegal">Monto Inicial:</label>
-                        <input type="number" name="representanteLegal"  min="1" id="dineroEnCaja" class="form-control" >  
+                        <?php foreach ($monto as $mon ) { ?>
+                            <label for="tipo" id="label_representanteLegal">Monto Inicial:</label>
+                            <input type="number" name="representanteLegal"  min="1" id="dineroEnCaja" class="form-control" value="<?php echo $mon ?>" >  
+                        <?php }?> 
                     </div>
                 </div>
                  <div class="col-md-12">

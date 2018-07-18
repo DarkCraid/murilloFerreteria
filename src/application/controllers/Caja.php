@@ -14,43 +14,65 @@ class Caja extends CI_Controller
 	public function index()
 	{	if($this->session->userdata('login') == false)
             redirect(base_url());
-		$data['dataMenu'] 		= $this->M_panel->getMenu();
-		$this->load->view('Panel/Caja/index',$data);		
+		$data['dataMenu'] 	= $this->M_panel->getMenu();
+		if ($this->M_caja->getMontoInicial()) {
+			$data['monto'] 		= (array)$this->M_caja->getMontoInicial();
+		}
+		else{
+			$data['monto'] = (array)0;
+		}
+		$this->load->view('Panel/Caja/index',$data);
 	}
 
 	public function setCaja()
-	{
-		$result = $this->session->userdata('name');
-		$Caja = array(
-			'monto_inicial' => $this->input->post('caja'),
-			'monto_entrada'=> $this->input->post('ingreso'),
-			'monto_salida'=> $this->input->post('retiro'),
-			'empleado_id' => $this->input->post('empleado')
+	{	
+		$id   = (array)$this->M_caja->getLastId();
+		$nuevaRow = array(
+			'monto_inicial' => 0,
+			'monto_entrada'=> 0,
+			'monto_salida'=> 0,
+			'empleado_id' => 1	/*cambiar esto por $this->session->userdata('id')*/
 		);
-	
-    	echo '<strong>'.$this->M_caja->setCaja($Caja).'</strong>';
-			
+		$Caja = array(
+			'monto_entrada'=> $this->input->post('ingreso'),
+		);
+		foreach ($id as $ID) {
+    		echo '<strong>'.$this->M_caja->setCaja($Caja['monto_entrada'],$id,$nuevaRow).'</strong>';		
+		}
 	}
 
 	public function setMontoInicial(){
-		$Caja = array(
-			'monto_inicial' => $this->input->post('caja'),
-			'monto_entrada'=> $this->input->post('ingreso'),
-			'monto_salida'=> $this->input->post('retiro'),
-			'empleado_id' => $this->input->post('empleado')			
-		);
-		echo '<strong>'.$this->M_caja->setMontoInicial($Caja).'</strong>';
+
+		if ($this->M_caja->getMontoInicial()) {
+				$id   = (array)$this->M_caja->getLastId();
+				$Caja = array(
+					'monto_inicial' => $this->input->post('caja')		
+				);
+			foreach ($id as $ID) {
+				echo '<strong>'.$this->M_caja->setMontoInicial($Caja['monto_inicial'],$ID).'</strong>';
+			}
+		}else{
+			$Caja = array(
+				'monto_inicial' => $this->input->post('caja'),
+				'monto_entrada'=> 0,
+				'monto_salida'=> 0,
+				'empleado_id' => 1 /*cambiar esto por $this->session->userdata('id')*/		
+			);
+			$this->M_caja->setnewRow($Caja);
+		}
+		
 	}
 	public function setNewRetiro(){
-		$Caja = array(
-			'monto_salida'=> $this->input->post('retiro')		
-		);
-		echo '<strong>'.$this->M_caja->setNewRetiro($Caja).'</strong>';
+		$id   = (array)$this->M_caja->getLastId();
+		$Caja = array('monto_salida'=> $this->input->post('ingreso'));
+		foreach ($id as $ID) {
+			$this->M_caja->setNewRetiro($Caja['monto_salida'],$ID);
+		}
+		
+		
 	}
 
 		
-			
-	
 
 
 }
