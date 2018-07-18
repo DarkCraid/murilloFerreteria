@@ -39,7 +39,7 @@
     			</div>
     			<div id="collapse3" class="panel-collapse collapse">
       				<div class="panel-body">
-                		<div id="container2" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+                		<div id="UR"></div>
             		</div>
         		</div>
         	</div>
@@ -66,37 +66,63 @@
 			'color': '#5bd05f'
 		}];
 		Gpastel('monto',data,'Compras y ventas','CV');
-
+		var fecha = new Date();
 		data = [{
         name: "Ingresos",
         color: "blue",
         data: [
-            [Date.UTC(1971, 5, 24), 1],
-            [Date.UTC(1971, 5, 29), 2],
-            [Date.UTC(1971, 6,  3), 3],
-            [Date.UTC(1971, 6,  4), 4]
+            [Date.UTC(2018, 5, 24), 1],
+            [Date.UTC(2018, 5, 29), 2],
+            [Date.UTC(2018, 6,  3), 3],
+            [Date.UTC(2018, 6,  4), 4]
         ]
     }, {
         name: "Retiros",
         color: "red",
         data: [
-            [Date.UTC(1971, 5, 24), 4],
-            [Date.UTC(1971, 5, 29), 4],
-            [Date.UTC(1971, 6,  3), 5],
-            [Date.UTC(1971, 6,  4), 2]
+            [Date.UTC(2018, 5, 24), 4],
+            [Date.UTC(2018, 5, 29), 4],
+            [Date.UTC(2018, 6,  3), 5],
+            [Date.UTC(2018, 6,  4), 2]
         ]
     }, {
         name: "Ganancias",
         color: "green",
         data: [
-            [Date.UTC(1971, 5, 24), 6],
-            [Date.UTC(1971, 5, 29), 6],
-            [Date.UTC(1971, 6,  3), 4],
-            [Date.UTC(1971, 6,  4), 2]
+            [Date.UTC(2018, 5, 24), 6],
+            [Date.UTC(2018, 5, 29), 6],
+            [Date.UTC(2018, 6,  3), 4],
+            [Date.UTC(2018, 6,  4), 2]
         ]
     }];
 
-		Gtimeline('YTEXT',data,'TITLE','IRG');
+	Gtimeline('Montos ($)',data,'Ingresos, retiros y ganancias','IRG');
+
+	data = [
+        {
+            "name": "Usuarios",
+            "colorByPoint": true,
+            "data": [
+                {
+                    "name": "Clientes frecuentes",
+                    "y": 4,
+                    "drilldown": "Clientes frecuentes"
+                },
+                {
+                    "name": "Empleados",
+                    "y": 2,
+                    "drilldown": "Empleados"
+                },
+                {
+                    "name": "Administradores",
+                    "y": 1,
+                    "drilldown": "Administradores"
+                }
+            ]
+        }
+    ];
+
+	GlineV('Cantidad de usuarios',data,'Usuarios registrados','UR');
 	});
 </script>
 

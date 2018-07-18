@@ -198,7 +198,7 @@ function Gtimeline(YTEXT,DATA,TITLE,ID){
     },
     tooltip: {
         headerFormat: '<b>{series.name}</b><br>',
-        pointFormat: '{point.x:%e. %b}: {point.y:.2f} m'
+        pointFormat: '{point.x:%e %b, %Y}: $ {point.y:.2f}'
     },
 
     plotOptions: {
@@ -214,6 +214,41 @@ function Gtimeline(YTEXT,DATA,TITLE,ID){
     // Define the data points. All series have a dummy year
     // of 1970/71 in order to be compared on the same x axis. Note
     // that in JavaScript, months start at 0 for January, 1 for February etc.
+    series: DATA
+});
+}
+
+function GlineV(YTEXT,DATA,TITLE,ID){
+  Highcharts.chart(ID, {
+    chart: {type: 'column' },
+    title: {text: TITLE },
+    subtitle: {  text: '' },
+    xAxis: {
+        type: 'category'
+    },
+    yAxis: {
+        title: {
+            text: YTEXT
+        }
+
+    },
+    legend: {
+        enabled: false
+    },
+    plotOptions: {
+        series: {
+            borderWidth: 0,
+            dataLabels: {
+                enabled: true,
+                format: '{point.y:1f}'
+            }
+        }
+    },
+
+    tooltip: {
+        headerFormat: '<span style="font-size:20px">{series.name}</span><br>',
+        pointFormat: '<span style="color:{black}">{point.name}</span>: <b>{point.y:1f}</b><br/>'
+    },
     series: DATA
 });
 }
