@@ -31,5 +31,4 @@ class Inicio extends CI_Controller
 		$data['dataMenu'] = $this->M_panel->getMenu();
 		$this->load->view('Historial',$data);
 	}
-
 }
