@@ -129,11 +129,19 @@ function validCaracteres(e,id){
         return false;
 }
 
+
+
+//GRAFICAS
+
+
+
+
+
 // -------------------------------------------------------------------------------------------------- Graficas (requieren sus respectivos scripts cargados antes que generales.js)
-function Gpastel(type,data,title,id){
-  $('#'+id).children('#g').remove();
-  $('#'+id).append('<div id="g'+id+'" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto; margin-top:30px;"></div>');
-  var chart = new Highcharts.chart('g'+id, {
+function Gpastel(NAME,DATA,TITLE,ID){
+  $('#'+ID).children('#g').remove();
+  $('#'+ID).append('<div id="g'+ID+'" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto; margin-top:30px;"></div>');
+  var chart = new Highcharts.chart('g'+ID, {
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
@@ -141,7 +149,7 @@ function Gpastel(type,data,title,id){
             type: 'pie'
         },
         title: {
-            text: title
+            text: TITLE
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.y}</b>'
@@ -160,60 +168,9 @@ function Gpastel(type,data,title,id){
             }
         },
         series: [{
-            name: type,
+            name: NAME,
             colorByPoint: true,
-            data: data
-        }]
-    });
-}
-
-function GbarrasH(config,dataG){
-  var chart = new Highcharts.Chart({
-        chart: {
-            renderTo: config[0].id,
-            type: 'column',
-            options3d: {
-                enabled: true,
-                alpha: 0,
-                beta: 0,
-                depth: 20,
-                viewDistance: 25
-            }
-        },
-        title: {
-            text: config[0].title
-        },
-        subtitle: {
-            text: config[0].subtitle
-        },
-        plotOptions: {
-            column: {
-                depth: 25
-            }
-        },
-        xAxis: {
-            categories: dataG[0].categories
-        },
-        series: [{
-          name: 'Cantidad de usuarios',
-            data: [{
-              name: dataG[0].categories[0],
-              y:dataG[0].data[0],
-              color:config[0].color
-            },{
-              name: dataG[0].categories[1],
-              y:dataG[0].data[1],
-              color:config[0].color
-            },{
-              name: dataG[0].categories[2],
-              y:dataG[0].data[2],
-              color:config[0].color
-            },{
-              name: dataG[0].categories[3],
-              y:dataG[0].data[3],
-              color:config[0].color
-            }],
-            color:config[0].color
+            data: DATA
         }]
     });
 }

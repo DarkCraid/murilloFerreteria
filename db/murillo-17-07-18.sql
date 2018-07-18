@@ -80,7 +80,7 @@ CREATE TABLE `compras` (
 
 insert  into `compras`(`folio`,`nota`,`id_proveedor`,`fecha`,`total`,`status`) values 
 ('P001-120718','el producto es faltante para la remodelacion de la casa #24',1,'2018-07-11 22:40:34',2500,1),
-('P002-170718','nota',1,'2018-07-17 00:00:00',18440595,1);
+('P002-170718','nota',1,'2018-07-17 17:44:37',5,1);
 
 /*Table structure for table `empleados` */
 
@@ -201,6 +201,22 @@ CREATE TABLE `productos_proveedores` (
 
 /*Data for the table `productos_proveedores` */
 
+/*Table structure for table `productos_venta` */
+
+DROP TABLE IF EXISTS `productos_venta`;
+
+CREATE TABLE `productos_venta` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `folio_venta` varchar(11) COLLATE utf8_spanish2_ci NOT NULL,
+  `articulo` text COLLATE utf8_spanish2_ci NOT NULL,
+  `cantidad` int(10) unsigned NOT NULL,
+  `costo_unitario` double unsigned NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+/*Data for the table `productos_venta` */
+
 /*Table structure for table `proveedores` */
 
 DROP TABLE IF EXISTS `proveedores`;
@@ -281,6 +297,20 @@ CREATE TABLE `users` (
 
 insert  into `users`(`id`,`user`,`tipo`,`pssw`,`email`,`status`) values 
 (1,'daniel','administrador','110d46fcd978c24f306cd7fa23464d73','jesusperez@solemti.com',1);
+
+/*Table structure for table `ventas` */
+
+DROP TABLE IF EXISTS `ventas`;
+
+CREATE TABLE `ventas` (
+  `folio` varchar(11) COLLATE utf8_spanish2_ci NOT NULL,
+  `fecha` datetime NOT NULL,
+  `total` double unsigned NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`folio`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+/*Data for the table `ventas` */
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

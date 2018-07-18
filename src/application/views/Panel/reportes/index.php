@@ -8,12 +8,12 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Ingresos, retiros y ganancias</a>
+                    <a class="titleSub" data-toggle="collapse" data-parent="#accordion" href="#collapse1">Ingresos, retiros y ganancias</a>
                     </h4>
                 </div>
                 <div id="collapse1" class="panel-collapse collapse in">
                     <div class="panel-body">
-                        <div id="container" style="width:99%; height:400px;"></div>
+                        <div id="IRG" style="width:99%; height:400px;"></div>
                     </div>
                 </div>
             </div>
@@ -26,7 +26,7 @@
 				</div>
     			<div id="collapse2" class="panel-collapse collapse">
       				<div class="panel-body">
-                		<div id="container3" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+                		<div id="CV" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
             		</div>
         		</div>
         	</div>
@@ -54,5 +54,19 @@
 <?php $this->load->view('Helpers/AsideRight');?>
 <?php $this->load->view('Helpers/Footer');?>
   
+<script>
+	$(document).ready(function(){
+		var data = [{
+			'name': 'Compras (gastos de inversión)',
+			'y': 	5400,
+			'color': '#ec7575'
+		},{
+			'name': 'Ventas (ingresos)',
+			'y': 	1656,
+			'color': '#5bd05f'
+		}];
+		Gpastel('monto',data,'Compras y ventas','CV');
+	});
+</script>
 
 
