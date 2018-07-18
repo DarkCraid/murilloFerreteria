@@ -56,17 +56,9 @@
   
 <script>
 	$(document).ready(function(){
-		var data = [{
-			'name': 'Compras (gastos de inversión)',
-			'y': 	5400,
-			'color': '#ec7575'
-		},{
-			'name': 'Ventas (ingresos)',
-			'y': 	1656,
-			'color': '#5bd05f'
-		}];
-		Gpastel('monto',data,'Compras y ventas','CV');
-		var fecha = new Date();
+		Gpastel('monto',<?= $retiros ?>,'Compras y ventas','CV');
+		
+        var fecha = new Date();
 		data = [{
         name: "Ingresos",
         color: "blue",
