@@ -43,13 +43,6 @@
 		
 		
 
-
-		
-
-
-		// Set up the chart
-		
-
 		function showValues() {
 		    $('#alpha-value').html(chart.options.chart.options3d.alpha);
 		    $('#beta-value').html(chart.options.chart.options3d.beta);

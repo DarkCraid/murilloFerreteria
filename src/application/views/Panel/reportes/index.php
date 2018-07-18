@@ -21,7 +21,7 @@
 			<div class="panel panel-default">
     			<div class="panel-heading">
   					<h4 class="panel-title">
-    				<a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Compras y ventas</a>
+    				<a class="titleSub" data-toggle="collapse" data-parent="#accordion" href="#collapse2">Compras y ventas</a>
   					</h4>
 				</div>
     			<div id="collapse2" class="panel-collapse collapse">
@@ -34,7 +34,7 @@
 			<div class="panel panel-default">
     			<div class="panel-heading">
       				<h4 class="panel-title">
-        			<a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Usuarios registrados</a>
+        			<a class="titleSub" data-toggle="collapse" data-parent="#accordion" href="#collapse3">Usuarios registrados</a>
       				</h4>
     			</div>
     			<div id="collapse3" class="panel-collapse collapse">
@@ -123,6 +123,10 @@
     ];
 
 	GlineV('Cantidad de usuarios',data,'Usuarios registrados','UR');
+	});
+
+	$('.titleSub').click(function(){
+		$('.opcionMenuOpen').text("Reportes y estadisticas > "+$(this).text());
 	});
 </script>
 
