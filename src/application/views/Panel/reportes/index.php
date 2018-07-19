@@ -57,35 +57,41 @@
 <script>
 	$(document).ready(function(){
 		Gpastel('monto',<?= $retiros ?>,'Compras y ventas','CV');
+
+        var info = '<?= $TimelineRetiros ?>';
+        var dataret = [];
+        $.each(JSON.parse(info),function(i,item){
+            var datainside = [];
+            datainside.push(item.fecha,parseInt(item.total));
+            dataret.push(datainside);
+
+        });
+
+        info = '<?= $TimelineIngresos ?>';
+        var dataing = [];
+        $.each(JSON.parse(info),function(i,item){
+            var datainside = [];
+            datainside.push(item.fecha,parseInt(item.total));
+            dataing.push(datainside);
+
+        });
+
+
+        console.log(dataret);
 		
-        var fecha = new Date();
+        
 		data = [{
         name: "Ingresos",
         color: "blue",
-        data: [
-            [Date.UTC(2018, 5, 24), 1],
-            [Date.UTC(2018, 5, 29), 2],
-            [Date.UTC(2018, 6,  3), 3],
-            [Date.UTC(2018, 6,  4), 4]
-        ]
+        data: dataing
     }, {
         name: "Retiros",
         color: "red",
-        data: [
-            [Date.UTC(2018, 5, 24), 4],
-            [Date.UTC(2018, 5, 29), 4],
-            [Date.UTC(2018, 6,  3), 5],
-            [Date.UTC(2018, 6,  4), 2]
-        ]
+        data: dataret
     }, {
         name: "Ganancias",
         color: "green",
-        data: [
-            [Date.UTC(2018, 5, 24), 6],
-            [Date.UTC(2018, 5, 29), 6],
-            [Date.UTC(2018, 6,  3), 4],
-            [Date.UTC(2018, 6,  4), 2]
-        ]
+        data: []
     }];
 
 	Gtimeline('Montos ($)',data,'Ingresos, retiros y ganancias','IRG');
