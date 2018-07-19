@@ -57,6 +57,7 @@ $("#addRetiros").click(function(){
 });
 $("#calcularMonto").click(function(){
 	var errors = [];
+    var success =[];
 	if($("#ingresosDiarios").val()==0)
 		errors.push('Es obligatorio ingresar el ingreso que obtuvo este dia');
 	  if(errors.length<=0){

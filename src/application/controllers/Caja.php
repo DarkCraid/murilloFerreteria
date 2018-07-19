@@ -37,7 +37,7 @@ class Caja extends CI_Controller
 			'monto_entrada'=> $this->input->post('ingreso')
 		);
 		foreach ($id as $ID) {
-    		echo '<strong>'.$this->M_caja->setCaja($Caja['monto_entrada'],$id,$nuevaRow).'</strong>';		
+    		echo '<strong>'.$this->M_caja->setCaja($Caja['monto_entrada'],$ID,$nuevaRow).'</strong>';		
 		}
 	}
 
