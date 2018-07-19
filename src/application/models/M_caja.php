@@ -18,8 +18,8 @@ class M_caja extends CI_Model{
             return 'Se han regristado las ganancias exitosamente.';
         $this->db->close();	            		
 	}
-	function setMontoInicial($montoI,$id){
-		$this->db->query("update caja set monto_inicial='$montoI' where id='$id' ;");
+	function setMontoInicial($montoI,$id,$empleado){
+		$this->db->query("update caja set monto_inicial='$montoI' , empleado_id='$empleado' where id='$id' ;");
         $this->db->close();	
 	}
 	function setnewRow($Caja){

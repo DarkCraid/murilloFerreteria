@@ -31,10 +31,10 @@ class Caja extends CI_Controller
 			'monto_inicial' => 0,
 			'monto_entrada'=> 0,
 			'monto_salida'=> 0,
-			'empleado_id' => 1	/*cambiar esto por $this->session->userdata('id')*/
+			'empleado_id' => 1	
 		);
 		$Caja = array(
-			'monto_entrada'=> $this->input->post('ingreso'),
+			'monto_entrada'=> $this->input->post('ingreso')
 		);
 		foreach ($id as $ID) {
     		echo '<strong>'.$this->M_caja->setCaja($Caja['monto_entrada'],$id,$nuevaRow).'</strong>';		
@@ -46,17 +46,18 @@ class Caja extends CI_Controller
 		if ($this->M_caja->getMontoInicial()) {
 				$id   = (array)$this->M_caja->getLastId();
 				$Caja = array(
-					'monto_inicial' => $this->input->post('caja')		
+					'monto_inicial' => $this->input->post('caja'),
+					'empleado_id' => $this->session->userdata('id')	
 				);
 			foreach ($id as $ID) {
-				echo '<strong>'.$this->M_caja->setMontoInicial($Caja['monto_inicial'],$ID).'</strong>';
+				echo '<strong>'.$this->M_caja->setMontoInicial($Caja['monto_inicial'],$ID,$Caja['empleado_id']).'</strong>';
 			}
 		}else{
 			$Caja = array(
 				'monto_inicial' => $this->input->post('caja'),
 				'monto_entrada'=> 0,
 				'monto_salida'=> 0,
-				'empleado_id' => 1 /*cambiar esto por $this->session->userdata('id')*/		
+				'empleado_id' => $this->session->userdata('id')		
 			);
 			$this->M_caja->setnewRow($Caja);
 		}
