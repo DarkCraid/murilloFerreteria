@@ -65,7 +65,10 @@
         var dataret = [];
         $.each(JSON.parse(info),function(i,item){
             var datainside = [];
-            datainside.push(item.fecha,parseInt(item.total));
+            datainside.push(
+                Date.UTC(parseInt(item.year),parseInt(item.mes),parseInt(item.dia)),
+                parseInt(item.total)
+            );
             dataret.push(datainside);
         });
 
@@ -73,7 +76,10 @@
         var dataing = [];
         $.each(JSON.parse(info),function(i,item){
             var datainside = [];
-            datainside.push(item.fecha,parseInt(item.total));
+            datainside.push(
+                Date.UTC(parseInt(item.year),parseInt(item.mes),parseInt(item.dia)),
+                parseInt(item.total)
+            );
             dataing.push(datainside);
         });
 
@@ -81,7 +87,10 @@
         var datagan = [];
         $.each(JSON.parse(info),function(i,item){
             var datainside = [];
-            datainside.push(item.fecha,parseInt(item.total));
+            datainside.push(
+                Date.UTC(parseInt(item.year),parseInt(item.mes),parseInt(item.dia)),
+                parseInt(item.total)
+            );
             datagan.push(datainside);
         });
 
@@ -101,29 +110,11 @@
 
 	Gtimeline('Montos ($)',data,'Ingresos, retiros y ganancias','IRG');
 
-	data = [
-        {
-            "name": "Usuarios",
-            "colorByPoint": true,
-            "data": [
-                {
-                    "name": "Clientes frecuentes",
-                    "y": 4,
-                    "drilldown": "Clientes frecuentes"
-                },
-                {
-                    "name": "Empleados",
-                    "y": 2,
-                    "drilldown": "Empleados"
-                },
-                {
-                    "name": "Administradores",
-                    "y": 1,
-                    "drilldown": "Administradores"
-                }
-            ]
-        }
-    ];
+	data = [{
+        "name": "Usuarios",
+        "colorByPoint": true,
+        "data": <?= $users ?>
+    }];
 
 	GlineV('Cantidad de usuarios',data,'Usuarios registrados','UR');
 	});
