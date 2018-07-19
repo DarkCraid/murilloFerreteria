@@ -29,9 +29,13 @@ CREATE TABLE `caja` (
   `empleado_id` int(10) unsigned NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `caja` */
+
+insert  into `caja`(`id`,`monto_inicial`,`monto_entrada`,`monto_salida`,`updated_at`,`empleado_id`,`status`) values 
+(1,6,34534,223,'2018-07-19 01:07:08',1,1),
+(2,345,456,400,'2018-07-19 01:04:45',1,1);
 
 /*Table structure for table `categoria_producto` */
 
@@ -72,15 +76,16 @@ CREATE TABLE `compras` (
   `id_proveedor` int(10) unsigned NOT NULL,
   `fecha` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   `total` double NOT NULL,
+  `id_empleado` int(10) unsigned NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`folio`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `compras` */
 
-insert  into `compras`(`folio`,`nota`,`id_proveedor`,`fecha`,`total`,`status`) values 
-('P001-120718','el producto es faltante para la remodelacion de la casa #24',1,'2018-07-11 22:40:34',2500,1),
-('P002-170718','nota',1,'2018-07-17 17:44:37',5,1);
+insert  into `compras`(`folio`,`nota`,`id_proveedor`,`fecha`,`total`,`id_empleado`,`status`) values 
+('P001-120718','el producto es faltante para la remodelacion de la casa #24',1,'2018-07-19 01:14:58',2500,1,1),
+('P002-170718','nota',1,'2018-07-19 01:14:59',5,1,1);
 
 /*Table structure for table `empleados` */
 
@@ -306,11 +311,16 @@ CREATE TABLE `ventas` (
   `folio` varchar(11) COLLATE utf8_spanish2_ci NOT NULL,
   `fecha` datetime NOT NULL,
   `total` double unsigned NOT NULL,
+  `id_empleado` int(10) unsigned NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`folio`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `ventas` */
+
+insert  into `ventas`(`folio`,`fecha`,`total`,`id_empleado`,`status`) values 
+('dfsdf','2018-07-20 00:38:24',324,1,1),
+('V001-12312','2018-07-19 00:38:10',1232,1,1);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

@@ -16,6 +16,7 @@ class Reportes extends CI_Controller
 		$data['dataMenu'] 			= $this->M_panel->getMenu();
 		$data['TimelineRetiros'] 	= json_encode($this->M_reportes->getRetiros());
 		$data['TimelineIngresos'] 	= json_encode($this->M_reportes->getIngresos());
+		$data['TimelineGanancias'] 	= json_encode($this->M_reportes->getGanancias());
 		$retiros	 				= (array) $this->M_reportes->getRetiros();
 		$ingresos 				 	= (array) $this->M_reportes->getIngresos();
 		$data['retiros']			= 0;

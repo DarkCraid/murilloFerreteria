@@ -1,8 +1,4 @@
-<script src="<?= base_url('assets/sources/js/graficas/highcharts.js');?>"></script>
-<script src="<?= base_url('assets/sources/js/graficas/series-label.js');?>"></script>
-<script src="<?= base_url('assets/sources/js/graficas/exporting.js');?>"></script>
-<script src="<?= base_url('assets/sources/js/graficas/jquery-3.1.1.min.js');?>"></script>
-<script src="<?= base_url('assets/sources/js/graficas/highcharts-3d.js');?>"></script>
+
 
 <!--div class="content-wrapper" style="background: white;">
     <section class="content">

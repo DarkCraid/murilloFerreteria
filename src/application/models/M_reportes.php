@@ -8,7 +8,7 @@ class M_reportes extends CI_Model{
     }
     
     function getRetiros(){
-    	$this->db->select('UNIX_TIMESTAMP(fecha)*1000 AS fecha, total');
+    	$this->db->select('UNIX_TIMESTAMP(DATE_FORMAT(fecha,"%Y-%m-%d"))*1000 AS fecha, total');
         $this->db->from('compras');
         $this->db->order_by('fecha','asc');
         $this->db->close();
@@ -16,8 +16,16 @@ class M_reportes extends CI_Model{
     }
 
     function getIngresos(){
-        $this->db->select('UNIX_TIMESTAMP(fecha)*1000 AS fecha, total');
+        $this->db->select('UNIX_TIMESTAMP(DATE_FORMAT(fecha,"%Y-%m-%d"))*1000 AS fecha, total');
         $this->db->from('ventas');
+        $this->db->order_by('fecha','asc');
+        $this->db->close();
+        return $this->db->get()->result();
+    }
+
+    function getGanancias(){
+        $this->db->select('UNIX_TIMESTAMP(DATE_FORMAT(updated_at,"%Y-%m-%d"))*1000 AS fecha, (monto_inicial + monto_entrada - monto_salida) AS total');
+        $this->db->from('caja');
         $this->db->order_by('fecha','asc');
         $this->db->close();
         return $this->db->get()->result();
