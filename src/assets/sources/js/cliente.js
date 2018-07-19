@@ -14,7 +14,7 @@ function openModal(id)
                         +'<label for="tipo" class="col-form-label mr-2 control-label" id="label_representanteLegal">Folio: </label>'
                         +'</div>'
                         +'<div class="col-sm-12 col-md-9 col-lg-9">'
-                            +'<input type="text" name="representanteLegal" id="representanteLegal" class="form-control" value="F0001" disabled>'
+                            +'<input type="text" name="representanteLegal" id="folio" class="form-control" value="F0001" disabled>'
                         +'</div>'
                     +'</div>'
                     +'<div class="row form-group">'
@@ -22,13 +22,13 @@ function openModal(id)
                             +'<label for="rfc_" class="col-form-label mr-2 control-label">Nombres(s): </label>'
                         +'</div>'
                         +'<div class="col-md-8 col-lg-3">'
-                            +'<input type="text" name="estado" id="estado" class="form-control" value="Zero" >'
+                            +'<input type="text" name="estado" id="nombre" class="form-control" placeholder="" >'
                         +'</div>'
                         +'<div class="col-sm-4 col-md-3 col-lg-3 text-right">'
                             +'<label for="rfc_" class="col-form-label mr-2 control-label">Apellido Paterno: </label>'
                         +'</div>'
                         +'<div class="col-md-8 col-lg-3">'
-                           +' <input type="text" name="municipio" id="municipio" class="form-control" value="Two" >'
+                           +' <input type="text" name="municipio" id="a_p" class="form-control" placeholder="" >'
                         +'</div>'
                     +'</div>'
                     +'<div class="row form-group">'
@@ -36,13 +36,13 @@ function openModal(id)
                             +'<label for="tipo" class="col-form-label mr-2 control-label" id="label_ciudad">Apellido Materno: </label>'
                        +' </div>'
                         +'<div class="col-md-8 col-lg-3">'
-                           +' <input type="text" name="ciudad" id="ciudad" class="form-control" value="random" >'
+                           +' <input type="text" name="ciudad" id="a_m" class="form-control" placeholder="" >'
                        +' </div>'
                         +'<div class="col-sm-4 col-md-3 col-lg-3 text-right">'
                            +' <label for="rfc_" class="col-form-label mr-2 control-label">Calle: </label>'
                        +' </div>'
                        +' <div class="col-md-8 col-lg-3">'
-                            +'<input type="text" name="telefono" id="telefono" class="form-control" value="random" >'
+                            +'<input type="text" name="telefono" id="calle" class="form-control" placeholder="" >'
                         +'</div>'
                     +'</div>'
           +'<div class="row form-group">'
@@ -50,13 +50,13 @@ function openModal(id)
                             +'<label for="tipo" class="col-form-label mr-2 control-label" id="label_ciudad">Colonia: </label>'
                        +' </div>'
                         +'<div class="col-md-8 col-lg-3">'
-                           +' <input type="text" name="ciudad" id="ciudad" class="form-control" value="6691122136" >'
+                           +' <input type="text" name="ciudad" id="colonia" class="form-control" placeholder="" >'
                        +' </div>'
                         +'<div class="col-sm-4 col-md-3 col-lg-3 text-right">'
                            +' <label for="rfc_" class="col-form-label mr-2 control-label">Telefono: </label>'
                        +' </div>'
                        +' <div class="col-md-8 col-lg-3">'
-                            +'<input type="text" name="telefono" id="telefono" class="form-control" value="ZeroTwo@gmail.com" >'
+                            +'<input type="text" name="telefono" id="telefono" class="form-control" placeholder="" >'
                         +'</div>'
                     +'</div>'
         +'</form>';
@@ -70,8 +70,39 @@ function openModal(id)
         action: function(dialogItself)
         {
 
-                dialogItself.close();
-            }
+        $.ajax({
+        type:"POST",
+        url: base_url+'Cliente/update',
+        data:{
+        'id' :            id,
+        'nombre' :        $('#nombre').val(),
+        'a_p' :           $('#a_p').val(),
+        'a_m' :           $('#a_m').val(),
+        'domicilio' :     $('#calle').val()+'↨'+$('#colonia').val(),
+        'numero' :        $('#telefono').val(),
+        'tipo' :          'Cliente',
+        },
+        success:function (data){
+        //  DropTable();
+         // pushTable();
+          
+          BootstrapDialog.show({
+    title: 'Mensage',
+    message: $(data),
+    buttons: [{
+        label: 'Aceptar',
+        cssClass: 'btn-success',
+        action: function(dialogItself)
+        {dialogItself.close();}
+        }]
+    });
+          
+        },
+        error:function(jqXHR, textStatus, errorThrown)
+        {alert("Error al guardar la información");}
+    });
+        dialogItself.close();
+        }
         },
         {
             label: 'Eliminar',
@@ -108,16 +139,16 @@ $('#Agregar').click(function(event) {
                     +'</div>'
                     +'<div class="row form-group">'
                         +'<div class="col-sm-4 col-md-3 col-lg-2 text-right">'
-                            +'<label for="rfc_" class="col-form-label mr-2 control-label">Nombres(s): </label>'
+                            +'<label for="rfc_" class="col-form-label mr-2 control-label">Nombre: </label>'
                         +'</div>'
                         +'<div class="col-md-8 col-lg-3">'
-                            +'<input type="text" name="estado" id="nombre" class="form-control" value="Zero" >'
+                            +'<input type="text" name="estado" id="nombre" class="form-control" placeholder="" >'
                         +'</div>'
                         +'<div class="col-sm-4 col-md-3 col-lg-3 text-right">'
                             +'<label for="rfc_" class="col-form-label mr-2 control-label">Apellido Paterno: </label>'
                         +'</div>'
                         +'<div class="col-md-8 col-lg-3">'
-                           +' <input type="text" name="municipio" id="a_p" class="form-control" value="Two" >'
+                           +' <input type="text" name="municipio" id="a_p" class="form-control" placeholder="" >'
                         +'</div>'
                     +'</div>'
                     +'<div class="row form-group">'
@@ -125,13 +156,13 @@ $('#Agregar').click(function(event) {
                             +'<label for="tipo" class="col-form-label mr-2 control-label" id="label_ciudad">Apellido Materno: </label>'
                        +' </div>'
                         +'<div class="col-md-8 col-lg-3">'
-                           +' <input type="text" name="ciudad" id="a_m" class="form-control" value="random" >'
+                           +' <input type="text" name="ciudad" id="a_m" class="form-control" placeholder="" >'
                        +' </div>'
                         +'<div class="col-sm-4 col-md-3 col-lg-3 text-right">'
                            +' <label for="rfc_" class="col-form-label mr-2 control-label">Calle: </label>'
                        +' </div>'
                        +' <div class="col-md-8 col-lg-3">'
-                            +'<input type="text" name="telefono" id="calle" class="form-control" value="random" >'
+                            +'<input type="text" name="telefono" id="calle" class="form-control" placeholder="" >'
                         +'</div>'
                     +'</div>'
           +'<div class="row form-group">'
@@ -139,13 +170,13 @@ $('#Agregar').click(function(event) {
                             +'<label for="tipo" class="col-form-label mr-2 control-label" id="label_ciudad">Colonia: </label>'
                        +' </div>'
                         +'<div class="col-md-8 col-lg-3">'
-                           +' <input type="text" name="ciudad" id="colonia" class="form-control" value="6691122136" >'
+                           +' <input type="text" name="ciudad" id="colonia" class="form-control" placeholder="" >'
                        +' </div>'
                         +'<div class="col-sm-4 col-md-3 col-lg-3 text-right">'
                            +' <label for="rfc_" class="col-form-label mr-2 control-label">Telefono: </label>'
                        +' </div>'
                        +' <div class="col-md-8 col-lg-3">'
-                            +'<input type="text" name="telefono" id="telefono" class="form-control" value="ZeroTwo@gmail.com" >'
+                            +'<input type="text" name="telefono" id="telefono" class="form-control" placeholder="" >'
                         +'</div>'
                     +'</div>'
         +'</form>';
@@ -171,7 +202,8 @@ $('#Agregar').click(function(event) {
         'tipo' :          'Cliente',
         },
         success:function (data){
-          //reloadTable();
+         // DropTable();
+         // pushTable();
           
           BootstrapDialog.show({
     title: 'Mensage',
@@ -219,16 +251,8 @@ function pushTable()
         +'<td><a onclick="openModal('+item.cliente+')" style="cursor:pointer;">#Cl-'+item.cliente+'</a></td>'
         +'<td>'+item.fullName+'</td>'
         +'<td>'+item.telefono+'</td>'
-        +'<td>'+item.fullName+'</td>'
+        +'<td>'+item.punto+'</td>'
         +'</tr>');
-
-
-        /*$('#contenido_tabla').append('<tr id="fila_'+item.idsoli+'">'+
-        '<td>'+'<a onclick="paraEnviarId('+item.idsoli+')" style="cursor:pointer;">'+ item.idsoli +'</a>'+'</td>'+  
-        '<td>'+item.nombre+'</td>'+
-        '<td>'+item.fecha.substr(0,10)+'</td>'+
-        '<td>'+'<span class="label label-danger">'+"En espera"+'</span>'+'</td>'+
-        '</tr>');*/
     });
         },
         error:function(jqXHR, textStatus, errorThrown)
