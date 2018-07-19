@@ -66,7 +66,7 @@
         $.each(JSON.parse(info),function(i,item){
             var datainside = [];
             datainside.push(
-                Date.UTC(parseInt(item.year),parseInt(item.mes),parseInt(item.dia)),
+                Date.UTC(parseInt(item.year),parseInt(item.mes)-1,parseInt(item.dia)),
                 parseInt(item.total)
             );
             dataret.push(datainside);
@@ -77,7 +77,7 @@
         $.each(JSON.parse(info),function(i,item){
             var datainside = [];
             datainside.push(
-                Date.UTC(parseInt(item.year),parseInt(item.mes),parseInt(item.dia)),
+                Date.UTC(parseInt(item.year),parseInt(item.mes)-1,parseInt(item.dia)),
                 parseInt(item.total)
             );
             dataing.push(datainside);
@@ -88,7 +88,7 @@
         $.each(JSON.parse(info),function(i,item){
             var datainside = [];
             datainside.push(
-                Date.UTC(parseInt(item.year),parseInt(item.mes),parseInt(item.dia)),
+                Date.UTC(parseInt(item.year),parseInt(item.mes)-1,parseInt(item.dia)),
                 parseInt(item.total)
             );
             datagan.push(datainside);
