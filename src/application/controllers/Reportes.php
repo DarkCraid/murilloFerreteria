@@ -14,12 +14,18 @@ class Reportes extends CI_Controller
 	{	if($this->session->userdata('login') == false)
             redirect(base_url());
 		$data['dataMenu'] 			= $this->M_panel->getMenu();
-		$data['TimelineRetiros'] 	= $this->M_reportes->getRetiros();
-		$retiros	 				= (array) $data['TimelineRetiros'];
+		$data['TimelineRetiros'] 	= json_encode($this->M_reportes->getRetiros());
+		$data['TimelineIngresos'] 	= json_encode($this->M_reportes->getIngresos());
+		$retiros	 				= (array) $this->M_reportes->getRetiros();
+		$ingresos 				 	= (array) $this->M_reportes->getIngresos();
 		$data['retiros']			= 0;
+		$data['ingresos']			= 0;
 
 		for ($i=0; $i < count($retiros); $i++) { 
 			$data['retiros'] += intval($retiros[$i]->total);
+		}
+		for ($i=0; $i < count($ingresos); $i++) { 
+			$data['ingresos'] += intval($ingresos[$i]->total);
 		}
 
 		$data['retiros']		= json_encode(array(
@@ -30,7 +36,7 @@ class Reportes extends CI_Controller
 			),
 			array(
 				'name' 	=> 'Ventas (ingresos)',
-				'y'		=> 0,
+				'y'		=> $data['ingresos'],
 				'color'	=> '#5bd05f'
 			)
 		));
