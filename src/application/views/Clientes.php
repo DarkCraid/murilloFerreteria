@@ -95,45 +95,6 @@
                                     </thead>
                                     <tbody id="contenido_tabla">
                                         
-                                       <tr>
-                                        <td><a onclick="openModal(1)" style="cursor:pointer;">F0001</a></td>  
-                                        <td>Zero Two</td>
-                                        <td>6691122136</td>
-                                        <td>120</td>
-                                        </tr>
-
-                                        <tr>
-                                        <td><a onclick="openModal(2)" style="cursor:pointer;">F0002</a></td>  
-                                        <td>Mitzuki</td>
-                                        <td>6691775588</td>
-                                        <td>54</td>
-                                        </tr>
-
-
-                                        <tr>
-                                        <td><a onclick="openModal(3)" style="cursor:pointer;">F0003</a></td>  
-                                        <td>Asuna</td>
-                                        <td>6691663311</td>
-                                        <td>895</td>
-                                        </tr>
-
-
-                                        <tr>
-                                        <td><a onclick="openModal(4)" style="cursor:pointer;">F0004</a></td>  
-                                        <td>Stela</td>
-                                        <td>6691774411</td>
-                                        <td>74</td>
-                                        </tr>
-
-
-                                        <tr>
-                                        <td><a onclick="openModal(5)" style="cursor:pointer;">F0005</a></td>  
-                                        <td>Maki-Chan</td>
-                                        <td>6691995511</td>
-                                        <td>1313</td>
-                                        </tr>
-
-
                                     </tbody>
                                 </table>
                             </div>
