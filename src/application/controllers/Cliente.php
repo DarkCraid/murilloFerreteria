@@ -8,6 +8,7 @@ class Cliente extends CI_Controller
 		parent::__construct();
 		
 		$this->load->model('M_panel');
+		$this->load->model('M_cliente');
 	}
 
 	public function index()
@@ -15,6 +16,35 @@ class Cliente extends CI_Controller
             redirect(base_url());
 		$data['dataMenu'] = $this->M_panel->getMenu();
 		$this->load->view('Clientes',$data);
+	}
+	public function get()
+	{
+		$result = $this->M_cliente->getCliente();
+    	echo json_encode($result);
+	}
+
+	public function push()
+	{
+		$queryCliente = array(
+			'nombre' => $this->input->post('nombre'),
+			'a_p' => $this->input->post('a_p'),
+			'a_m' => $this->input->post('a_m'),
+			'domicilio' => $this->input->post('domicilio'), 
+		);
+
+		$queryTelefono = array(
+			'numero' => $this->input->post('numero'),
+			'tipo' => $this->input->post('tipo'),
+		);
+		$this->M_cliente->pushCliente(1,$queryCliente,$queryTelefono,false,false);
+
+		echo '<form action="#" method="post">'
+	.'<div class="row">'
+	.'<div class="form-group col-md-12" style="text-align: center;">'
+	.'<h2>Accion completada.</h2>'
+	.'</div>'
+	.'</div>'
+	.'</form>';
 	}
 
 
