@@ -69,7 +69,18 @@ class Cliente extends CI_Controller
 	.'</div>'
 	.'</div>'
 	.'</form>';
-		
+	}
+	public function drop()
+	{
+		$this->M_cliente->dropCliente($this->input->post('id'));
+
+		echo '<form action="#" method="post">'
+	.'<div class="row">'
+	.'<div class="form-group col-md-12" style="text-align: center;">'
+	.'<h2>Accion completada.</h2>'
+	.'</div>'
+	.'</div>'
+	.'</form>';
 	}
 
 

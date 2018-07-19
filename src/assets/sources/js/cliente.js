@@ -109,7 +109,32 @@ function openModal(id)
             cssClass: 'btn-danger',
             action: function(dialogItself)
             {
-                dialogItself.close();
+                $.ajax({
+        type:"POST",
+        url: base_url+'Cliente/drop',
+        data:{
+        'id' :            id
+        },
+        success:function (data){
+        //  DropTable();
+         // pushTable();
+          
+          BootstrapDialog.show({
+    title: 'Mensage',
+    message: $(data),
+    buttons: [{
+        label: 'Aceptar',
+        cssClass: 'btn-success',
+        action: function(dialogItself)
+        {dialogItself.close();}
+        }]
+    });
+          
+        },
+        error:function(jqXHR, textStatus, errorThrown)
+        {alert("Error al guardar la información");}
+    });
+        dialogItself.close();
             }
         },
         {
@@ -220,6 +245,7 @@ $('#Agregar').click(function(event) {
         error:function(jqXHR, textStatus, errorThrown)
         {alert("Error al guardar la información");}
     });
+        dialogItself.close();
 
         }
         },
