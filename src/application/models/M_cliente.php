@@ -6,30 +6,7 @@ class M_cliente extends CI_Model{
         parent::__construct();
         $this->load->database();
     }
-    
-   /* function getMenu(){
-    	$this->db->select('*');
-        $this->db->from('menu');
-        $this->db->close();
-        return $this->db->get()->result();
-    }
-
-    function getProductos(){
-        $this->db->select('*');
-        $this->db->from('inventario');
-        $this->db->close();
-        return $this->db->get()->result();
-    }
-
-    function getProveedores(){
-        $this->db->select('CONCAT(nombre," ",a_p," ",a_m) AS nombre, id');
-        $this->db->from('proveedores');
-        $this->db->where('status',1);
-        $this->db->close();
-        return $this->db->get()->result();
-    }*/
-
-    public function pushCliente($stat,$param1,$param2,$param3,$param4)
+    public function pushCliente($param1,$param2)
     {
         $this->db->insert('clientes', $param1);
         $this->db->insert('telefonos', array_merge($param2 , array('id_person' => $this->db->insert_id())));
@@ -38,10 +15,22 @@ class M_cliente extends CI_Model{
     {
         $this->db->select('CONCAT(clientes.nombre," ",clientes.a_p," ",clientes.a_m) AS "fullName",
             clientes.id AS "cliente",
-            telefonos.numero AS "telefono"');
+            telefonos.numero AS "telefono",
+            clientes.puntos AS "punto"');
         $this->db->from('clientes');
         $this->db->join('telefonos','telefonos.id_person = clientes.id','left');
+        $this->db->where('telefonos.tipo', 'Cliente');
         return $this->db->get()->result();
+    }
+    public function updateCliente($param1,$param2,$param3)
+    {   
+        $this->db->where(array('id' => $param1));
+        $this->db->set($param2);
+        $this->db->update('clientes');  
+
+        $this->db->where(array('id_person' => $param1, 'tipo' => 'Cliente'));
+        $this->db->set($param3);
+        $this->db->update('telefonos');  
     }
 
 
