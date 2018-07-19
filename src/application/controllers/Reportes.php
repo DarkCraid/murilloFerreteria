@@ -19,6 +19,9 @@ class Reportes extends CI_Controller
 		$data['TimelineGanancias'] 	= json_encode($this->M_reportes->getGanancias());
 		$retiros	 				= (array) $this->M_reportes->getRetiros();
 		$ingresos 				 	= (array) $this->M_reportes->getIngresos();
+		$users['emp']			 	= $this->M_reportes->getUsers('empleados');
+		$users['adm']			 	= $this->M_reportes->getUsers('users');
+		$users['cli']			 	= $this->M_reportes->getUsers('clientes');
 		$data['retiros']			= 0;
 		$data['ingresos']			= 0;
 
@@ -42,8 +45,23 @@ class Reportes extends CI_Controller
 			)
 		));
 
-
-
+		$data['users']		= json_encode(array(
+			array(
+				'name' 		=> 'Clientes frecuentes',
+				'y'			=> intval($users['cli']->total),
+				"drilldown"	=> "Clientes frecuentes"
+			),
+			array(
+				'name' 		=> 'Empleados',
+				'y'			=> intval($users['emp']->total),
+				"drilldown"	=> "Empleados"
+			),
+			array(
+				'name' 		=> 'Administradores',
+				'y'			=> intval($users['adm']->total),
+				"drilldown"	=> "Administradores"
+			)
+		));
 
 		$this->load->view('Panel/reportes/index',$data);		
 	}

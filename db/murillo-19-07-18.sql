@@ -29,13 +29,14 @@ CREATE TABLE `caja` (
   `empleado_id` int(10) unsigned NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `caja` */
 
 insert  into `caja`(`id`,`monto_inicial`,`monto_entrada`,`monto_salida`,`updated_at`,`empleado_id`,`status`) values 
 (1,6,34534,223,'2018-07-19 01:07:08',1,1),
-(2,345,456,400,'2018-07-19 01:04:45',1,1);
+(2,345,456,400,'2018-07-19 01:04:45',1,1),
+(3,500,500,100,'2018-07-20 10:54:33',1,1);
 
 /*Table structure for table `categoria_producto` */
 
@@ -85,7 +86,7 @@ CREATE TABLE `compras` (
 
 insert  into `compras`(`folio`,`nota`,`id_proveedor`,`fecha`,`total`,`id_empleado`,`status`) values 
 ('P001-120718','el producto es faltante para la remodelacion de la casa #24',1,'2018-07-19 01:14:58',2500,1,1),
-('P002-170718','nota',1,'2018-07-19 01:14:59',5,1,1);
+('P002-170718','nota',1,'2018-07-20 02:14:58',5,1,1);
 
 /*Table structure for table `empleados` */
 
@@ -291,17 +292,18 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user` varchar(30) NOT NULL,
-  `tipo` varchar(45) NOT NULL,
+  `tipo` enum('Administrador','Empleado') NOT NULL DEFAULT 'Empleado',
   `pssw` text NOT NULL,
   `email` varchar(130) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 /*Data for the table `users` */
 
 insert  into `users`(`id`,`user`,`tipo`,`pssw`,`email`,`status`) values 
-(1,'daniel','administrador','110d46fcd978c24f306cd7fa23464d73','jesusperez@solemti.com',1);
+(1,'daniel','Administrador','110d46fcd978c24f306cd7fa23464d73','jesusperez@solemti.com',1),
+(2,'asd','Administrador','q	wq','qwe',1);
 
 /*Table structure for table `ventas` */
 
