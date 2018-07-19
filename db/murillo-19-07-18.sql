@@ -29,14 +29,17 @@ CREATE TABLE `caja` (
   `empleado_id` int(10) unsigned NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `caja` */
 
 insert  into `caja`(`id`,`monto_inicial`,`monto_entrada`,`monto_salida`,`updated_at`,`empleado_id`,`status`) values 
-(1,6,34534,223,'2018-07-19 01:07:08',1,1),
-(2,345,456,400,'2018-07-19 01:04:45',1,1),
-(3,500,500,100,'2018-07-20 10:54:33',1,1);
+(1,100,200,50,'2018-07-19 16:12:41',1,1),
+(2,200,300,0,'2018-07-20 16:13:37',1,1),
+(3,500,500,0,'2018-07-19 16:13:47',1,1),
+(4,1000,4000,250,'2018-07-19 16:14:39',1,1),
+(7,200,12,333,'2018-07-19 16:16:56',1,1),
+(8,123,0,0,'2018-07-19 16:17:05',1,1);
 
 /*Table structure for table `categoria_producto` */
 
@@ -85,8 +88,9 @@ CREATE TABLE `compras` (
 /*Data for the table `compras` */
 
 insert  into `compras`(`folio`,`nota`,`id_proveedor`,`fecha`,`total`,`id_empleado`,`status`) values 
-('P001-120718','el producto es faltante para la remodelacion de la casa #24',1,'2018-07-19 01:14:58',2500,1,1),
-('P002-170718','nota',1,'2018-07-20 02:14:58',5,1,1);
+('P001-120718','el producto es faltante para la remodelacion de la casa #24',1,'2018-07-18 01:14:58',2500,1,1),
+('P002-170718','nota',1,'2018-07-20 02:14:58',5,1,1),
+('P003-190718','primeros auxilios',1,'2018-07-19 00:00:00',5140,0,1);
 
 /*Table structure for table `empleados` */
 
@@ -149,7 +153,7 @@ insert  into `menu`(`id`,`descripcion`,`ruta`,`icono`,`status`) values
 (4,'Empleados','Empleado','fa-user',1),
 (5,'Proveedores','Proveedores','fa-industry',1),
 (6,'Inventario','Inventario','fa-archive',1),
-(7,'Historial','Inicio/Historial','fa-history',1),
+(7,'Historial','Inicio/Historial','fa-history',0),
 (8,'Clientes','Cliente','fa-users',1),
 (9,'Caja','Caja','fa-briefcase',1),
 (10,'Reportes','Reportes','fa-line-chart',1);
@@ -183,14 +187,16 @@ CREATE TABLE `pedidos` (
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `folio_compra` (`folio_compra`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `pedidos` */
 
 insert  into `pedidos`(`id`,`folio_compra`,`articulo`,`cantidad`,`costo_unitario`,`status`) values 
 (1,'P001-120718','torniquete',30,80,1),
 (2,'P001-120718','madera de roble',20,5,1),
-(3,'P002-170718','dsf',53451,345,1);
+(3,'P002-170718','dsf',53451,345,1),
+(4,'P003-190718','torniquete',12,345,1),
+(5,'P003-190718','mochila',2,500,1);
 
 /*Table structure for table `productos_proveedores` */
 
