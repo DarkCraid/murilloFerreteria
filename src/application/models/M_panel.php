@@ -10,6 +10,7 @@ class M_panel extends CI_Model{
     function getMenu(){
     	$this->db->select('*');
         $this->db->from('menu');
+        $this->db->where('status',1);
         $this->db->close();
         return $this->db->get()->result();
     }
