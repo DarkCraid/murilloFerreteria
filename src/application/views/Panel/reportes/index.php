@@ -48,8 +48,11 @@
 	</div>
 </div>
 
-
-<?php $this->load->view('try'); ?>
+<script src="<?= base_url('assets/sources/js/graficas/highcharts.js');?>"></script>
+<script src="<?= base_url('assets/sources/js/graficas/series-label.js');?>"></script>
+<script src="<?= base_url('assets/sources/js/graficas/exporting.js');?>"></script>
+<script src="<?= base_url('assets/sources/js/graficas/jquery-3.1.1.min.js');?>"></script>
+<script src="<?= base_url('assets/sources/js/graficas/highcharts-3d.js');?>"></script>
 
 <?php $this->load->view('Helpers/AsideRight');?>
 <?php $this->load->view('Helpers/Footer');?>
@@ -64,7 +67,6 @@
             var datainside = [];
             datainside.push(item.fecha,parseInt(item.total));
             dataret.push(datainside);
-
         });
 
         info = '<?= $TimelineIngresos ?>';
@@ -73,13 +75,16 @@
             var datainside = [];
             datainside.push(item.fecha,parseInt(item.total));
             dataing.push(datainside);
-
         });
 
+        info = '<?= $TimelineGanancias ?>';
+        var datagan = [];
+        $.each(JSON.parse(info),function(i,item){
+            var datainside = [];
+            datainside.push(item.fecha,parseInt(item.total));
+            datagan.push(datainside);
+        });
 
-        console.log(dataret);
-		
-        
 		data = [{
         name: "Ingresos",
         color: "blue",
@@ -91,7 +96,7 @@
     }, {
         name: "Ganancias",
         color: "green",
-        data: []
+        data: datagan
     }];
 
 	Gtimeline('Montos ($)',data,'Ingresos, retiros y ganancias','IRG');
