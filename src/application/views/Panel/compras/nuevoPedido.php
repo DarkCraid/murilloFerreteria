@@ -20,7 +20,7 @@
                         </div>
                         <div class="col-xs-6">
                             <label >Costo actual por unidad</label>
-                            <input type="number" class="form-control" id="monto" min=".1" required>
+                            <input type="prices" class="form-control" id="monto" required>
                         </div>
                     </div>
                     

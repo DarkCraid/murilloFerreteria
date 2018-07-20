@@ -113,9 +113,10 @@ function validCaracteres(e,id){
     var caracteres;
     especiales = "8-09";
     switch($("#"+id).attr('type')){
-        case 'text-number': caracteres = " abcdefghijklmnopqrstuvwxyz1234567890";  break;
+        case 'text-number': caracteres = " abcdefghijklmnopqrstuvwxyz1234567890"; break;
         case 'text':        caracteres = " abcdefghijklmnopqrstuvwxyzáéíóúü";     break;
         case 'number':      caracteres = "1234567890";                            break;
+        case 'prices':      caracteres = "0123456789.";                           break;
         default: caracteres = " abcdefghijklmnopqrstuvwxyz.,;:áéíóúü1234567890";  break;
     }
     teclado_especial=false;
@@ -125,10 +126,27 @@ function validCaracteres(e,id){
             break;
         }
     }
-    if(caracteres.indexOf(teclado)==-1 && !teclado_especial || $("#"+id).val()=="" && key=="32")
+    if($("#"+id).attr('type')=="prices"){
+      if(caracteres.indexOf(teclado)==-1 && !teclado_especial || $("#"+id).val().indexOf('.')!=-1 && teclado=='.')
         return false;
+      if(parseFloat($("#"+id).val())<=0){
+        $("#"+id).parent().children('.errorPrice').remove();
+        texto   =   '<strong class="errorPrice" style="position: absolute;bottom: -25px; color: red; z-index:1000;">El precio debe ser superior a 0.';
+        $("#"+id).parent().append(texto+'</strong>');
+      }
+      else
+        $("#"+id).parent().children('.errorPrice').remove();
+    }else{
+      if(caracteres.indexOf(teclado)==-1 && !teclado_especial || $("#"+id).val()=="" && key=="32")
+        return false;
+    } 
 }
 
+function validPrices(e,value){
+   
+    
+    
+}
 
 
 //GRAFICAS
