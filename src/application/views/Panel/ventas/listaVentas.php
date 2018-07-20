@@ -6,8 +6,8 @@
 <div class="row">
     <div class="container-fluid">
     	<section class="optionsTop col-xs-12">
-            <button class="btn btn-info btn-lg subMenu" id="nuevaVenta">Nuevo pedido</button>
-            <button class="btn btn-info btn-lg subMenu" disabled id="listaVentas">Lista de pedidos</button>
+            <button class="btn btn-info btn-lg subMenu" id="nuevaVenta">Nueva venta</button>
+            <button class="btn btn-info btn-lg subMenu" disabled id="listaVentas">Lista de ventas</button>
         </section> 
         <section id="content-dinamic">
 			<div class="col-xs-12">

@@ -4,8 +4,8 @@
         <div class="col-xs-12 col-lg-8 col-normal">
             <section class="optionsTop">
                 <span class="folio">Folio pedido: <strong><?= $folio; ?></strong></span>
-                <button class="btn btn-info btn-lg subMenu" disabled id="nuevaVenta">Nuevo pedido</button>
-                <button class="btn btn-info btn-lg subMenu" id="listaVentas">Lista de pedidos</button>
+                <button class="btn btn-info btn-lg subMenu" disabled id="nuevaVenta">Nueva venta</button>
+                <button class="btn btn-info btn-lg subMenu" id="listaVentas">Lista de ventas</button>
             </section> 
             <section id="content-dinamic">
                 <div class="form-group">
@@ -58,7 +58,7 @@
             </section>
         </div>  
         <div class="col-xs-12 col-lg-4 text-center col-info">
-            <strong>Detalles de la compra</strong>
+            <strong>Detalles de la venta</strong>
             <div class="container-details">
                 <table class="table table-hover">
                     <thead>
