@@ -9,7 +9,7 @@ class M_ventas extends CI_Model{
     
     function getLastFolio(){
         $this->db->select('folio');
-        $this->db->from('compras');
+        $this->db->from('ventas');
         $this->db->limit(1);
         $this->db->order_by('fecha','DESC');
         $this->db->close();
@@ -37,8 +37,8 @@ class M_ventas extends CI_Model{
     }
 
     function getCompras(){
-        $this->db->select('DATE_FORMAT(fecha,"%d %M, %Y") as fecha,folio,total,nota');
-        $this->db->from('compras');
+        $this->db->select('DATE_FORMAT(fecha,"%d %M, %Y") as fecha,folio,total');
+        $this->db->from('ventas');
         $this->db->where('status',1);
         $this->db->close();
         return $this->db->get()->result();

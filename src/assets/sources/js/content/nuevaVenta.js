@@ -1,4 +1,16 @@
-var productos   = [];
+$('#frecuente').change(function(){
+    showCliente();
+});
+$(document).ready(function(){
+    showCliente();
+});
+
+function showCliente(){
+    if($('#frecuente').val()==0)
+        $(".nombreCliente").hide(500);
+    else
+        $(".nombreCliente").show(500);
+}
 
 $('.subMenu').click(function(){
     getAjax('POST','Ventas/getView',{'page':this.id},'view');
@@ -13,30 +25,38 @@ $('#producto').keyup(function(){
         if(availableTags.text[i]==$( "#producto" ).val())
             pos=i;
     }
-    $( "#monto" ).val(availableTags.cost[pos]);
+    $( "#monto" ).text(availableTags.cost[pos]);
 });
+
+$('#nombreCliente').keyup(function(){
+    $( "#nombreCliente" ).autocomplete({
+        source: clientes
+    });
+    $('.proveedor').text($('#nombreCliente').val());
+});
+
  
 $('#agregar').click(function(){
     var errors      = [];
 
-    if($("#proveedor").val()==0)
-        errors.push('Seleccione un proveedor');
     if($('#producto').val()=="")
-        errors.push('Capture un producto');
+        errors.push('Capture un producto.');
     if($('#cantidad').val()=="" || parseInt($('#cantidad').val())<=0)
-        errors.push('La cantidad debe ser superior a 0');
-    if($('#monto').val()=="" || parseInt($('#monto').val())<=0)
-        errors.push('El costo debe ser superior a 0');
+        errors.push('La cantidad debe ser superior a 0.');
+    if($('#monto').text()=="" || parseInt($('#monto').text())<=0)
+        errors.push('El costo debe ser superior a 0.');
+    if($('#frecuente').val()==1 && $('#nombreCliente').val()=="")
+        errors.push('Ingrese el nombre del cliente.');
 
     if(errors.length<=0){
         productos.push({
             'nombre': $('#producto').val(),
             'cantidad': $('#cantidad').val(),
-            'costo': $('#monto').val()
+            'costo': $('#monto').text()
         });
         $('.total').children('span').text(
             parseFloat($('.total').children('span').text())+
-            (parseFloat($('#monto').val())*parseInt($('#cantidad').val()))
+            (parseFloat($('#monto').text())*parseInt($('#cantidad').val()))
         );
 
         $('#tbContent').children().remove();
@@ -64,12 +84,6 @@ $('#finalizar').click(function(){
     },'confirmarCompra');
 });
 
-$('#proveedor').change(function(){
-    if($("#proveedor").val()!=0)
-        $('.proveedor').text($("#proveedor option:selected").text());
-    else
-        $('.proveedor').text('');
-});
 
 function getErrors(errors){
     let err = '';

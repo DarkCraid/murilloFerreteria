@@ -14,17 +14,15 @@
 				<table class="table table-hover table-striped">
 					<thead>
 						<tr>
-							<th width="10%">FOLIO</th>
-							<th width="70%">NOTA</th>
-							<th width="10%" class="text-right">FECHA</th>
-							<th width="10%" class="text-right">TOTAL</th>
+							<th >FOLIO</th>
+							<th class="text-right">FECHA</th>
+							<th class="text-right">TOTAL</th>
 						</tr>
 					</thead>
 					<tbody>
 						<?php foreach ($compras as $c): ?>
 							<tr class="compra" id="<?= $c->folio; ?>" style="cursor: pointer;">
 								<td><?= $c->folio; ?></td>
-								<td><?= $c->nota; ?></td>
 								<td  class="text-right"><?= str_replace("`","",$c->fecha); ?></td>
 								<td  class="text-right">$ <?= $c->total; ?></td>
 							</tr>

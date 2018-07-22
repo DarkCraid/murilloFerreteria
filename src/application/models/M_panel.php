@@ -18,6 +18,15 @@ class M_panel extends CI_Model{
     function getProductos(){
         $this->db->select('*');
         $this->db->from('inventario');
+        $this->db->where('status',1);
+        $this->db->close();
+        return $this->db->get()->result();
+    }
+
+    function getClientes(){
+        $this->db->select('CONCAT(nombre," ",a_p," ",a_m) AS nombre');
+        $this->db->where('status',1);
+        $this->db->from('clientes');
         $this->db->close();
         return $this->db->get()->result();
     }

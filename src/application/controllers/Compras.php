@@ -47,7 +47,8 @@ class Compras extends CI_Controller
 			'folio' 		=> $this->input->post('folio'),
 			'id_proveedor'	=> $this->input->post('proveedor'),
 			'total'			=> $this->input->post('total'),
-			'nota'			=> $this->input->post('nota')
+			'nota'			=> $this->input->post('nota'),
+			'id_empleado' 	=> $this->session->userdata('id')
 		);
 		echo '<strong>'.$this->M_compras->setCompra($compra,$data).'</strong>';
 	}

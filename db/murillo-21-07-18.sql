@@ -104,7 +104,10 @@ insert  into `compras`(`folio`,`nota`,`id_proveedor`,`fecha`,`total`,`id_emplead
 ('P009-200718','',1,'2018-07-20 01:38:07',1,0,1),
 ('P010-200718','',2,'2018-07-20 01:38:08',1,0,1),
 ('P011-200718','',1,'2018-07-20 01:38:09',1,0,0),
-('P012-200718','',2,'2018-07-20 01:38:10',1,0,1);
+('P012-200718','',2,'2018-07-20 01:38:10',1,0,1),
+('P013-200718','',2,'2018-07-20 15:52:57',1170,0,1),
+('P014-210718','',1,'2018-07-21 09:49:47',20,0,1),
+('P015-210718','',1,'2018-07-21 15:00:09',1170,1,1);
 
 /*Table structure for table `empleados` */
 
@@ -201,7 +204,7 @@ CREATE TABLE `pedidos` (
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `folio_compra` (`folio_compra`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `pedidos` */
 
@@ -217,7 +220,10 @@ insert  into `pedidos`(`id`,`folio_compra`,`articulo`,`cantidad`,`costo_unitario
 (9,'P009-200718','tyu',56,5,1),
 (10,'P010-200718','fgh',456,5,1),
 (11,'P011-200718','qwe',23,5,1),
-(12,'P012-200718','wer',43,5,1);
+(12,'P012-200718','wer',43,5,1),
+(13,'P013-200718','wre',234,5,1),
+(14,'P014-210718','tornillo',4,5,1),
+(15,'P015-210718','qwe',234,5,1);
 
 /*Table structure for table `productos_proveedores` */
 
@@ -339,7 +345,7 @@ DROP TABLE IF EXISTS `ventas`;
 
 CREATE TABLE `ventas` (
   `folio` varchar(11) COLLATE utf8_spanish2_ci NOT NULL,
-  `fecha` datetime NOT NULL,
+  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `total` double unsigned NOT NULL,
   `id_empleado` int(10) unsigned NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
@@ -347,10 +353,6 @@ CREATE TABLE `ventas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `ventas` */
-
-insert  into `ventas`(`folio`,`fecha`,`total`,`id_empleado`,`status`) values 
-('dfsdf','2018-07-20 00:38:24',324,1,1),
-('V001-12312','2018-07-19 00:38:10',1232,1,1);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
