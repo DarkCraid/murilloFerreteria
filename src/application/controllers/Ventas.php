@@ -23,6 +23,10 @@ class Ventas extends CI_Controller
 		echo json_encode($this->M_panel->getProductos());
 	}
 
+	public function getClientes(){
+		echo json_encode($this->M_panel->getClientes());
+	}
+
 	public function getView(){
 		switch($this->input->post('page')){
 			case "nuevaVenta":
@@ -48,7 +52,7 @@ class Ventas extends CI_Controller
 			'id_proveedor'	=> $this->input->post('proveedor'),
 			'total'			=> $this->input->post('total'),
 			'nota'			=> $this->input->post('nota'),
-			'fecha'			=> date("Y-m-d")
+			'id_empleado' 	=> $this->session->userdata('id')
 		);
 		echo '<strong>'.$this->M_ventas->setCompra($compra,$data).'</strong>';
 	}
@@ -56,7 +60,7 @@ class Ventas extends CI_Controller
 	public function getPedidoFrom(){ 
 		$data['productos'] = $this->M_ventas->getPedidoFrom($this->input->post('folio'));
 		$data['proveedor'] = $this->M_ventas->getProveedor($this->input->post('folio'));
-		$this->load->view('Panel/ventas/listaProductos',$data);
+		$this->load->view('Panel/ventas/listaPedidos',$data);
 	}
 
 	public function deleteCompra(){
@@ -82,16 +86,16 @@ class Ventas extends CI_Controller
 
 		if($this->M_ventas->getLastFolio()){
 			$dat 	= (array)$this->M_ventas->getLastFolio();
-			$dat 	= explode('P',$dat['folio']);
+			$dat 	= explode('V',$dat['folio']);
 			$dat 	= explode('-',$dat[1]);
 			$n 		= (intval($dat[0])+1);
 			if((intval($dat[0])+1)<100)
 				$n = '0'.(intval($dat[0])+1);
 			if((intval($dat[0])+1)<10)
 				$n = '00'.(intval($dat[0])+1);
-			return $data['folio']	= 'P'.$n.'-'.$fecha;
+			return $data['folio']	= 'V'.$n.'-'.$fecha;
 		}else			
-			return $data['folio']	= 'P001-'.$fecha;
+			return $data['folio']	= 'V001-'.$fecha;
 	}
 
 	private function getDataListaCompras(){

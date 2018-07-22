@@ -1,7 +1,10 @@
 var availableTags = {'text':[],'cost':[]};
+var clientes = [];
+var productos = [];
 
 $(document).ready(function(){
 	getAjax('POST','Ventas/getProducts',{},'productos');
+	getAjax('POST','Ventas/getClientes',{},'clientes');
 	getAjax('POST','Ventas/getView',{'page':'nuevaVenta'},'view');
 });
 
@@ -13,11 +16,23 @@ function result(from,data){
 			$('.full-container').html(data);
 			break;
 		case "productos":
+				availableTags.text.push("");
+				availableTags.cost.push(0);
 			$.each(JSON.parse(data),function(i,item){
 				availableTags.text.push(item.descripcion);
 				availableTags.cost.push(item.costo_unidad);
 			});
 			break;
+		case "clientes":
+			$.each(JSON.parse(data),function(i,item){
+				clientes.push(item.nombre);
+			});
+			break;
+
+
+
+
+
 		case "confirmarCompra":
 			cleanBotonesModal(false);
 			botonesModal=[{ 
