@@ -40,7 +40,7 @@ function result(from,data){
 			cleanBotonesModal(true);
 			modal('default','wide','Detalles',data,false);
 			break;
-		case "DeletedCompra":
+		case "DeletedVenta":
 			cleanBotonesModal(false);
         	botonesModal=[{ 
 			    label: 'Aceptar',

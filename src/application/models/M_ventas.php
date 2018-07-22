@@ -44,26 +44,26 @@ class M_ventas extends CI_Model{
         return $this->db->get()->result();
     }
 
-    function getPedidoFrom($folio){
+    function getVentaFrom($folio){
         $this->db->select('*');
-        $this->db->from('pedidos');
-        $this->db->where('folio_compra',$folio);
+        $this->db->from('productos_venta');
+        $this->db->where('folio_venta',$folio);
         $this->db->where('status',1);
         $this->db->close();
         return $this->db->get()->result();
     }
 
-    function deleteCompra($folio){
+    function deleteVenta($folio){
         $this->db->trans_start();
         $this->db->where('folio',$folio);
         $this->db->set(array('status' => 0));
-        $this->db->update('compras');
+        $this->db->update('ventas');
         $this->db->trans_complete();
 
         if ($this->db->trans_status() === FALSE)
             return 'Error al canlear la compra.';
         else
-            return 'Se ha cancelado la compra con folio: '.$folio.'.';
+            return 'Se ha cancelado la venta con folio: '.$folio.'.';
     }
 
     function getProveedor($folio){

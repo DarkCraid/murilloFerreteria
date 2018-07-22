@@ -56,14 +56,13 @@ class Ventas extends CI_Controller
 		echo '<strong>'.$this->M_ventas->setVenta($venta,$data).'</strong>';
 	}
 
-	public function getPedidoFrom(){ 
-		$data['productos'] = $this->M_ventas->getPedidoFrom($this->input->post('folio'));
-		$data['proveedor'] = $this->M_ventas->getProveedor($this->input->post('folio'));
-		$this->load->view('Panel/ventas/listaPedidos',$data);
+	public function getVentaFrom(){ 
+		$data['productos'] = $this->M_ventas->getVentaFrom($this->input->post('folio'));
+		$this->load->view('Panel/ventas/listaProductos',$data);
 	}
 
-	public function deleteCompra(){
-		$result = $this->M_ventas->deleteCompra($this->input->post('folio'));
+	public function deleteVenta(){
+		$result = $this->M_ventas->deleteVenta($this->input->post('folio'));
 		echo 	 '<strong>'.$result.'</strong>';
 	}
 

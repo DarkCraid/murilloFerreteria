@@ -65,7 +65,7 @@
             </section>
         </div>  
         <div class="col-xs-12 col-lg-4 text-center col-info">
-            <strong>Detalles de la compra</strong>
+            <strong>Detalles de la venta</strong>
             <div class="container-details">
                 <table class="table table-hover">
                     <thead>
