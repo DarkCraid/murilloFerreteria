@@ -65,7 +65,7 @@
             </section>
         </div>  
         <div class="col-xs-12 col-lg-4 text-center col-info">
-            <strong>Detalles de la compra</strong>
+            <strong>Detalles de la venta</strong>
             <div class="container-details">
                 <table class="table table-hover">
                     <thead>
@@ -81,7 +81,7 @@
             <div class="row text-left">
                 <div class="container-fluid">
                     <label class="nombreCliente">Cliente: </label>
-                    <span class="proveedor"></span><br>
+                    <span class="cliente"></span><br>
                     <button class="btn btn-success btn-block btn-lg" id="finalizar" disabled>Finalizar</button>
                 </div>
             </div>

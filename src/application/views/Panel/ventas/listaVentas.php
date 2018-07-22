@@ -39,7 +39,7 @@
 	    getAjax('POST','Ventas/getView',{'page':this.id},'view');
 	});
 	$('.compra').click(function(){
-		getAjax('POST','Ventas/getPedidoFrom',{'folio':this.id},'showPedidosFrom');
+		getAjax('POST','Ventas/getVentaFrom',{'folio':this.id},'showPedidosFrom');
 	});
 
 </script>

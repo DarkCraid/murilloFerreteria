@@ -1,3 +1,5 @@
+var pos = -1;
+
 $('#frecuente').change(function(){
     showCliente();
 });
@@ -6,8 +8,10 @@ $(document).ready(function(){
 });
 
 function showCliente(){
-    if($('#frecuente').val()==0)
+    if($('#frecuente').val()==0){
         $(".nombreCliente").hide(500);
+        $('.cliente').text("");
+    }
     else
         $(".nombreCliente").show(500);
 }
@@ -30,9 +34,15 @@ $('#producto').keyup(function(){
 
 $('#nombreCliente').keyup(function(){
     $( "#nombreCliente" ).autocomplete({
-        source: clientes
+        source: clientes.name
     });
-    $('.proveedor').text($('#nombreCliente').val());
+    $('.cliente').text($('#nombreCliente').val());
+    for (var i = 0; i < clientes.name.length; i++) {
+        if(clientes.name[i]==$( ".cliente" ).text())
+            pos=i;
+        else
+            pos = -1;
+    }
 });
 
  
@@ -75,15 +85,24 @@ $('#agregar').click(function(){
 });
 
 $('#finalizar').click(function(){
-    getAjax('POST','Ventas/setPedido',{
-        'data':productos,
-        'folio':$('.folio').children('strong').text(),
-        'proveedor':$("#proveedor").val(),
-        'total':$('.total').children('span').text(),
-        'nota':$('#nota').val()
-    },'confirmarCompra');
+    if($('.cliente').text()=="")
+        setVenta(null);
+    else if(pos!= -1){
+        setVenta(clientes.id[pos]);
+    }else{
+        cleanBotonesModal(true);
+        modal('danger','large','ERROR','<strong>El cliente no existe.</strong>',true);
+    }
 });
 
+function setVenta(idCliente){
+    getAjax('POST','Ventas/setVenta',{
+        'data':productos,
+        'folio':$('.folio').children('strong').text(),
+        'cliente':idCliente,
+        'total':$('.total').children('span').text()
+    },'confirmarCompra');
+}
 
 function getErrors(errors){
     let err = '';
@@ -92,10 +111,6 @@ function getErrors(errors){
     }
     return '<ul>'+err+'</ul>';
 }
-
-$('#nuevoProve').click(function(){
-    getAjax('POST','Proveedores/getView',{'page':'nuevoProveedor'},'nuevoProveedor');
-});
 
 $('input').keypress(function(event){
     return validCaracteres(event,this.id);

@@ -2,7 +2,7 @@
 	.cancelar{position: absolute;right: 5px;top: -50px;}
 </style>
 <div class="row">
-	<button class="btn btn-danger btn-lg cancelar">CANCELAR COMPRA</button>
+	<button class="btn btn-danger btn-lg cancelar">CANCELAR VENTA</button>
 	<div class="col-xs-12">
 		<table class="table table-hover">
 			<thead>
@@ -27,7 +27,6 @@
 			</tbody>
 		</table>
 		<hr>
-		<label>Proveedor: </label><span> <?= $proveedor->nombre; ?></span><br>
 		<label>Total: </label><span> $ <?= $total; ?></span>
 		
 	</div>
@@ -44,10 +43,10 @@
 		    label: 'SI',
 	        cssClass: 'btn-primary',
 	        action: function(dialogItself){ 
-	        	getAjax('POST','Compras/deleteCompra',{'folio':'<?= $productos[0]->folio_compra ?>'},'DeletedCompra');
+	        	getAjax('POST','Ventas/deleteVenta',{'folio':'<?= $productos[0]->folio_venta ?>'},'DeletedVenta');
 	        }
 	    }];	
-	    var question = "<strong>¿Desea canselar la compra?</strong>";
+	    var question = "<strong>¿Desea canselar la venta?</strong>";
 	    modal('warning','large','ATENCION',question,false);			
 	});
 </script>
