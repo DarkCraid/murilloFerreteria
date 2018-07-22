@@ -252,9 +252,16 @@ CREATE TABLE `productos_venta` (
   `costo_unitario` double unsigned NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `productos_venta` */
+
+insert  into `productos_venta`(`id`,`folio_venta`,`articulo`,`cantidad`,`costo_unitario`,`status`) values 
+(1,'V001-220718','torniquete',12,80,1),
+(2,'V002-220718','tornillo',12,5,1),
+(3,'V003-220718','torniquete',10,80,1),
+(4,'V004-220718','tornillo',12,5,1),
+(5,'V005-220718','torniquete',50,80,1);
 
 /*Table structure for table `proveedores` */
 
@@ -348,11 +355,19 @@ CREATE TABLE `ventas` (
   `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `total` double unsigned NOT NULL,
   `id_empleado` int(10) unsigned NOT NULL,
+  `id_cliente` int(10) unsigned DEFAULT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`folio`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `ventas` */
+
+insert  into `ventas`(`folio`,`fecha`,`total`,`id_empleado`,`id_cliente`,`status`) values 
+('V001-220718','2018-07-21 19:50:42',960,1,NULL,1),
+('V002-220718','2018-07-21 19:59:45',60,1,NULL,1),
+('V003-220718','2018-07-21 20:05:03',800,1,0,1),
+('V004-220718','2018-07-21 20:07:16',60,1,0,1),
+('V005-220718','2018-07-21 20:07:42',4000,1,2,1);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

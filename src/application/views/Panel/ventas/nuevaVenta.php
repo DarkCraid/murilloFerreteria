@@ -81,7 +81,7 @@
             <div class="row text-left">
                 <div class="container-fluid">
                     <label class="nombreCliente">Cliente: </label>
-                    <span class="proveedor"></span><br>
+                    <span class="cliente"></span><br>
                     <button class="btn btn-success btn-block btn-lg" id="finalizar" disabled>Finalizar</button>
                 </div>
             </div>

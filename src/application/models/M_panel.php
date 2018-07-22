@@ -24,7 +24,7 @@ class M_panel extends CI_Model{
     }
 
     function getClientes(){
-        $this->db->select('CONCAT(nombre," ",a_p," ",a_m) AS nombre');
+        $this->db->select('CONCAT(nombre," ",a_p," ",a_m) AS nombre, id');
         $this->db->where('status',1);
         $this->db->from('clientes');
         $this->db->close();

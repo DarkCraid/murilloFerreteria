@@ -42,19 +42,18 @@ class Ventas extends CI_Controller
 	    $this->load->view('Panel/ventas/'.$this->input->post('page'),$data);
 	}
   
-	public function setPedido(){
+	public function setVenta(){
 		$data = $this->input->post('data');
 		for ($i=0; $i < count($data); $i++) { 
 			$data[$i] = (object) $data[$i];
 		}
-		$compra = array(
+		$venta = array(
 			'folio' 		=> $this->input->post('folio'),
-			'id_proveedor'	=> $this->input->post('proveedor'),
 			'total'			=> $this->input->post('total'),
-			'nota'			=> $this->input->post('nota'),
-			'id_empleado' 	=> $this->session->userdata('id')
+			'id_empleado' 	=> $this->session->userdata('id'),
+			'id_cliente'	=> $this->input->post('cliente')
 		);
-		echo '<strong>'.$this->M_ventas->setCompra($compra,$data).'</strong>';
+		echo '<strong>'.$this->M_ventas->setVenta($venta,$data).'</strong>';
 	}
 
 	public function getPedidoFrom(){ 
