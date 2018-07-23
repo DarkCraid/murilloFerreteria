@@ -52,4 +52,13 @@ class Login extends CI_Controller {
 							'msg' => 'El usuario y la contraseña son obligatorios.'
 					));
 	}
+
+	public function logOut(){
+		$this->session->sess_destroy();
+		redirect(base_url().'index.php/Inicio');
+	}
+
+	public function Register(){
+		$this->load->view('Panel/Registro');
+	}
 }
