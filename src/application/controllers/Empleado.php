@@ -8,6 +8,7 @@ class Empleado extends CI_Controller
 		parent::__construct();
 		
 		$this->load->model('M_panel');
+		$this->load->model('M_empleado');
 	}
 
 	public function index()

@@ -1,10 +1,11 @@
+let base_url = 'http://localhost/murilloFerreteria/src/index.php/';
 $(document).ready(function(){   
-
+pushTable();
 });
 
 
 
-
+/*
 function openModal(id) 
 {
    let fom= '<form class="form-horizontal" action="">'
@@ -86,5 +87,39 @@ function openModal(id)
                 dialogItself.close();
             }
         }]
+    }); 
+}
+*/
+
+function pushTable() 
+{
+    $.ajax({
+        type:"POST",
+        url: base_url+'Inventario/get',
+        data:{},
+        success:function (data)
+        {
+            var c = JSON.parse(data);
+    var estatus="";
+    $.each(c,function(i,item)
+    {
+
+        $('#contenido_tabla').append('<tr>'
+        +'<td><a style="cursor:pointer;">#Cl-'+item.id+'</a></td>'
+        +'<td>'+item.descripcion+'</td>'
+        +'<td>'+item.costo_unidad+'</td>'
+        +'<td>'+item.cantidad+'</td>'
+        +'</tr>');
     });
+        },
+        error:function(jqXHR, textStatus, errorThrown)
+        {alert("Error al guardar la información");}
+    });
+}
+
+function DropTable() 
+{
+    var oTable = $('#Exportar_a_Excel').dataTable(); 
+    oTable.fnDestroy(); 
+    $("#contenido_tabla tr").remove();
 }

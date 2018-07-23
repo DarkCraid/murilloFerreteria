@@ -8,6 +8,7 @@ class Inventario extends CI_Controller
 		parent::__construct();
 		
 		$this->load->model('M_panel');
+		$this->load->model('M_inventario');
 	}
 
 	public function index()
@@ -15,6 +16,12 @@ class Inventario extends CI_Controller
             redirect(base_url());
 		$data['dataMenu'] = $this->M_panel->getMenu();
 		$this->load->view('Inventario',$data);		
+	}
+
+	public function get()
+	{
+		$result = $this->M_inventario->getInventario();
+    	echo json_encode($result);
 	}
 
 
