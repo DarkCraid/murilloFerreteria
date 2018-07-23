@@ -91,62 +91,13 @@
                                         <tr>
                                             <th>Folio</th>
                                             <th>Articulo</th>
+                                            <th>Costo</th>
                                             <th>Cantidad</th>
-                                            <th>Compra</th>
-                                            <th>IVA</th>
-                                            <th>Venta</th>
                                         </tr>
                                     </thead>
                                     <tbody id="contenido_tabla">
                                         
-                                       <tr>
-                                        <td><a onclick="openModal(1)" style="cursor:pointer;">F0001</a></td>  
-                                        <td>Tornillo 1/4</td>
-                                        <td>52</td>
-                                        <td>$58.00</td>
-                                        <td>10%</td>
-                                        <td>$60.00</td>
-                                        </tr>
-
-                                        <tr>
-                                        <td><a onclick="openModal(2)" style="cursor:pointer;">F0002</a></td>  
-                                        <td>Taquete 1/4</td>
-                                        <td>52</td>
-                                        <td>$58.00</td>
-                                        <td>10%</td>
-                                        <td>$60.00</td>
-                                        </tr>
-
-
-                                        <tr>
-                                        <td><a onclick="openModal(3)" style="cursor:pointer;">F0003</a></td>  
-                                        <td>Huza 1/4</td>
-                                        <td>52</td>
-                                        <td>$58.00</td>
-                                        <td>10%</td>
-                                        <td>$60.00</td>
-                                        </tr>
-
-
-                                        <tr>
-                                        <td><a onclick="openModal(4)" style="cursor:pointer;">F0004</a></td>  
-                                        <td>Clavo 1/4</td>
-                                        <td>52</td>
-                                        <td>$58.00</td>
-                                        <td>10%</td>
-                                        <td>$60.00</td>
-                                        </tr>
-
-
-                                        <tr>
-                                        <td><a onclick="openModal(5)" style="cursor:pointer;">F0005</a></td>  
-                                        <td>Tuerca 1/4</td>
-                                        <td>52</td>
-                                        <td>$58.00</td>
-                                        <td>10%</td>
-                                        <td>$60.00</td>
-                                        </tr>
-
+                                      
 
                                     </tbody>
                                 </table>

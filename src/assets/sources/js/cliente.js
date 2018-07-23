@@ -8,7 +8,7 @@ pushTable();
 
 function openModal(id) 
 {
-   let fom= '<form class="form-horizontal" action="">'
+  let fom= '<form class="form-horizontal" action="">'
                     +'<div class="row form-group">'
                       +'<div class="col-sm-4 col-md-3 col-lg-2 text-right">'
                         +'<label for="tipo" class="col-form-label mr-2 control-label" id="label_representanteLegal">Folio: </label>'
@@ -19,7 +19,7 @@ function openModal(id)
                     +'</div>'
                     +'<div class="row form-group">'
                         +'<div class="col-sm-4 col-md-3 col-lg-2 text-right">'
-                            +'<label for="rfc_" class="col-form-label mr-2 control-label">Nombres(s): </label>'
+                            +'<label for="rfc_" class="col-form-label mr-2 control-label">Nombre: </label>'
                         +'</div>'
                         +'<div class="col-md-8 col-lg-3">'
                             +'<input type="text" name="estado" id="nombre" class="form-control" placeholder="" >'
@@ -207,7 +207,7 @@ $('#Agregar').click(function(event) {
         +'</form>';
 
     BootstrapDialog.show({
-    title: 'id',
+    title: 'Nuevo Registro',
     message: $(fom),
     buttons: [{
         label: 'Agregar',
