@@ -126,8 +126,8 @@
 
         <hr>
         <li>
-          <a href="#">
-            <i class="fa fa-share"></i> <span>Cerrar Sesion</span>
+          <a href="<?= base_url('index.php/Login/logOut'); ?>">
+            <i class="fa fa-share" id="systemExit"></i> <span>Cerrar Sesion</span>
           </a>
         </li>
 

@@ -1,5 +1,3 @@
-<?php $this->load->view('Helpers/Header');?>
-<?php $this->load->view('Helpers/AsideLeft');?>
 
   
 
