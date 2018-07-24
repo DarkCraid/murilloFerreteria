@@ -1,4 +1,4 @@
-var availableTags = {'text':[],'cost':[]};
+var availableTags = {'text':[],'cost':[],'cant':[]};
 var clientes = {'name':[],'id':[]};
 var productos = [];
 
@@ -15,11 +15,14 @@ function result(from,data){
 			break;
 		case "productos":
 				availableTags.text.push("");
+				availableTags.cant.push(0);
 				availableTags.cost.push(0);
 			$.each(JSON.parse(data),function(i,item){
 				availableTags.text.push(item.descripcion);
 				availableTags.cost.push(item.costo_unidad);
+				availableTags.cant.push(item.cantidad);
 			});
+			console.log(availableTags);
 			break;
 		case "clientes":
 			$.each(JSON.parse(data),function(i,item){

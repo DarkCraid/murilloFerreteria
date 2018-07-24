@@ -6,7 +6,7 @@
     .monto{ position: absolute;
      top: 25px; 
     font-size: 25px !important;
-    right: 30px;
+    right: 30px; 
 }
 </style>
 
@@ -22,14 +22,14 @@
                 <div class="container col-xs-12">
                     <div class="form-group">
                         <label >Nombre del producto</label>
-                        <input type="text" class="form-control" id="producto" required>
+                        <input type="text-number" class="form-control" id="producto" data-toggle="tooltip" data-placement="top" title="La sugerencia de productos será mostrada al escribir un producto." required>
                         <strong class="monto">$<strong id="monto"></strong></strong>
                     </div>
                     <div class="form-group">
                         <div class="row">
                             <div class="col-xs-6">
                                 <label >Cantidad</label>
-                                <input type="number" class="form-control" id="cantidad" min="1" required>
+                                <input type="number" class="form-control" id="cantidad" min="1" max="20" required>
                             </div>
                         </div>
                     </div>

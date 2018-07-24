@@ -30,6 +30,15 @@ $('#producto').keyup(function(){
             pos=i;
     }
     $( "#monto" ).text(availableTags.cost[pos]);
+    if(parseInt(availableTags.cant[pos])<=0){
+        $( "#cantidad" ).attr('disabled',true);
+        $( "#cantidad" ).attr('placeholder','No hay disponibles.');
+    }
+    else{
+        $( "#cantidad" ).attr('disabled',false);
+        $( "#cantidad" ).attr('max',availableTags.cant[pos]);
+        $( "#cantidad" ).attr('placeholder','');
+    }
 });
 
 $('#nombreCliente').keyup(function(){
