@@ -124,4 +124,6 @@
 	});
 </script>
 
-
+<style>
+    .highcharts-menu-item{font-size: 20px !important;}
+</style>

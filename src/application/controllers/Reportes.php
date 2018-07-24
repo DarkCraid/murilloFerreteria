@@ -65,7 +65,4 @@ class Reportes extends CI_Controller
 
 		$this->load->view('Panel/reportes/index',$data);		
 	}
-
-
-
 }
