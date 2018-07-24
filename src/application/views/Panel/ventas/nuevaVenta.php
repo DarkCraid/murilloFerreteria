@@ -67,7 +67,7 @@
         <div class="col-xs-12 col-lg-4 text-center col-info">
             <strong>Detalles de la venta</strong>
             <div class="container-details">
-                <table class="table table-hover">
+                <table id="tbContent" class="table table-hover">
                     <thead>
                         <tr>
                             <th>Producto</th>
@@ -75,7 +75,7 @@
                             <th class="text-right">Costo</th>
                         </tr>
                     </thead>
-                    <tbody id="tbContent"></tbody>
+                    <tbody></tbody>
                 </table>
             </div>
             <div class="row text-left">

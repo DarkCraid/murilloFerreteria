@@ -4,7 +4,7 @@
 <div class="row">
 	<button class="btn btn-danger btn-lg cancelar">CANCELAR VENTA</button>
 	<div class="col-xs-12">
-		<table class="table table-hover">
+		<table id="listaCont" class="table table-hover">
 			<thead>
 				<tr>
 					<th width="60%">ARTICULO</th>

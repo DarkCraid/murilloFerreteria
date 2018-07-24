@@ -11,7 +11,7 @@
         </section> 
         <section id="content-dinamic">
 			<div class="col-xs-12">
-				<table class="table table-hover table-striped">
+				<table id="listVentasTB" class="table table-hover table-striped">
 					<thead>
 						<tr>
 							<th >FOLIO</th>
@@ -35,6 +35,9 @@
 </div>
 
 <script>
+	$(document).ready(function(){
+		insertarPaginado('listVentasTB',10);
+	});
     $('.subMenu').click(function(){
 	    getAjax('POST','Ventas/getView',{'page':this.id},'view');
 	});

@@ -5,8 +5,6 @@ $(document).ready(function(){
 	getAjax('POST','Compras/getView',{'page':'nuevoPedido'},'view');
 });
 
-
- 
 function result(from,data){
 	switch(from){
 		case "view":
