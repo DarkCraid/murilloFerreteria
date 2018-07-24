@@ -34,18 +34,18 @@ $('#agregar').click(function(){
             'cantidad': $('#cantidad').val(),
             'costo': $('#monto').val()
         });
-        $('.total').children('span').text(
-            parseFloat($('.total').children('span').text())+
-            (parseFloat($('#monto').val())*parseInt($('#cantidad').val()))
-        );
+        var total = parseFloat($('.total').children('span').text())+
+            (parseFloat($('#monto').val())*parseInt($('#cantidad').val()));
+        $('.total').children('span').text(total.toFixed(2));
 
-        $('#tbContent').children().remove();
+        dropDataTable('tbContent');
         for (var i = 0; i < productos.length; i++) {
             var cont = '<tr><td class="text-left">'+productos[i].nombre+'</td><td class="text-center">'+
             productos[i].cantidad+' | $ '+productos[i].costo+'</td><td class="text-right">$ '+
             (parseFloat(productos[i].cantidad)*parseFloat(productos[i].costo))+'</td></tr>';
-            $('#tbContent').append(cont);
+            $('#tbContent').children('tbody').append(cont);
         }
+        insertarPaginado('tbContent',5);
         $('#finalizar').attr('disabled',false);
     }else{
         cleanBotonesModal(true);

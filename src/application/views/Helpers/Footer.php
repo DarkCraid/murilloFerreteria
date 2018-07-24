@@ -51,5 +51,9 @@
 <script src="<?= base_url('assets/sources/js/bootstrap.min.js'); ?>"></script>
 
 <script src="<?= base_url('assets/sources/js/bootstrap-dialog.min.js'); ?>"></script>
+
+
+<script src="<?= base_url('assets/sources/js/jquery.dataTables.min.js'); ?>"></script>
+<script src="<?= base_url('assets/sources/js/dataTables.bootstrap.min.js'); ?>"></script>
 </body>
 </html>

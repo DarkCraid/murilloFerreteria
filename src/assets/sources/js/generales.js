@@ -21,16 +21,16 @@ function dropDataCombo(comboId){
 }
 
 // -------------------------------------------------------------------------------------------------- destruir combo
-function insertarPaginado(tableId){
+function insertarPaginado(tableId,length,search=false){
   $('#'+tableId).DataTable({
      'paging'       : true,
      'lengthChange' : false,
-     'searching'    : true,
+     'searching'    : search,
      'ordering'     : false,
      'info'         : false,
      'autoWidth'    : false,
      'destroy'      : true,
-     "iDisplayLength": 7,
+     "iDisplayLength": length,
      "language"     : {  "url": window.location.origin+"/assets/files/SpanishT.json"  }
   });
   $('.dataTables_info').parent().parent().css('padding','0px 30px');

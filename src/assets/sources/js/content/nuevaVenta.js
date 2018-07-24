@@ -69,13 +69,14 @@ $('#agregar').click(function(){
             (parseFloat($('#monto').text())*parseInt($('#cantidad').val()))
         );
 
-        $('#tbContent').children().remove();
+        dropDataTable('tbContent');
         for (var i = 0; i < productos.length; i++) {
             var cont = '<tr><td class="text-left">'+productos[i].nombre+'</td><td class="text-center">'+
             productos[i].cantidad+' | $ '+productos[i].costo+'</td><td class="text-right">$ '+
             (parseFloat(productos[i].cantidad)*parseFloat(productos[i].costo))+'</td></tr>';
-            $('#tbContent').append(cont);
+            $('#tbContent').children('tbody').append(cont);
         }
+        insertarPaginado('tbContent',5);
         $('#finalizar').attr('disabled',false);
     }else{
         cleanBotonesModal(true);

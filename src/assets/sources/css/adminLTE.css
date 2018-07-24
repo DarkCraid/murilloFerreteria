@@ -19,3 +19,4 @@ hr{color: #e3e3e3;background-color: #a7a6a6;height: 1px;}
 .total{font-size: 40px;font-family: arial}
 .ui-menu,option{background: #ffd49c !important;}
 textarea{resize: none;}
+.pagination{float: right;}

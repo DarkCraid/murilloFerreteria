@@ -40,6 +40,7 @@ class M_compras extends CI_Model{
         $this->db->select('DATE_FORMAT(fecha,"%d %M, %Y") as fecha,folio,total,nota');
         $this->db->from('compras');
         $this->db->where('status',1);
+        $this->db->order_by('compras.fecha','DESC');
         $this->db->close();
         return $this->db->get()->result();
     }

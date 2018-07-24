@@ -40,6 +40,7 @@ class M_ventas extends CI_Model{
         $this->db->select('DATE_FORMAT(fecha,"%d %M, %Y") as fecha, folio, total');
         $this->db->from('ventas');
         $this->db->where('status',1);
+        $this->db->order_by('ventas.fecha','DESC');
         $this->db->close();
         return $this->db->get()->result();
     }
