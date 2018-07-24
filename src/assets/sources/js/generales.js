@@ -161,19 +161,6 @@ function validCaracteres(e,id){
     } 
 }
 
-function validPrices(e,value){
-   
-    
-    
-}
-
-
-//GRAFICAS
-
-
-
-
-
 // -------------------------------------------------------------------------------------------------- Graficas (requieren sus respectivos scripts cargados antes que generales.js)
 function Gpastel(NAME,DATA,TITLE,ID){
   $('#'+ID).children('#g').remove();

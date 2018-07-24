@@ -70,9 +70,6 @@
  			'id': $(this).parent('td').parent('tr').attr('id')
  		},'getPhonesFrom');
  	});
- 	$('.proveedores').dblclick(function(){
- 		alert('proveedor '+this.id);
- 	});
  	$('#nuevoProveedor').click(function(){
  		getAjax('POST','Proveedores/getView',{'page':'nuevoProveedor'},'nuevoProveedor');
  	});
