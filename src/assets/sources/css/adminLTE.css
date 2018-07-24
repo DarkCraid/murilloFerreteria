@@ -20,8 +20,8 @@ hr{color: #e3e3e3;background-color: #a7a6a6;height: 1px;}
 .ui-menu,option{background: #ffd49c !important;}
 textarea{resize: none;}
 .pagination{float: right;}
-input:disabled {
-    background: #da00ff14;
+input.error:disabled {
+    background: #da00ff00;
     box-shadow: 0px 0px 5px #b51818 !important;
     border: 1px solid #b5181800 !important;
     color: #000;
