@@ -31,7 +31,7 @@ function insertarPaginado(tableId,length,search=false){
      'autoWidth'    : false,
      'destroy'      : true,
      "iDisplayLength": length,
-     "language"     : {  "url": window.location.origin+"/assets/files/SpanishT.json"  }
+     "language"     : {  "url": window.location.origin+"/murilloFerreteria/src/assets/sources/files/SpanishT.json"  }
   });
   $('.dataTables_info').parent().parent().css('padding','0px 30px');
   $('.dataTables_info').parent().css('text-align','right');
@@ -115,7 +115,26 @@ function validCaracteres(e,id){
     switch($("#"+id).attr('type')){
         case 'text-number': caracteres = " abcdefghijklmnopqrstuvwxyz1234567890"; break;
         case 'text':        caracteres = " abcdefghijklmnopqrstuvwxyzáéíóúü";     break;
-        case 'number':      caracteres = "1234567890";                            break;
+        case 'number': 
+          switch($("#"+id).attr('rol')){
+            case "negative":
+              caracteres = "-1234567890";
+              if($("#"+id).val().length >0 && teclado=='-' && $("#"+id).val().indexOf('-')!=-1)
+                return false;
+              break;
+            default:
+              caracteres = "1234567890";
+          }   
+          if($("#"+id).attr('min')){ 
+            if(parseInt($('#'+id).val()+teclado)< parseInt($("#"+id).attr('min')))
+              return false;
+          }
+          if($("#"+id).attr('max')){ 
+            if(parseInt($('#'+id).val()+teclado)>parseInt($("#"+id).attr('max')))
+              return false;   
+          }                     
+          break;
+
         case 'prices':      caracteres = "0123456789.";                           break;
         default: caracteres = " abcdefghijklmnopqrstuvwxyz.,;:áéíóúü1234567890";  break;
     }
