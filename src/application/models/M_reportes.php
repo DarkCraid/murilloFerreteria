@@ -10,7 +10,7 @@ class M_reportes extends CI_Model{
     function getRetiros(){
     	$this->db->select('DATE_FORMAT(fecha,"%Y") AS year,DATE_FORMAT(fecha,"%m") AS mes ,DATE_FORMAT(fecha,"%d") AS dia, SUM(total) AS total');
         $this->db->from('compras');
-        $this->db->where('status',1);
+        $this->db->where('status',2);
         $this->db->group_by('DATE_FORMAT(fecha,"%Y-%m-%d")');
         $this->db->order_by('fecha','asc');
         $this->db->close();

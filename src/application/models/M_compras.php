@@ -54,10 +54,10 @@ class M_compras extends CI_Model{
         return $this->db->get()->result();
     }
 
-    function deleteCompra($folio){
+    function deleteCompra($folio,$num){
         $this->db->trans_start();
         $this->db->where('folio',$folio);
-        $this->db->set(array('status' => 0));
+        $this->db->set(array('status' => $num));
         $this->db->update('compras');
         $this->db->trans_complete();
 

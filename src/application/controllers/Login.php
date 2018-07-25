@@ -23,7 +23,7 @@ class Login extends CI_Controller {
 			if($result != null){
 				if($result->pssw == md5($pssw)){
 					$idEmp = (array) $this->M_session->getidEmploye($result->id);
-					$data = array('user' => $result->user,'login' => true,'id' => $idEmp['id']);
+					$data = array('user' => $result->user,'login' => true,'id' => $idEmp['id'],'rol' => $result->tipo);
 					$this->session->set_userdata($data);
 					$this->M_session->closeDB();
 					echo 	json_encode(

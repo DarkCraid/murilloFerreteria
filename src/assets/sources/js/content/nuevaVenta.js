@@ -75,10 +75,9 @@ $('#agregar').click(function(){
             'cantidad': $('#cantidad').val(),
             'costo': $('#monto').text()
         });
-        $('.total').children('span').text(
-            parseFloat($('.total').children('span').text())+
-            (parseFloat($('#monto').text())*parseInt($('#cantidad').val()))
-        );
+        var total = parseFloat($('.total').children('span').text())+
+            (parseFloat($('#monto').val())*parseInt($('#cantidad').val()));
+        $('.total').children('span').text(total.toFixed(2));
 
         dropDataTable('tbContent');
         for (var i = 0; i < productos.length; i++) {

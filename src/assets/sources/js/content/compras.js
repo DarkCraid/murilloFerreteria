@@ -68,7 +68,7 @@ function result(from,data){
 			notificationToReload(data);
 			break;
 	}
-}//$('.full-container').html(data.page);
+}
 
 function notificationToReload(data){
 	cleanBotonesModal(false);
