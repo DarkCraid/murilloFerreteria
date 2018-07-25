@@ -64,7 +64,7 @@ class M_compras extends CI_Model{
         if ($this->db->trans_status() === FALSE)
             return 'Error al canlear la compra.';
         else
-            return 'Se ha cancelado la compra con folio: '.$folio.'.';
+            return 'Se han eliminado los pedidos y la compra con folio: '.$folio.'.';
     }
 
     function getProveedor($folio){
@@ -81,9 +81,10 @@ class M_compras extends CI_Model{
         $this->db->trans_start();
         foreach ($data as $p) {
             $query = $this->db->get_where('inventario', array('descripcion' => $p->articulo));
+            $cant = $query->row();
             if($query->num_rows() == 1){
                 $this->db->where('descripcion',$p->articulo);
-                $this->db->set(array('cantidad = cantidad +' => $p->cantidad));
+                $this->db->set(array('cantidad' => $cant->cantidad + $p->cantidad));
                 $this->db->update('inventario');
             }
             else{
@@ -95,11 +96,12 @@ class M_compras extends CI_Model{
                 $this->db->insert('inventario',$product);
             }
         }
+
         $this->db->trans_complete();
 
         if ($this->db->trans_status() === FALSE)
-            return 'A ocurrido un error al realizar la migración.';
+            return false;
         else
-            return 'Se ha actualizado el inventario exitosamente.';
+            return true;
     }
 }

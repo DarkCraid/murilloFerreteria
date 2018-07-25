@@ -30,16 +30,7 @@ function result(from,data){
 			modal('default','wide','Detalles',data,false);
 			break;
 		case "DeletedCompra":
-			cleanBotonesModal(false);
-        	botonesModal=[{ 
-			    label: 'Aceptar',
-		        cssClass: 'btn-primary',
-		        action: function(dialogItself){ 
-		        	getAjax('POST','Compras/getView',{'page':'listaCompras'},'view'); 
-		        	closeAllModals();
-		        }
-		    }];
-			modal('info','large','ATENCION',data,false);	
+			notificationToReload(data);	
 			break;
 		case "nuevoProveedor":
 			cleanBotonesModal(true);
@@ -74,8 +65,20 @@ function result(from,data){
 			});
 			break;
 		case "compraSuccess":
-			alert(data);
-			closeAllModals();
+			notificationToReload(data);
 			break;
 	}
 }//$('.full-container').html(data.page);
+
+function notificationToReload(data){
+	cleanBotonesModal(false);
+	botonesModal=[{ 
+	    label: 'Aceptar',
+        cssClass: 'btn-primary',
+        action: function(dialogItself){ 
+        	getAjax('POST','Compras/getView',{'page':'listaCompras'},'view'); 
+        	closeAllModals();
+        }
+    }];
+	modal('info','large','ATENCION',data,false); 
+}
