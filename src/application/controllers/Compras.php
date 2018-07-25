@@ -65,7 +65,8 @@ class Compras extends CI_Controller
 	}
 
 	public function confirmCompra(){
-		echo "asd";
+		$data = $this->M_compras->getPedidoFrom($this->input->post('folio'));
+		echo $this->M_compras->updateInventario($data);
 	}
 
 
