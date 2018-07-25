@@ -10,7 +10,7 @@
             <section id="content-dinamic">
                 <div class="form-group">
                     <label >Nombre del producto</label>
-                    <input type="text" class="form-control" id="producto" required>
+                    <input type="text-number" class="form-control" id="producto" required>
                 </div>
                 <div class="form-group">
                     <div class="row">

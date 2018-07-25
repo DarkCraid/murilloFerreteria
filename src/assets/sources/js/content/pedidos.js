@@ -28,12 +28,22 @@ $('#agregar').click(function(){
     if($('#monto').val()=="" || parseInt($('#monto').val())<=0)
         errors.push('El costo debe ser superior a 0');
 
+    var exist = false;
+
     if(errors.length<=0){
-        productos.push({
-            'nombre': $('#producto').val(),
-            'cantidad': $('#cantidad').val(),
-            'costo': $('#monto').val()
-        });
+        for (var i = 0; i < productos.length; i++) {
+            if(productos[i].nombre == $('#producto').val()){
+                productos[i].cantidad = parseInt(productos[i].cantidad) + parseInt($('#cantidad').val());
+                var exist = true;
+            }
+        }
+        if(!exist)
+            productos.push({
+                'nombre': $('#producto').val(),
+                'cantidad': $('#cantidad').val(),
+                'costo': $('#monto').val()
+            });
+
         var total = parseFloat($('.total').children('span').text())+
             (parseFloat($('#monto').val())*parseInt($('#cantidad').val()));
         $('.total').children('span').text(total.toFixed(2));

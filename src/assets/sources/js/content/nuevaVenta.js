@@ -24,23 +24,12 @@ $('#producto').keyup(function(){
     $( "#producto" ).autocomplete({
         source: availableTags.text
     });
-    var pos=0;
     for (var i = 0; i < availableTags.text.length; i++) {
         if(availableTags.text[i]==$( "#producto" ).val())
             pos=i;
     }
     $( "#monto" ).text(availableTags.cost[pos]);
-    if(parseInt(availableTags.cant[pos])<=0){
-        $( "#cantidad" ).attr('disabled',true);
-        $( "#cantidad" ).attr('placeholder','No hay disponibles.');
-        $( "#cantidad" ).addClass('error');
-    }
-    else{
-        $( "#cantidad" ).attr('disabled',false);
-        $( "#cantidad" ).attr('max',availableTags.cant[pos]);
-        $( "#cantidad" ).attr('placeholder','');
-        $( "#cantidad" ).removeClass('error');
-    }
+    validCant();
 });
 
 $('#nombreCliente').keyup(function(){
@@ -65,19 +54,34 @@ $('#agregar').click(function(){
     if($('#cantidad').val()=="" || parseInt($('#cantidad').val())<=0)
         errors.push('La cantidad debe ser superior a 0.');
     if($('#monto').text()=="" || parseInt($('#monto').text())<=0)
-        errors.push('El costo debe ser superior a 0.');
+        errors.push('El producto no existe.');
     if($('#frecuente').val()==1 && $('#nombreCliente').val()=="")
         errors.push('Ingrese el nombre del cliente.');
 
     if(errors.length<=0){
-        productos.push({
-            'nombre': $('#producto').val(),
-            'cantidad': $('#cantidad').val(),
-            'costo': $('#monto').text()
-        });
-        var total = parseFloat($('.total').children('span').text())+
-            (parseFloat($('#monto').val())*parseInt($('#cantidad').val()));
-        $('.total').children('span').text(total.toFixed(2));
+        console.log(productos);
+        if(parseInt(availableTags.cant[pos]) - parseInt($('#cantidad').val())>=0){
+            for (var i = 0; i < productos.length; i++) {
+                if(productos[i].nombre == $('#producto').val()){
+                    productos[i].cantidad = parseInt(productos[i].cantidad) + parseInt($('#cantidad').val());
+                    var exist = true;
+                }
+            }
+            if(!exist){
+                productos.push({
+                    'nombre': $('#producto').val(),
+                    'cantidad': $('#cantidad').val(),
+                    'costo': $('#monto').text()
+                });
+            }
+            availableTags.cant[pos] = parseInt(availableTags.cant[pos]) - parseInt($('#cantidad').val());
+
+            var total = parseFloat($('.total').children('span').text())+
+            (parseFloat($('#monto').text())*parseInt($('#cantidad').val()));
+            
+            $('.total').children('span').text(total.toFixed(2));
+            validCant();
+        }        
 
         dropDataTable('tbContent');
         for (var i = 0; i < productos.length; i++) {
@@ -126,3 +130,18 @@ function getErrors(errors){
 $('input').keypress(function(event){
     return validCaracteres(event,this.id);
 });
+
+function validCant(){
+    if(parseInt(availableTags.cant[pos])<=0){
+        $( "#cantidad" ).attr('disabled',true);
+        $( "#cantidad" ).attr('placeholder','No hay disponibles.');
+        $( "#cantidad" ).addClass('error');
+        $( "#cantidad" ).val('');
+    }
+    else{
+        $( "#cantidad" ).attr('disabled',false);
+        $( "#cantidad" ).attr('max',availableTags.cant[pos]);
+        $( "#cantidad" ).attr('placeholder','');
+        $( "#cantidad" ).removeClass('error');
+    }
+}
