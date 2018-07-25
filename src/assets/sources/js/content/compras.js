@@ -73,5 +73,9 @@ function result(from,data){
 				$('#proveedor').append(op);
 			});
 			break;
+		case "compraSuccess":
+			alert(data);
+			closeAllModals();
+			break;
 	}
 }//$('.full-container').html(data.page);

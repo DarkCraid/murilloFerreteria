@@ -1,8 +1,12 @@
 <style>
-	.cancelar{position: absolute;right: 5px;top: -50px;}
+	.actions{position: absolute;right: 5px;top: -50px;}
 </style>
 <div class="row">
-	<button class="btn btn-danger btn-lg cancelar">CANCELAR COMPRA</button>
+	<div class="actions">
+		<button class="btn btn-success btn-lg confirmar">CONFIRMAR COMPRA</button>
+		<button class="btn btn-danger btn-lg cancelar">CANCELAR COMPRA</button>
+	</div>
+	
 	<div class="col-xs-12">
 		<table class="table table-hover">
 			<thead>
@@ -49,5 +53,21 @@
 	    }];	
 	    var question = "<strong>¿Desea canselar la compra?</strong>";
 	    modal('warning','large','ATENCION',question,false);			
+	});
+	$('.confirmar').click(function(){
+		cleanBotonesModal(false);
+		botonesModal=[{ 
+		    label: 'CANCELAR',
+	        cssClass: 'btn-default',
+	        action: function(dialogItself){ dialogItself.close(); }
+	    },{ 
+		    label: 'CONTINUAR',
+	        cssClass: 'btn-success',
+	        action: function(dialogItself){ 
+	        	getAjax('POST','Compras/confirmCompra',{'folio':'<?= $productos[0]->folio_compra ?>'},'compraSuccess');
+	        }
+	    }];	
+		let msg = 'Se añadiran al inventario los nuevos productos y se retirará el pedido <span class="text-primary"><?= $productos[0]->folio_compra ?></span> de la lista actual.';
+		modal('warning','large','ATENCION','<strong>'+msg+'</strong>',false);
 	});
 </script>

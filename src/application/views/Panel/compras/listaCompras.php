@@ -7,7 +7,7 @@
     <div class="container-fluid">
     	<section class="optionsTop col-xs-12">
             <button class="btn btn-info btn-lg subMenu" id="nuevoPedido">Nuevo pedido</button>
-            <button class="btn btn-info btn-lg subMenu" disabled id="listaCompras">Lista de pedidos</button>
+            <button class="btn btn-info btn-lg subMenu" disabled id="listaCompras">Lista de pedidos pendientes</button>
         </section> 
         <section id="content-dinamic">
 			<div class="col-xs-12">
