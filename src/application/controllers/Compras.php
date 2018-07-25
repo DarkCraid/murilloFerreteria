@@ -66,7 +66,13 @@ class Compras extends CI_Controller
 
 	public function confirmCompra(){
 		$data = $this->M_compras->getPedidoFrom($this->input->post('folio'));
-		echo $this->M_compras->updateInventario($data);
+		if($this->M_compras->updateInventario($data)){
+			$msg = 'Se ha actualizado el inventario exitosamente.';
+			$msg .="<br>". $this->M_compras->deleteCompra($this->input->post('folio'));
+		}
+		else
+			$msg = 'A ocurrido un error al realizar la migración.';
+		echo '<strong>'.$msg.'</strong>';
 	}
 
 
