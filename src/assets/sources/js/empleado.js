@@ -102,7 +102,10 @@ function openModal(id)
         'a_m' :           $('#a_m').val(),
         'domicilio' :     $('#calle').val()+'↨'+$('#colonia').val(),
         'numero' :        $('#telefono').val(),
-        'tipo' :          'Cliente',
+        'tipo' :          $('#telefono').val(),
+        'usuario' :       $('#telefono').val(),
+        'correo' :        $('#telefono').val(),
+        'contrasena' :    $('#telefono').val(),
         },
         success:function (data){
         //  DropTable();
@@ -179,43 +182,43 @@ $('#Agregar').click(function(event) {
 
                     +'<div class="row form-group">'
                         +'<div class="col-sm-4 col-md-3 col-lg-2 text-right">'
-                            +'<label for="rfc_" class="col-form-label mr-2 control-label">Nombre: </label>'
+                            +'<label class="col-form-label mr-2 control-label">Nombre: </label>'
                         +'</div>'
                         +'<div class="col-md-8 col-lg-3">'
-                            +'<input type="text" name="estado" id="nombre" class="form-control" placeholder="" >'
+                            +'<input type="text" id="nombre" class="form-control" placeholder="" >'
                         +'</div>'
                         +'<div class="col-sm-4 col-md-3 col-lg-3 text-right">'
-                            +'<label for="rfc_" class="col-form-label mr-2 control-label">Apellido Paterno: </label>'
+                            +'<label class="col-form-label mr-2 control-label">Apellido Paterno: </label>'
                         +'</div>'
                         +'<div class="col-md-8 col-lg-3">'
-                           +' <input type="text" name="municipio" id="a_p" class="form-control" placeholder="" >'
+                           +' <input type="text" id="a_p" class="form-control" placeholder="" >'
                         +'</div>'
                     +'</div>'
 
                     +'<div class="row form-group">'
                         +'<div class="col-sm-4 col-md-3 col-lg-2 text-right">'
-                            +'<label for="tipo" class="col-form-label mr-2 control-label" id="label_ciudad">Apellido Materno: </label>'
+                            +'<label class="col-form-label mr-2 control-label" id="label_ciudad">Apellido Materno: </label>'
                        +' </div>'
                         +'<div class="col-md-8 col-lg-3">'
-                           +' <input type="text" name="ciudad" id="a_m" class="form-control" placeholder="" >'
+                           +' <input type="text" id="a_m" class="form-control" placeholder="" >'
                        +' </div>'
                         +'<div class="col-sm-4 col-md-3 col-lg-3 text-right">'
-                           +' <label for="rfc_" class="col-form-label mr-2 control-label">Calle: </label>'
+                           +' <label class="col-form-label mr-2 control-label">Calle: </label>'
                        +' </div>'
                        +' <div class="col-md-8 col-lg-3">'
-                            +'<input type="text" name="telefono" id="calle" class="form-control" placeholder="" >'
+                            +'<input type="text" id="calle" class="form-control" placeholder="" >'
                         +'</div>'
                     +'</div>'
 
                     +'<div class="row form-group">'
                         +'<div class="col-sm-4 col-md-3 col-lg-2 text-right">'
-                            +'<label for="tipo" class="col-form-label mr-2 control-label" id="label_ciudad">Colonia: </label>'
+                            +'<label class="col-form-label mr-2 control-label" id="label_ciudad">Colonia: </label>'
                        +' </div>'
                         +'<div class="col-md-8 col-lg-3">'
                            +' <input type="text" name="ciudad" id="colonia" class="form-control" placeholder="" >'
                        +' </div>'
                         +'<div class="col-sm-4 col-md-3 col-lg-3 text-right">'
-                           +' <label for="rfc_" class="col-form-label mr-2 control-label">Telefono: </label>'
+                           +' <label class="col-form-label mr-2 control-label">Telefono: </label>'
                        +' </div>'
                        +' <div class="col-md-8 col-lg-3">'
                             +'<input type="text" name="telefono" id="telefono" class="form-control" placeholder="" >'
@@ -224,13 +227,13 @@ $('#Agregar').click(function(event) {
 
                     +'<div class="row form-group">'
                         +'<div class="col-sm-4 col-md-3 col-lg-2 text-right">'
-                            +'<label for="tipo" class="col-form-label mr-2 control-label" id="label_ciudad">Usuario: </label>'
+                            +'<label class="col-form-label mr-2 control-label" id="label_ciudad">Usuario: </label>'
                        +' </div>'
                         +'<div class="col-md-8 col-lg-3">'
-                           +' <input type="text" name="ciudad" id="colonia" class="form-control" placeholder="" >'
+                           +' <input type="text" name="ciudad" id="usuario" class="form-control" placeholder="" >'
                        +' </div>'
                         +'<div class="col-sm-4 col-md-3 col-lg-3 text-right">'
-                           +' <label for="rfc_" class="col-form-label mr-2 control-label">Tipo de cuenta: </label>'
+                           +' <label class="col-form-label mr-2 control-label">Tipo de cuenta: </label>'
                        +' </div>'
                        +' <div class="col-md-8 col-lg-3">'
                             +'<select id="tipoUser" name="tipoUser">'
@@ -242,26 +245,26 @@ $('#Agregar').click(function(event) {
 
                     +'<div class="row form-group">'
                         +'<div class="col-sm-4 col-md-3 col-lg-2 text-right">'
-                            +'<label for="tipo" class="col-form-label mr-2 control-label" id="label_ciudad">Contraseña: </label>'
+                            +'<label class="col-form-label mr-2 control-label" id="label_ciudad">Contraseña: </label>'
                        +' </div>'
                         +'<div class="col-md-8 col-lg-3">'
-                           +' <input type="text" name="ciudad" id="colonia" class="form-control" placeholder="" >'
+                           +' <input type="text" id="contrasenia" class="form-control" placeholder="" >'
                        +' </div>'
                         +'<div class="col-sm-4 col-md-3 col-lg-3 text-right">'
-                           +' <label for="rfc_" class="col-form-label mr-2 control-label">Repetir Contraseña: </label>'
+                           +' <label class="col-form-label mr-2 control-label">Repetir Contraseña: </label>'
                        +' </div>'
                        +' <div class="col-md-8 col-lg-3">'
-                            +'<input type="text" name="telefono" id="telefono" class="form-control" placeholder="" >'
+                            +'<input type="text"  id="repContrasenia" class="form-control" placeholder="" >'
                         +'</div>'
                     +'</div>'
 
 
                     +'<div class="row form-group">'
                         +'<div class="col-sm-4 col-md-3 col-lg-2 text-right">'
-                            +'<label for="tipo" class="col-form-label mr-2 control-label" id="label_ciudad">Correo: </label>'
+                            +'<label class="col-form-label mr-2 control-label" id="label_ciudad">Correo: </label>'
                        +' </div>'
                         +'<div class="col-md-8 col-lg-3">'
-                           +' <input type="text" name="ciudad" id="colonia" class="form-control" placeholder="" >'
+                           +' <input type="text" id="correo" class="form-control" placeholder="" >'
                        +' </div>'
                     +'</div>'
 
@@ -280,38 +283,48 @@ $('#Agregar').click(function(event) {
         cssClass: 'btn-success',
         action: function(dialogItself)
         {
+            if ($('#contrasenia').val() == $('#repContrasenia').val()) 
+            {
+                $.ajax({
+                    type:"POST",
+                    url: base_url+'Cliente/push',
+                    data:{
+                    'nombre' :        $('#nombre').val(),
+                    'a_p' :           $('#a_p').val(),
+                    'a_m' :           $('#a_m').val(),
+                    'domicilio' :     $('#calle').val()+'↨'+$('#colonia').val(),
+                    'numero' :        $('#telefono').val(),
+                    'tipo' :          $('#tipoUser').val(),
+                    'usuario' :       $('#usuario').val(),
+                    'correo' :        $('#correo').val(),
+                    'contrasena' :    $('#contrasenia').val(),
+                    },
+                    success:function (data){
+                     // DropTable();
+                     // pushTable();
+                      
+                      BootstrapDialog.show({
+                title: 'Mensage',
+                message: $(data),
+                buttons: [{
+                    label: 'Aceptar',
+                    cssClass: 'btn-success',
+                    action: function(dialogItself)
+                    {dialogItself.close();}
+                    }]
+                });
+                      
+                    },
+                    error:function(jqXHR, textStatus, errorThrown)
+                    {alert("Error al guardar la información");}
+                });
+                    dialogItself.close();
 
-        $.ajax({
-        type:"POST",
-        url: base_url+'Cliente/push',
-        data:{
-        'nombre' :        $('#nombre').val(),
-        'a_p' :           $('#a_p').val(),
-        'a_m' :           $('#a_m').val(),
-        'domicilio' :     $('#calle').val()+'↨'+$('#colonia').val(),
-        'numero' :        $('#telefono').val(),
-        'tipo' :          'Cliente',
-        },
-        success:function (data){
-         // DropTable();
-         // pushTable();
-          
-          BootstrapDialog.show({
-    title: 'Mensage',
-    message: $(data),
-    buttons: [{
-        label: 'Aceptar',
-        cssClass: 'btn-success',
-        action: function(dialogItself)
-        {dialogItself.close();}
-        }]
-    });
-          
-        },
-        error:function(jqXHR, textStatus, errorThrown)
-        {alert("Error al guardar la información");}
-    });
-        dialogItself.close();
+            }
+            else 
+            {alert("no coinciden las contraseñas");}
+
+
 
         }
         },

@@ -83,5 +83,26 @@ class Cliente extends CI_Controller
 	.'</form>';
 	}
 
+	public function search()
+	{
+		if ($this->input->post('status') == 1) {
+			$query = array(
+				'clientes.puntos' => $this->input->post('data')
+			);
+		}
+		if ($this->input->post('status') == 2) {
+			$query = array(
+				'clientes.nombre' => $this->input->post('data')
+			);
+		}
+		if ($this->input->post('status') == 3) {
+			$query = array(
+				'telefonos.numero' => $this->input->post('data')
+			);
+		}
+		$result = $this->M_cliente->getSearch($query);
+    	echo json_encode($result);
+	}
+
 
 }
