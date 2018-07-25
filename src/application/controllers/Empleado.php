@@ -26,7 +26,7 @@ class Empleado extends CI_Controller
 
 	public function push()
 	{
-		$queryCliente = array(
+		$queryEmpleado = array(
 			'nombre' => $this->input->post('nombre'),
 			'a_p' => $this->input->post('a_p'),
 			'a_m' => $this->input->post('a_m'),
@@ -35,9 +35,16 @@ class Empleado extends CI_Controller
 
 		$queryTelefono = array(
 			'numero' => $this->input->post('numero'),
-			'tipo' => $this->input->post('tipo'),
+			'tipo' => 'Empleado',
 		);
-		$this->M_empleado->pushEmpleado($queryCliente,$queryTelefono);
+
+		$queryUser = array(
+			'user' => $this->input->post('usuario'),
+			'tipo' => $this->input->post('tipo'),
+			'pssw' => md5($this->input->post('contrasena')),
+			'email' => $this->input->post('correo'),
+		);
+		$this->M_empleado->pushEmpleado($queryEmpleado,$queryTelefono,$queryUser);
 
 		echo '<form action="#" method="post">'
 	.'<div class="row">'
@@ -73,7 +80,7 @@ class Empleado extends CI_Controller
 	}
 	public function drop()
 	{
-		$this->M_empleado->dropEmpleado($this->input->post('id'));
+		$this->M_empleado->dropEmpleado($this->input->post('idE'),$this->input->post('idU'));
 
 		echo '<form action="#" method="post">'
 	.'<div class="row">'
@@ -86,11 +93,7 @@ class Empleado extends CI_Controller
 
 		public function search()
 	{
-		if ($this->input->post('status') == 1) {
-			$query = array(
-				'empleados.puntos' => $this->input->post('data')
-			);
-		}
+
 		if ($this->input->post('status') == 2) {
 			$query = array(
 				'empleados.nombre' => $this->input->post('data')

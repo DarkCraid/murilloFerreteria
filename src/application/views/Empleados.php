@@ -30,19 +30,19 @@
 
 
                 <div class="row">
-                             <div class="col-sm-3" name="filtro3" id="filtro3">
+                             <div class="col-sm-3" >
                         <input type="hidden" class="form-control">
                         
                     </div>
 
-                    <div class="col-sm-3" name="filtro3" id="filtro3">
-                        <input type="text" class="form-control">
+                    <div class="col-sm-3" >
+                        <input type="text" class="form-control" name="filtro2" id="filtro2">
                         
                     </div>
 
 
-                           <div class="col-sm-3" name="filtro3" id="filtro3">
-                        <input type="text" class="form-control">
+                           <div class="col-sm-3" >
+                        <input type="text" class="form-control" name="filtro3" id="filtro3">
                         
                     </div>
 
