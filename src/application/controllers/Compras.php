@@ -60,7 +60,7 @@ class Compras extends CI_Controller
 	}
 
 	public function deleteCompra(){
-		$result = $this->M_compras->deleteCompra($this->input->post('folio'));
+		$result = $this->M_compras->deleteCompra($this->input->post('folio'),0);
 		echo 	 '<strong>'.$result.'</strong>';
 	}
 
@@ -68,7 +68,7 @@ class Compras extends CI_Controller
 		$data = $this->M_compras->getPedidoFrom($this->input->post('folio'));
 		if($this->M_compras->updateInventario($data)){
 			$msg = 'Se ha actualizado el inventario exitosamente.';
-			$msg .="<br>". $this->M_compras->deleteCompra($this->input->post('folio'));
+			$msg .="<br>". $this->M_compras->deleteCompra($this->input->post('folio'),2);
 		}
 		else
 			$msg = 'A ocurrido un error al realizar la migración.';
