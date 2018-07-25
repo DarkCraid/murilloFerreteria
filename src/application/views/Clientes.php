@@ -16,22 +16,24 @@
 
 
                 <div class="row">
-                    <div class="col-sm-4 text-center" id="txt1" name="txt1">
+                    <!--<div class="col-sm-4 text-center" id="txt1" name="txt1">
                         <span><strong>Filtro por Puntos</strong></span>
-                    </div>
+                    </div>-->
+            
                     <div class="col-sm-4 text-center" id="txt2" name="txt2">
                         <span><strong>Filtrar por Nombre</strong></span>
                     </div>
                     <div class="col-sm-4 text-center" id="txt3" name="txt3">
                         <span><strong>Filtro por Telefono</strong></span>
                     </div>
+               
  
                 </div>
 
 
                 <div class="row">
-                    <div class="col-sm-4">
-                        <select class="form-control" name="filtro" id="filtro">
+               <!--     <div class="col-sm-4">
+                        <select class="form-control" name="filtro1" id="filtro1">
                             <option value="0">-Seleccionar-</option>
                             <option value="1">0 - 100</option>
                             <option value="2">101 - 500</option>
@@ -39,19 +41,24 @@
                             <option value="4">801 - 1000</option>
                             <option value="5">1001 - Más</option>
                         </select>
-                    </div>
+                    </div>-->
 
 
-                    <div class="col-sm-4 name="filtro3" id="filtro3">
-                        <input type="text" class="form-control">
+
+
+                    <div class="col-sm-4" >
+                        <input type="text" class="form-control" name="filtro2" id="filtro2">
                         
                     </div>
 
 
-                           <div class="col-sm-4" name="filtro3" id="filtro3">
-                        <input type="text" class="form-control">
+                           <div class="col-sm-4" >
+                        <input type="text" class="form-control" name="filtro3" id="filtro3">
                         
                     </div>
+
+
+
 
 
 

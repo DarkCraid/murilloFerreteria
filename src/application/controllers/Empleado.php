@@ -17,6 +17,4 @@ class Empleado extends CI_Controller
 		$data['dataMenu'] = $this->M_panel->getMenu();
 		$this->load->view('Empleados',$data);
 	}
-
-
 }

@@ -15,6 +15,10 @@ class M_cliente extends CI_Model{
     {
         $this->db->select('CONCAT(clientes.nombre," ",clientes.a_p," ",clientes.a_m) AS "fullName",
             clientes.id AS "cliente",
+            clientes.nombre AS "nombreModal",
+            clientes.a_p AS "apellidoP",
+            clientes.a_m AS "apellidoM",
+            clientes.domicilio AS "fullDomicilio",
             telefonos.numero AS "telefono",
             clientes.puntos AS "punto"');
         $this->db->from('clientes');
@@ -42,6 +46,24 @@ class M_cliente extends CI_Model{
         $this->db->where(array('id_person' => $param1, 'tipo' => 'Cliente'));
         $this->db->set(array('status' => 0));
         $this->db->update('telefonos');  
+    }
+    public function getSearch($param1)
+    {
+        $this->db->select('CONCAT(clientes.nombre," ",clientes.a_p," ",clientes.a_m) AS "fullName",
+            clientes.id AS "cliente",
+            clientes.nombre AS "nombreModal",
+            clientes.a_p AS "apellidoP",
+            clientes.a_m AS "apellidoM",
+            clientes.domicilio AS "fullDomicilio",
+            telefonos.numero AS "telefono",
+            clientes.puntos AS "punto"');
+        $this->db->from('clientes');
+        $this->db->join('telefonos','telefonos.id_person = clientes.id','left');
+        $this->db->where(array('telefonos.tipo' => 'Cliente','clientes.status' => '1'))
+        ->like($param1);
+        return $this->db->get()->result();
+
+
     }
 
 
