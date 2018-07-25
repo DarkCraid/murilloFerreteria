@@ -64,6 +64,10 @@ class Compras extends CI_Controller
 		echo 	 '<strong>'.$result.'</strong>';
 	}
 
+	public function confirmCompra(){
+		echo "asd";
+	}
+
 
 
 

@@ -46,6 +46,7 @@ function modal(tipe,size,titleMod,msg,close){
     case "info":    tipe = BootstrapDialog.TYPE_INFO;     break;
     case "success": tipe = BootstrapDialog.TYPE_SUCCESS;  break;
     case "primary": tipe = BootstrapDialog.TYPE_PRIMARY;  break;
+    case "warning": tipe = BootstrapDialog.TYPE_WARNING;  break;
     default:        tipe = BootstrapDialog.TYPE_DEFAULT;  break;
   }
 
