@@ -75,4 +75,31 @@ class M_compras extends CI_Model{
         $this->db->close();
         return $this->db->get()->row();
     }
+
+    function updateInventario($data){
+        $res = "";
+        $this->db->trans_start();
+        foreach ($data as $p) {
+            $query = $this->db->get_where('inventario', array('descripcion' => $p->articulo));
+            if($query->num_rows() == 1){
+                $this->db->where('descripcion',$p->articulo);
+                $this->db->set(array('cantidad = cantidad +' => $p->cantidad));
+                $this->db->update('inventario');
+            }
+            else{
+                $product = array(
+                    'descripcion'   => $p->articulo,
+                    'costo_unidad'  => $p->costo_unitario,
+                    'cantidad'      => $p->cantidad
+                );
+                $this->db->insert('inventario',$product);
+            }
+        }
+        $this->db->trans_complete();
+
+        if ($this->db->trans_status() === FALSE)
+            return 'A ocurrido un error al realizar la migración.';
+        else
+            return 'Se ha actualizado el inventario exitosamente.';
+    }
 }
