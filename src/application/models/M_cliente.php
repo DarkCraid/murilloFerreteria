@@ -62,8 +62,6 @@ class M_cliente extends CI_Model{
         $this->db->where(array('telefonos.tipo' => 'Cliente','clientes.status' => '1'))
         ->like($param1);
         return $this->db->get()->result();
-
-
     }
 
 

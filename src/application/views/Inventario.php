@@ -16,14 +16,14 @@
 
 
                 <div class="row">
-                    <div class="col-sm-4 text-center" id="txt1" name="txt1">
-                        <span><strong>Filtro por Tipo</strong></span>
+                    <div class="col-sm-4 text-center" >
+                      <!--  <span><strong>Filtro por Tipo</strong></span>-->
                     </div>
-                    <div class="col-sm-4 text-center" id="txt2" name="txt2">
-                        <span><strong>Filtrar por Precio</strong></span>
-                    </div>
-                    <div class="col-sm-4 text-center" id="txt3" name="txt3">
+                    <div class="col-sm-4 text-center" >
                         <span><strong>Filtro por nombre</strong></span>
+                    </div>
+                    <div class="col-sm-4 text-center" >
+                        <!--<span><strong>Filtrar por Precio</strong></span>-->
                     </div>
  
                 </div>
@@ -31,27 +31,24 @@
 
                 <div class="row">
                     <div class="col-sm-4">
-                        <select class="form-control" name="filtro" id="filtro">
+
+                      <!--  <select class="form-control" name="filtro" id="filtro">
                             <option value="0">-Seleccionar-</option>
-                            <option value="1">No. solicitud</option>
-                            <option value="2">Fecha</option>
-                            <option value="3">Institución</option>
-                            <option value="4">Solicitud Normal</option>
-                            <option value="5">Solicitud Re-Activada</option>
-                        </select>
+                        </select>-->
                     </div>
 
 
-                    <div class="col-sm-4 name="filtro3" id="filtro3">
-                        <select class="form-control" name="filtro2" id="filtro2">
-                            <option value="0">-Seleccionar-</option>
-                        </select>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" name="filtro3" id="filtro3">
+                        
                         
                     </div>
 
 
-                           <div class="col-sm-4" name="filtro3" id="filtro3">
-                        <input type="text" class="form-control">
+                           <div class="col-sm-4" >
+                        <!--<select class="form-control" name="filtro2" id="filtro2">
+                            <option value="0">-Seleccionar-</option>
+                        </select>-->
                         
                     </div>
 

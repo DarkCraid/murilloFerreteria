@@ -22,6 +22,14 @@ class M_inventario extends CI_Model{
     public function dropInventario()    
     {
     }
+    public function getSearch($param1)
+    {
+        $this->db->select('*');
+        $this->db->from('inventario');
+        $this->db->where(array('status' => '1'))
+        ->like($param1);
+        return $this->db->get()->result();
+    }
 
 
 }

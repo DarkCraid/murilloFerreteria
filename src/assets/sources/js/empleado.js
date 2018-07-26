@@ -126,40 +126,46 @@ function openModal(empleado,user,param1,param2,param3,param4,param5,param6,param
         cssClass: 'btn-success',
         action: function(dialogItself)
         {
+            if ($('#contrasenia').val() == $('#repContrasenia').val()) 
+            {
+                $.ajax({
+                    type:"POST",
+                    url: base_url+'Empleado/update',
+                    data:{
+                    'nombre' :        $('#nombre').val(),
+                    'a_p' :           $('#a_p').val(),
+                    'a_m' :           $('#a_m').val(),
+                    'domicilio' :     $('#calle').val()+'↨'+$('#colonia').val(),
+                    'numero' :        $('#telefono').val(),
+                    'tipo' :          $('#tipoUser').val(),
+                    'usuario' :       $('#usuario').val(),
+                    'correo' :        $('#correo').val(),
+                    'contrasena' :    $('#contrasenia').val(),
+                    'idE' :            empleado,
+                    'idU' :            user
+                    },
+                    success:function (data){
 
-        $.ajax({
-        type:"POST",
-        url: base_url+'Cliente/update',
-        data:{
-        'id' :            empleado,
-        'nombre' :        $('#nombre').val(),
-        'a_p' :           $('#a_p').val(),
-        'a_m' :           $('#a_m').val(),
-        'domicilio' :     $('#calle').val()+'↨'+$('#colonia').val(),
-        'numero' :        $('#telefono').val(),
-        'tipo' :          $('#telefono').val(),
-        'usuario' :       $('#telefono').val(),
-        'correo' :        $('#telefono').val(),
-        'contrasena' :    $('#telefono').val(),
-        },
-        success:function (data){
+                      BootstrapDialog.show({
+                title: 'Mensage',
+                message: $(data),
+                buttons: [{
+                    label: 'Aceptar',
+                    cssClass: 'btn-success',
+                    action: function(dialogItself)
+                    {dialogItself.close();}
+                    }]
+                });
+                      
+                    },
+                    error:function(jqXHR, textStatus, errorThrown)
+                    {alert("Error al guardar la información");}
+                });
+                    dialogItself.close();
 
-          BootstrapDialog.show({
-    title: 'Mensage',
-    message: $(data),
-    buttons: [{
-        label: 'Aceptar',
-        cssClass: 'btn-success',
-        action: function(dialogItself)
-        {dialogItself.close();}
-        }]
-    });
-          
-        },
-        error:function(jqXHR, textStatus, errorThrown)
-        {alert("Error al guardar la información");}
-    });
-        dialogItself.close();
+            }
+            else 
+            {alert("no coinciden las contraseñas");}
         }
         },
         {
