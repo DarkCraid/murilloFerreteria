@@ -29,17 +29,9 @@ CREATE TABLE `caja` (
   `empleado_id` int(10) unsigned NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `caja` */
-
-insert  into `caja`(`id`,`monto_inicial`,`monto_entrada`,`monto_salida`,`updated_at`,`empleado_id`,`status`) values 
-(1,100,200,50,'2018-07-19 16:12:41',1,1),
-(2,200,300,0,'2018-07-20 16:13:37',1,1),
-(3,500,500,0,'2018-07-19 16:13:47',1,1),
-(4,1000,4000,250,'2018-07-19 16:14:39',1,1),
-(7,200,12,333,'2018-07-19 16:16:56',1,1),
-(8,123,0,0,'2018-07-19 16:17:05',1,1);
 
 /*Table structure for table `categoria_producto` */
 
@@ -67,13 +59,14 @@ CREATE TABLE `clientes` (
   `puntos` int(10) unsigned NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `clientes` */
 
 insert  into `clientes`(`id`,`nombre`,`a_p`,`a_m`,`domicilio`,`puntos`,`status`) values 
 (1,'','','','↨',0,1),
-(2,'qqw','w','w','e↨qw',0,1);
+(2,'qqw','w','w','e↨qw',0,1),
+(3,'45645','&/(/&(&/',' g d---','-↨56876=/(=/(',0,1);
 
 /*Table structure for table `compras` */
 
@@ -91,23 +84,6 @@ CREATE TABLE `compras` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `compras` */
-
-insert  into `compras`(`folio`,`nota`,`id_proveedor`,`fecha`,`total`,`id_empleado`,`status`) values 
-('P001-200718','',1,'2018-07-20 01:37:59',1,0,1),
-('P002-200718','',1,'2018-07-20 01:38:00',1,0,1),
-('P003-200718','',1,'2018-07-20 01:38:01',1,0,1),
-('P004-200718','',1,'2018-07-20 01:38:02',1,0,1),
-('P005-200718','',1,'2018-07-20 01:38:03',1,0,1),
-('P006-200718','',2,'2018-07-20 01:38:04',1,0,1),
-('P007-200718','',2,'2018-07-20 01:38:05',1,0,1),
-('P008-200718','',1,'2018-07-20 01:38:06',1,0,1),
-('P009-200718','',1,'2018-07-20 01:38:07',1,0,1),
-('P010-200718','',2,'2018-07-20 01:38:08',1,0,1),
-('P011-200718','',1,'2018-07-20 01:38:09',1,0,0),
-('P012-200718','',2,'2018-07-20 01:38:10',1,0,1),
-('P013-200718','',2,'2018-07-20 15:52:57',1170,0,1),
-('P014-210718','',1,'2018-07-21 09:49:47',20,0,1),
-('P015-210718','',1,'2018-07-21 15:00:09',1170,1,1);
 
 /*Table structure for table `empleados` */
 
@@ -140,13 +116,18 @@ CREATE TABLE `inventario` (
   `cantidad` int(10) unsigned NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `inventario` */
 
 insert  into `inventario`(`id`,`descripcion`,`costo_unidad`,`cantidad`,`status`) values 
-(1,'tornillo',5,0,1),
-(2,'torniquete',80,0,1);
+(1,'tornillo',5,4,1),
+(2,'torniquete',80,2,1),
+(3,'qwe',5,2106,1),
+(4,'wer',5,2225,1),
+(5,'wre',5,468,1),
+(6,'fgh',5,456,1),
+(7,'yui',5,67,1);
 
 /*Table structure for table `menu` */
 
@@ -204,26 +185,9 @@ CREATE TABLE `pedidos` (
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `folio_compra` (`folio_compra`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `pedidos` */
-
-insert  into `pedidos`(`id`,`folio_compra`,`articulo`,`cantidad`,`costo_unitario`,`status`) values 
-(1,'P001-200718','QWE',123,5,1),
-(2,'P002-200718','W',131,5,1),
-(3,'P003-200718','sdf',5243,5,1),
-(4,'P004-200718','yrt',756,5,1),
-(5,'P005-200718','yui',67,5,1),
-(6,'P006-200718','rty',456,5,1),
-(7,'P007-200718','asd',23,5,1),
-(8,'P008-200718','sdf',34,5,1),
-(9,'P009-200718','tyu',56,5,1),
-(10,'P010-200718','fgh',456,5,1),
-(11,'P011-200718','qwe',23,5,1),
-(12,'P012-200718','wer',43,5,1),
-(13,'P013-200718','wre',234,5,1),
-(14,'P014-210718','tornillo',4,5,1),
-(15,'P015-210718','qwe',234,5,1);
 
 /*Table structure for table `productos_proveedores` */
 
@@ -252,16 +216,9 @@ CREATE TABLE `productos_venta` (
   `costo_unitario` double unsigned NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `productos_venta` */
-
-insert  into `productos_venta`(`id`,`folio_venta`,`articulo`,`cantidad`,`costo_unitario`,`status`) values 
-(1,'V001-220718','torniquete',12,80,1),
-(2,'V002-220718','tornillo',12,5,1),
-(3,'V003-220718','torniquete',10,80,1),
-(4,'V004-220718','tornillo',12,5,1),
-(5,'V005-220718','torniquete',50,80,1);
 
 /*Table structure for table `proveedores` */
 
@@ -295,7 +252,7 @@ CREATE TABLE `telefonos` (
   `tipo` enum('Empleado','Proveedor','Cliente') COLLATE utf8_spanish2_ci NOT NULL DEFAULT 'Proveedor' COMMENT 'tipo de telefono, si es usuario o proveedor',
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `telefonos` */
 
@@ -306,7 +263,8 @@ insert  into `telefonos`(`id`,`numero`,`id_person`,`tipo`,`status`) values
 (4,'7897897896',2,'Proveedor',1),
 (5,'4564564565',2,'Proveedor',1),
 (6,'',1,'Cliente',1),
-(7,'e',2,'Cliente',1);
+(7,'e',2,'Cliente',1),
+(8,'-',3,'',1);
 
 /*Table structure for table `tipo_movimientos` */
 
@@ -361,13 +319,6 @@ CREATE TABLE `ventas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `ventas` */
-
-insert  into `ventas`(`folio`,`fecha`,`total`,`id_empleado`,`id_cliente`,`status`) values 
-('V001-220718','2018-07-21 19:50:42',960,1,NULL,0),
-('V002-220718','2018-07-21 19:59:45',60,1,NULL,0),
-('V003-220718','2018-07-21 20:05:03',800,1,0,0),
-('V004-220718','2018-07-21 20:07:16',60,1,0,1),
-('V005-220718','2018-07-21 20:07:42',4000,1,2,1);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
