@@ -1,11 +1,25 @@
 $(document).ready(function(){
+
     if ($("#dineroEnCaja").val()!=0) {
         $("#MontoInicialbtn").hide(500);
         $( "#dineroEnCaja" ).prop( "disabled", true );
         $("#DataAfterMonto").show(500);
-    }
-});
+    }   
+    $.ajax({ 
+            type: 'POST',   
+            url: window.location.origin+'/murilloFerreteria/src/index.php/' + 'Caja/getUser',   
+            data: {
+                session:""
+            },
+            success: function(data){
+                OnAdmin(data);      
+            }      
+        });
 
+});
+$('input').keypress(function(event){
+    return validCaracteres(event,this.id);
+});
 $("#MontoInicialbtn").click(function(){
     var errors = [];
     var success =[];
@@ -26,12 +40,28 @@ $("#MontoInicialbtn").click(function(){
              },
             success: function(data){
                $("#retirosDiarios").val("0");
+                $("#ingresosDiarios").val("0");
                success.push("Datos agregados Exitosamente");
                modal('success','large','Caja a sido agregada!',getErrors(success),true);
              }              
             });
     }
 
+
+});
+
+$("#UpdateMontoInicial").click(function(){
+       $.ajax({ 
+            type: 'POST',   
+            url: window.location.origin+'/murilloFerreteria/src/index.php/' + 'Caja/UpdateMontoInicial',   
+            data: {
+                caja:$("#dineroEnCaja").val(),                  
+             },
+            success: function(data){
+               success.push("nuevo retiro a sido agregado");
+               modal('success','large','Nuevo retiro!',getErrors(success),true);
+             } 
+        }); 
 
 });
 
@@ -58,8 +88,6 @@ $("#addRetiros").click(function(){
 $("#calcularMonto").click(function(){
 	var errors = [];
     var success =[];
-	if($("#ingresosDiarios").val()==0)
-		errors.push('Es obligatorio ingresar el ingreso que obtuvo este dia');
 	  if(errors.length<=0){
 	  	$.ajax({ 
         	type: 'POST',   
@@ -91,3 +119,8 @@ function getErrors(errors){
     }
     return '<ul>'+err+'</ul>';
 }
+function OnAdmin(data){
+    if (data=='"Administrador"') {
+        $( "#dineroEnCaja" ).prop( "disabled", false );
+    }      
+}  
