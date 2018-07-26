@@ -5,34 +5,19 @@ pushTable();
 
 
 
-function openModal(id) 
+function openModal(empleado,user,param1,param2,param3,param4,param5,param6,param7,param8) 
 {
-   let fom= '<form class="form-horizontal" action="">'
+
+ let fom= '<form class="form-horizontal" action="">'
 
 
-       
-                    +'<div class="row form-group">'
+
+  +'<div class="row form-group">'
                       +'<div class="col-sm-4 col-md-3 col-lg-2 text-right">'
                         +'<label for="tipo" class="col-form-label mr-2 control-label" id="label_representanteLegal">Folio: </label>'
                         +'</div>'
                         +'<div class="col-sm-12 col-md-9 col-lg-9">'
-                            +'<input type="text" name="representanteLegal" id="representanteLegal" class="form-control" value="F0001" disabled>'
-                        +'</div>'
-                    +'</div>'
-
-
-                    +'<div class="row form-group">'
-                        +'<div class="col-sm-4 col-md-3 col-lg-2 text-right">'
-                            +'<label for="rfc_" class="col-form-label mr-2 control-label">Nombres(s): </label>'
-                        +'</div>'
-                        +'<div class="col-md-8 col-lg-3">'
-                            +'<input type="text" name="estado" id="estado" class="form-control" value="Zero" >'
-                        +'</div>'
-                        +'<div class="col-sm-4 col-md-3 col-lg-3 text-right">'
-                            +'<label for="rfc_" class="col-form-label mr-2 control-label">Apellidos: </label>'
-                        +'</div>'
-                        +'<div class="col-md-8 col-lg-3">'
-                           +' <input type="text" name="municipio" id="municipio" class="form-control" value="Two" >'
+                            +'<input type="text" name="representanteLegal" id="representanteLegal" class="form-control" value="#Em-'+empleado+'" disabled>'
                         +'</div>'
                     +'</div>'
 
@@ -40,51 +25,101 @@ function openModal(id)
 
                     +'<div class="row form-group">'
                         +'<div class="col-sm-4 col-md-3 col-lg-2 text-right">'
-                            +'<label for="tipo" class="col-form-label mr-2 control-label" id="label_ciudad">Calle: </label>'
+                            +'<label class="col-form-label mr-2 control-label">Nombre: </label>'
+                        +'</div>'
+                        +'<div class="col-md-8 col-lg-3">'
+                            +'<input type="text" id="nombre" class="form-control" value="'+param2+'" >'
+                        +'</div>'
+                        +'<div class="col-sm-4 col-md-3 col-lg-3 text-right">'
+                            +'<label class="col-form-label mr-2 control-label">Apellido Paterno: </label>'
+                        +'</div>'
+                        +'<div class="col-md-8 col-lg-3">'
+                           +' <input type="text" id="a_p" class="form-control" value="'+param3+'" >'
+                        +'</div>'
+                    +'</div>'
+
+                    +'<div class="row form-group">'
+                        +'<div class="col-sm-4 col-md-3 col-lg-2 text-right">'
+                            +'<label class="col-form-label mr-2 control-label" id="label_ciudad">Apellido Materno: </label>'
                        +' </div>'
                         +'<div class="col-md-8 col-lg-3">'
-                           +' <input type="text" name="ciudad" id="ciudad" class="form-control" value="random" >'
+                           +' <input type="text" id="a_m" class="form-control" value="'+param4+'" >'
                        +' </div>'
                         +'<div class="col-sm-4 col-md-3 col-lg-3 text-right">'
-                           +' <label for="rfc_" class="col-form-label mr-2 control-label">Colonia: </label>'
+                           +' <label class="col-form-label mr-2 control-label">Calle: </label>'
                        +' </div>'
                        +' <div class="col-md-8 col-lg-3">'
-                            +'<input type="text" name="telefono" id="telefono" class="form-control" value="random" >'
+                            +'<input type="text" id="calle" class="form-control" value="'+param5+'" >'
+                        +'</div>'
+                    +'</div>'
+
+                    +'<div class="row form-group">'
+                        +'<div class="col-sm-4 col-md-3 col-lg-2 text-right">'
+                            +'<label class="col-form-label mr-2 control-label" id="label_ciudad">Colonia: </label>'
+                       +' </div>'
+                        +'<div class="col-md-8 col-lg-3">'
+                           +' <input type="text" name="ciudad" id="colonia" class="form-control" value="'+param6+'" >'
+                       +' </div>'
+                        +'<div class="col-sm-4 col-md-3 col-lg-3 text-right">'
+                           +' <label class="col-form-label mr-2 control-label">Telefono: </label>'
+                       +' </div>'
+                       +' <div class="col-md-8 col-lg-3">'
+                            +'<input type="text" name="telefono" id="telefono" class="form-control" value="'+param1+'" >'
+                        +'</div>'
+                    +'</div>'
+
+                    +'<div class="row form-group">'
+                        +'<div class="col-sm-4 col-md-3 col-lg-2 text-right">'
+                            +'<label class="col-form-label mr-2 control-label" id="label_ciudad">Usuario: </label>'
+                       +' </div>'
+                        +'<div class="col-md-8 col-lg-3">'
+                           +' <input type="text" name="ciudad" id="usuario" class="form-control" value="'+param7+'">'
+                       +' </div>'
+                        +'<div class="col-sm-4 col-md-3 col-lg-3 text-right">'
+                           +' <label class="col-form-label mr-2 control-label">Tipo de cuenta: </label>'
+                       +' </div>'
+                       +' <div class="col-md-8 col-lg-3">'
+                            +'<select id="tipoUser" name="tipoUser">'
+                              +'<option value="usuario">usuario</option>'
+                              +'<option value="administrador">administrador</option>'
+                            +'</select>'
+                        +'</div>'
+                    +'</div>'
+
+                    +'<div class="row form-group">'
+                        +'<div class="col-sm-4 col-md-3 col-lg-2 text-right">'
+                            +'<label class="col-form-label mr-2 control-label" id="label_ciudad">Contraseña: </label>'
+                       +' </div>'
+                        +'<div class="col-md-8 col-lg-3">'
+                           +' <input type="text" id="contrasenia" class="form-control" placeholder="" >'
+                       +' </div>'
+                        +'<div class="col-sm-4 col-md-3 col-lg-3 text-right">'
+                           +' <label class="col-form-label mr-2 control-label">Repetir Contraseña: </label>'
+                       +' </div>'
+                       +' <div class="col-md-8 col-lg-3">'
+                            +'<input type="text"  id="repContrasenia" class="form-control" placeholder="" >'
                         +'</div>'
                     +'</div>'
 
 
-
-          +'<div class="row form-group">'
+                    +'<div class="row form-group">'
                         +'<div class="col-sm-4 col-md-3 col-lg-2 text-right">'
-                            +'<label for="tipo" class="col-form-label mr-2 control-label" id="label_ciudad">Telefono: </label>'
+                            +'<label class="col-form-label mr-2 control-label" id="label_ciudad">Correo: </label>'
                        +' </div>'
                         +'<div class="col-md-8 col-lg-3">'
-                           +' <input type="text" name="ciudad" id="ciudad" class="form-control" value="6691122136" >'
+                           +' <input type="text" id="correo" class="form-control" value="'+param8+'" >'
                        +' </div>'
-                        +'<div class="col-sm-4 col-md-3 col-lg-3 text-right">'
-                           +' <label for="rfc_" class="col-form-label mr-2 control-label">Correo: </label>'
-                       +' </div>'
-                       +' <div class="col-md-8 col-lg-3">'
-                            +'<input type="text" name="telefono" id="telefono" class="form-control" value="ZeroTwo@gmail.com" >'
-                        +'</div>'
                     +'</div>'
 
 
 
-                              +'<div class="row form-group">'
-                        +'<div class="col-sm-4 col-md-3 col-lg-2 text-right">'
-                            +'<label for="tipo" class="col-form-label mr-2 control-label" id="label_ciudad">Tipo de Cuenta: </label>'
-                       +' </div>'
-                        +'<div class="col-md-8 col-lg-3">'
-                           +' <input type="text" name="ciudad" id="ciudad" class="form-control" value="Administrador" >'
-                       +' </div>'
-                    +'</div>'
+
+
 
         +'</form>';
 
     BootstrapDialog.show({
-    title: id,
+    title: '#Em-'+empleado,
     message: $(fom),
     buttons: [{
         label: 'Modificar',
@@ -96,7 +131,7 @@ function openModal(id)
         type:"POST",
         url: base_url+'Cliente/update',
         data:{
-        'id' :            id,
+        'id' :            empleado,
         'nombre' :        $('#nombre').val(),
         'a_p' :           $('#a_p').val(),
         'a_m' :           $('#a_m').val(),
@@ -108,9 +143,7 @@ function openModal(id)
         'contrasena' :    $('#telefono').val(),
         },
         success:function (data){
-        //  DropTable();
-         // pushTable();
-          
+
           BootstrapDialog.show({
     title: 'Mensage',
     message: $(data),
@@ -136,14 +169,13 @@ function openModal(id)
             {
                 $.ajax({
         type:"POST",
-        url: base_url+'Cliente/drop',
+        url: base_url+'Empleado/drop',
         data:{
-        'id' :            id
+        'idE' :            empleado,
+        'idU' :            user
         },
         success:function (data){
-        //  DropTable();
-         // pushTable();
-          
+
           BootstrapDialog.show({
     title: 'Mensage',
     message: $(data),
@@ -287,7 +319,7 @@ $('#Agregar').click(function(event) {
             {
                 $.ajax({
                     type:"POST",
-                    url: base_url+'Cliente/push',
+                    url: base_url+'Empleado/push',
                     data:{
                     'nombre' :        $('#nombre').val(),
                     'a_p' :           $('#a_p').val(),
@@ -300,9 +332,7 @@ $('#Agregar').click(function(event) {
                     'contrasena' :    $('#contrasenia').val(),
                     },
                     success:function (data){
-                     // DropTable();
-                     // pushTable();
-                      
+
                       BootstrapDialog.show({
                 title: 'Mensage',
                 message: $(data),
@@ -341,9 +371,9 @@ $('#Agregar').click(function(event) {
 
 function pushTable() 
 {
-    $.ajax({
+   $.ajax({
         type:"POST",
-        url: base_url+'Cliente/get',
+        url: base_url+'Empleado/get',
         data:{},
         success:function (data)
         {
@@ -351,12 +381,15 @@ function pushTable()
     var estatus="";
     $.each(c,function(i,item)
     {
+        let arr = item.fullDomicilio.split("↨");
+        let calle = arr[0];
+        let colonia = arr[1];
 
         $('#contenido_tabla').append('<tr>'
-        +'<td><a onclick="openModal('+item.cliente+')" style="cursor:pointer;">#Cl-'+item.cliente+'</a></td>'
+        +'<td><a onclick="openModal('+item.empleado+','+item.user+',\''+item.telefono+'\',\''+item.nombreModal+'\',\''+item.apellidoP+'\',\''+item.apellidoM+'\',\''+calle+'\',\''+colonia+'\',\''+item.nameUser+'\',\''+item.correo+'\')" style="cursor:pointer;">#Em-'+item.empleado+'</a></td>'
         +'<td>'+item.fullName+'</td>'
         +'<td>'+item.telefono+'</td>'
-        +'<td>'+item.punto+'</td>'
+        +'<td>'+item.tipoC+'</td>'
         +'</tr>');
     });
         },
@@ -371,3 +404,83 @@ function DropTable()
     oTable.fnDestroy(); 
     $("#contenido_tabla tr").remove();
 }
+
+
+
+ $("#filtro2").keyup(function(){
+    if ($('#filtro2').val() == '')
+    {}
+    else
+    {
+        $.ajax({
+        type:"POST",
+        url: base_url+'Empleado/search',
+        data:{
+            status: 2,
+            data : $('#filtro2').val()
+        },
+        success:function (data)
+        {
+            DropTable();
+            var c = JSON.parse(data);
+    var estatus="";
+    $.each(c,function(i,item)
+    {
+        let arr = item.fullDomicilio.split("↨");
+        let calle = arr[0];
+        let colonia = arr[1];
+
+        $('#contenido_tabla').append('<tr>'
+        +'<td><a onclick="openModal('+item.empleado+','+item.user+',\''+item.telefono+'\',\''+item.nombreModal+'\',\''+item.apellidoP+'\',\''+item.apellidoM+'\',\''+calle+'\',\''+colonia+'\',\''+item.nameUser+'\',\''+item.correo+'\')" style="cursor:pointer;">#Em-'+item.empleado+'</a></td>'
+        +'<td>'+item.fullName+'</td>'
+        +'<td>'+item.telefono+'</td>'
+        +'<td>'+item.tipoC+'</td>'
+        +'</tr>');
+    });
+        },
+        error:function(jqXHR, textStatus, errorThrown)
+        {alert("Error al guardar la información");}
+    });       
+
+    }
+
+       
+    });
+
+
+$("#filtro3").keyup(function(){
+    if ($('#filtro3').val() == '')
+    {}
+    else
+    {
+     $.ajax({
+        type:"POST",
+        url: base_url+'Empleado/search',
+        data:{
+            status: 3,
+            data : $('#filtro3').val()
+        },
+        success:function (data)
+        {
+            DropTable();
+            var c = JSON.parse(data);
+    var estatus="";
+    $.each(c,function(i,item)
+    {
+        let arr = item.fullDomicilio.split("↨");
+        let calle = arr[0];
+        let colonia = arr[1];
+
+        $('#contenido_tabla').append('<tr>'
+        +'<td><a onclick="openModal('+item.empleado+','+item.user+',\''+item.telefono+'\',\''+item.nombreModal+'\',\''+item.apellidoP+'\',\''+item.apellidoM+'\',\''+calle+'\',\''+colonia+'\',\''+item.nameUser+'\',\''+item.correo+'\')" style="cursor:pointer;">#Em-'+item.empleado+'</a></td>'
+        +'<td>'+item.fullName+'</td>'
+        +'<td>'+item.telefono+'</td>'
+        +'<td>'+item.tipoC+'</td>'
+        +'</tr>');
+    });
+        },
+        error:function(jqXHR, textStatus, errorThrown)
+        {alert("Error al guardar la información");}
+    });       
+ }
+});
