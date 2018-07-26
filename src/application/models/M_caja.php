@@ -49,4 +49,8 @@ class M_caja extends CI_Model{
         $this->db->close();
          return $this->db->get()->row();
 	}
+	function UpdateMontoInicial($montoI,$id){
+		$this->db->query("update caja set monto_inicial='$montoI' where id='$id' ;");
+        $this->db->close();
+	}
 }

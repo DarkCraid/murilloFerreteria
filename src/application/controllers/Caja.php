@@ -21,6 +21,7 @@ class Caja extends CI_Controller
 		else{
 			$data['monto'] = (array)0;
 		}
+		$data['rol'] = $this->session->userdata('rol');
 		$this->load->view('Panel/Caja/index',$data);
 	}
 
@@ -72,7 +73,20 @@ class Caja extends CI_Controller
 		
 		
 	}
-
+	public function UpdateMontoInicial(){
+		$id   = (array)$this->M_caja->getLastId();
+		$Caja=array(
+			'monto_inicial' => $this->input->post('caja')
+		);
+		foreach ($id as $ID) {
+			$this->M_caja->UpdateMontoInicial($Caja['monto_inicial'],$ID);
+		}
+	}
+	public function getUser(){
+		$data = $this->session->userdata('rol');
+		echo json_encode($data);
+		
+	}
 		
 
 
