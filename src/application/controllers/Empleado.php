@@ -56,8 +56,10 @@ class Empleado extends CI_Controller
 	}
 	public function update()
 	{
-		$cliente = $this->input->post('id');
-		$queryCliente = array(
+		$empleado = $this->input->post('idE');
+		$user = $this->input->post('idU');
+
+		$queryEmpleado = array(
 			'nombre' => $this->input->post('nombre'),
 			'a_p' => $this->input->post('a_p'),
 			'a_m' => $this->input->post('a_m'),
@@ -66,9 +68,16 @@ class Empleado extends CI_Controller
 
 		$queryTelefono = array(
 			'numero' => $this->input->post('numero'),
-			'tipo' => $this->input->post('tipo'),
+			'tipo' => 'Empleado',
 		);
-		$this->M_empleado->updateEmpleado($cliente,$queryCliente,$queryTelefono);
+
+		$queryUser = array(
+			'user' => $this->input->post('usuario'),
+			'tipo' => $this->input->post('tipo'),
+			'pssw' => md5($this->input->post('contrasena')),
+			'email' => $this->input->post('correo'),
+		);
+		$this->M_empleado->updateEmpleado($user,$empleado,$queryUser,$queryEmpleado,$queryTelefono);
 
 		echo '<form action="#" method="post">'
 	.'<div class="row">'

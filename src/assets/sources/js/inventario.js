@@ -105,7 +105,7 @@ function pushTable()
     {
 
         $('#contenido_tabla').append('<tr>'
-        +'<td><a style="cursor:pointer;">#Cl-'+item.id+'</a></td>'
+        +'<td><a style="cursor:pointer;">#It-'+item.id+'</a></td>'
         +'<td>'+item.descripcion+'</td>'
         +'<td>'+item.costo_unidad+'</td>'
         +'<td>'+item.cantidad+'</td>'
@@ -123,3 +123,38 @@ function DropTable()
     oTable.fnDestroy(); 
     $("#contenido_tabla tr").remove();
 }
+
+
+$("#filtro3").keyup(function(){
+    if ($('#filtro3').val() == '')
+    {}
+    else
+    {
+     $.ajax({
+        type:"POST",
+        url: base_url+'Inventario/search',
+        data:{
+            status: 3,
+            data : $('#filtro3').val()
+        },
+        success:function (data)
+        {
+            DropTable();
+            var c = JSON.parse(data);
+    var estatus="";
+    $.each(c,function(i,item)
+    {
+        $('#contenido_tabla').append('<tr>'
+        +'<td><a style="cursor:pointer;">#It-'+item.id+'</a></td>'
+        +'<td>'+item.descripcion+'</td>'
+        +'<td>'+item.costo_unidad+'</td>'
+        +'<td>'+item.cantidad+'</td>'
+        +'</tr>');
+    });
+        },
+        error:function(jqXHR, textStatus, errorThrown)
+        {alert("Error al guardar la información");}
+    });       
+ }
+});
+

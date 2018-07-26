@@ -32,15 +32,20 @@ class M_empleado extends CI_Model{
         $this->db->where(array('telefonos.tipo' => 'Empleado','empleados.status' => '1'));
         return $this->db->get()->result();
     }
-    public function updateEmpleado($param1,$param2,$param3)
+    public function updateEmpleado($param1,$param2,$param3,$param4,$param5)
     {   
-        $this->db->where(array('id' => $param1));
-        $this->db->set($param2);
-        $this->db->update('empleados');  
+        $this->db->where(array('id' => $param2));
+        $this->db->set($param4);
+        $this->db->update('empleados');
 
-        $this->db->where(array('id_person' => $param1, 'tipo' => 'Empleado'));
+
+        $this->db->where(array('id_person' => $param2, 'tipo' => 'Empleado'));
+        $this->db->set($param5);
+        $this->db->update('telefonos');
+
+        $this->db->where(array('id' => $param1));
         $this->db->set($param3);
-        $this->db->update('telefonos');  
+        $this->db->update('users'); 
     }
     public function dropEmpleado($param1,$param2)    
     {
