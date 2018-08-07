@@ -19,6 +19,7 @@ class M_ventas extends CI_Model{
     function setVenta($venta,$pedidos){
         $this->db->trans_start();
         $this->db->insert('ventas',$venta);
+        $cant = 0;
         for ($i=0; $i < count($pedidos) ; $i++) { 
             $data = array(
                 'articulo'          => $pedidos[$i]->nombre,
@@ -27,7 +28,17 @@ class M_ventas extends CI_Model{
                 'folio_venta'      => $venta['folio']
             );
             $this->db->insert('productos_venta',$data);
+
+            $this->db->select('cantidad');
+            $this->db->from('inventario');
+            $cant = (array) $this->db->get()->result();
+            $cant[0]->cantidad -= $pedidos[$i]->cantidad;
+
+            $this->db->set(array('cantidad' => $pedidos[$i]->existentes));
+            $this->db->where('descripcion',$pedidos[$i]->nombre);
+            $this->db->update('inventario');
         }
+        
         $this->db->trans_complete();
         $this->db->close();
         if ($this->db->trans_status() === FALSE)

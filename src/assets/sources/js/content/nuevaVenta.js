@@ -71,7 +71,8 @@ $('#agregar').click(function(){
                 productos.push({
                     'nombre': $('#producto').val(),
                     'cantidad': $('#cantidad').val(),
-                    'costo': $('#monto').text()
+                    'costo': $('#monto').text(),
+                    'existentes': (parseInt(availableTags.cant[pos]) - parseInt($('#cantidad').val()))
                 });
             }
             availableTags.cant[pos] = parseInt(availableTags.cant[pos]) - parseInt($('#cantidad').val());
