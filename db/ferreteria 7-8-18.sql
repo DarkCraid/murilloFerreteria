@@ -59,14 +59,9 @@ CREATE TABLE `clientes` (
   `puntos` int(10) unsigned NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `clientes` */
-
-insert  into `clientes`(`id`,`nombre`,`a_p`,`a_m`,`domicilio`,`puntos`,`status`) values 
-(1,'','','','↨',0,1),
-(2,'qqw','w','w','e↨qw',0,1),
-(3,'45645','&/(/&(&/',' g d---','-↨56876=/(=/(',0,1);
 
 /*Table structure for table `compras` */
 
@@ -84,6 +79,11 @@ CREATE TABLE `compras` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `compras` */
+
+insert  into `compras`(`folio`,`nota`,`id_proveedor`,`fecha`,`total`,`id_empleado`,`status`) values 
+('P001-300718','',1,'2018-07-30 10:30:28',620,1,2),
+('P002-030818','',1,'2018-08-02 18:49:09',666.5,1,2),
+('P003-070818','',2,'2018-08-07 08:08:49',100,1,2);
 
 /*Table structure for table `empleados` */
 
@@ -116,18 +116,14 @@ CREATE TABLE `inventario` (
   `cantidad` int(10) unsigned NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `inventario` */
 
 insert  into `inventario`(`id`,`descripcion`,`costo_unidad`,`cantidad`,`status`) values 
-(1,'tornillo',5,4,1),
-(2,'torniquete',80,2,1),
-(3,'qwe',5,2106,1),
-(4,'wer',5,2225,1),
-(5,'wre',5,468,1),
-(6,'fgh',5,456,1),
-(7,'yui',5,67,1);
+(1,'caja',15.5,36,1),
+(2,'asd',15.5,43,1),
+(3,'tornillo',2,3,1);
 
 /*Table structure for table `menu` */
 
@@ -185,9 +181,14 @@ CREATE TABLE `pedidos` (
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `folio_compra` (`folio_compra`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `pedidos` */
+
+insert  into `pedidos`(`id`,`folio_compra`,`articulo`,`cantidad`,`costo_unitario`,`status`) values 
+(1,'P001-300718','caja',40,15.5,1),
+(2,'P002-030818','asd',43,15.5,1),
+(3,'P003-070818','tornillo',50,2,1);
 
 /*Table structure for table `productos_proveedores` */
 
@@ -216,9 +217,24 @@ CREATE TABLE `productos_venta` (
   `costo_unitario` double unsigned NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `productos_venta` */
+
+insert  into `productos_venta`(`id`,`folio_venta`,`articulo`,`cantidad`,`costo_unitario`,`status`) values 
+(1,'V001-300718','caja',12,15.5,1),
+(2,'V002-040818','caja',18,15.5,1),
+(3,'V003-070818','tornillo',20,2,1),
+(4,'V004-070818','tornillo',49,2,1),
+(5,'V005-070818','tornillo',20,2,1),
+(6,'V006-070818','tornillo',14,2,1),
+(15,'V007-070818','tornillo',10,2,1),
+(16,'V008-070818','tornillo',25,2,1),
+(17,'V009-070818','tornillo',15,2,1),
+(18,'V010-070818','tornillo',25,2,1),
+(19,'V011-070818','tornillo',10,2,1),
+(20,'V012-070818','tornillo',2,2,1),
+(21,'V012-070818','caja',4,15.5,1);
 
 /*Table structure for table `proveedores` */
 
@@ -319,6 +335,20 @@ CREATE TABLE `ventas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `ventas` */
+
+insert  into `ventas`(`folio`,`fecha`,`total`,`id_empleado`,`id_cliente`,`status`) values 
+('V001-300718','2018-07-30 10:32:05',186,1,0,1),
+('V002-040818','2018-08-03 21:39:11',279,1,0,1),
+('V003-070818','2018-08-07 08:10:11',40,1,0,1),
+('V004-070818','2018-08-07 08:11:57',98,1,0,1),
+('V005-070818','2018-08-07 08:23:52',40,1,0,1),
+('V006-070818','2018-08-07 08:26:35',28,1,0,1),
+('V007-070818','2018-08-07 08:41:04',20,1,0,1),
+('V008-070818','2018-08-07 08:41:47',50,1,0,1),
+('V009-070818','2018-08-07 08:43:20',30,1,0,1),
+('V010-070818','2018-08-07 08:44:24',50,1,0,1),
+('V011-070818','2018-08-07 08:56:47',20,1,0,1),
+('V012-070818','2018-08-07 08:58:01',66,1,0,1);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
