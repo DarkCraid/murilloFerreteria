@@ -70,7 +70,7 @@
 			<label>Número: </label>
 		</div>
 		<div class="col-xs-9">
-			<input type="number" class="form-control" id="tel">
+			<input type="number" class="form-control" id="tel" limit="10" rol="phone">
 			<button class="btn btn-primary btn-md pull-right">Agregar a la lista</button>
 		</div>
 	</div>

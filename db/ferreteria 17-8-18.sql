@@ -29,9 +29,13 @@ CREATE TABLE `caja` (
   `empleado_id` int(10) unsigned NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `caja` */
+
+insert  into `caja`(`id`,`monto_inicial`,`monto_entrada`,`monto_salida`,`updated_at`,`empleado_id`,`status`) values 
+(1,1000,1014,0,'2018-08-16 21:44:57',1,1),
+(2,0,0,0,'2018-08-16 21:44:57',1,1);
 
 /*Table structure for table `categoria_producto` */
 
@@ -59,9 +63,13 @@ CREATE TABLE `clientes` (
   `puntos` int(10) unsigned NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `clientes` */
+
+insert  into `clientes`(`id`,`nombre`,`a_p`,`a_m`,`domicilio`,`puntos`,`status`) values 
+(1,'alberto','flores','masias','mafa920507↨esperanza',0,1),
+(2,'ter','ert','erer','345erter↨erter',0,1);
 
 /*Table structure for table `compras` */
 
@@ -81,9 +89,7 @@ CREATE TABLE `compras` (
 /*Data for the table `compras` */
 
 insert  into `compras`(`folio`,`nota`,`id_proveedor`,`fecha`,`total`,`id_empleado`,`status`) values 
-('P001-300718','',1,'2018-07-30 10:30:28',620,1,2),
-('P002-030818','',1,'2018-08-02 18:49:09',666.5,1,2),
-('P003-070818','',2,'2018-08-07 08:08:49',100,1,2);
+('P001-170818','nuevos tornillos',1,'2018-08-16 21:41:47',60,1,2);
 
 /*Table structure for table `empleados` */
 
@@ -98,12 +104,14 @@ CREATE TABLE `empleados` (
   `id_user` int(10) unsigned NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `empleados` */
 
 insert  into `empleados`(`id`,`nombre`,`a_p`,`a_m`,`domicilio`,`id_user`,`status`) values 
-(1,'Jesus Daniel','Pérez','Durán','mi casa',1,1);
+(1,'Jesus Daniel','Pérez','Durán','mi casa',1,1),
+(2,'yolo','yolo','q','w↨asddsadas',2,1),
+(3,'carlos','perez','duran','lobos↨plateados',3,1);
 
 /*Table structure for table `inventario` */
 
@@ -116,14 +124,15 @@ CREATE TABLE `inventario` (
   `cantidad` int(10) unsigned NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `inventario` */
 
 insert  into `inventario`(`id`,`descripcion`,`costo_unidad`,`cantidad`,`status`) values 
-(1,'caja',15.5,36,1),
-(2,'asd',15.5,43,1),
-(3,'tornillo',2,3,1);
+(1,'Desarmador',15.5,31,1),
+(2,'Clavo',5,69,1),
+(3,'tornillo',2,29,1),
+(4,'manguera para lavabo',30,8,1);
 
 /*Table structure for table `menu` */
 
@@ -181,14 +190,12 @@ CREATE TABLE `pedidos` (
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `folio_compra` (`folio_compra`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `pedidos` */
 
 insert  into `pedidos`(`id`,`folio_compra`,`articulo`,`cantidad`,`costo_unitario`,`status`) values 
-(1,'P001-300718','caja',40,15.5,1),
-(2,'P002-030818','asd',43,15.5,1),
-(3,'P003-070818','tornillo',50,2,1);
+(1,'P001-170818','tornillo',30,2,1);
 
 /*Table structure for table `productos_proveedores` */
 
@@ -217,24 +224,15 @@ CREATE TABLE `productos_venta` (
   `costo_unitario` double unsigned NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `productos_venta` */
 
 insert  into `productos_venta`(`id`,`folio_venta`,`articulo`,`cantidad`,`costo_unitario`,`status`) values 
-(1,'V001-300718','caja',12,15.5,1),
-(2,'V002-040818','caja',18,15.5,1),
-(3,'V003-070818','tornillo',20,2,1),
-(4,'V004-070818','tornillo',49,2,1),
-(5,'V005-070818','tornillo',20,2,1),
-(6,'V006-070818','tornillo',14,2,1),
-(15,'V007-070818','tornillo',10,2,1),
-(16,'V008-070818','tornillo',25,2,1),
-(17,'V009-070818','tornillo',15,2,1),
-(18,'V010-070818','tornillo',25,2,1),
-(19,'V011-070818','tornillo',10,2,1),
-(20,'V012-070818','tornillo',2,2,1),
-(21,'V012-070818','caja',4,15.5,1);
+(1,'V001-170818','tornillo',8,2,1),
+(2,'V001-170818','manguera para lavabo',1,30,1),
+(3,'V002-170818','Desarmador',3,15.5,1),
+(4,'V002-170818','manguera para lavabo',1,30,1);
 
 /*Table structure for table `proveedores` */
 
@@ -249,13 +247,14 @@ CREATE TABLE `proveedores` (
   `rfc` varchar(15) COLLATE utf8_spanish2_ci NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `proveedores` */
 
 insert  into `proveedores`(`id`,`nombre`,`a_p`,`a_m`,`domicilio`,`rfc`,`status`) values 
 (1,'jesus daniel','perez','duran','traca, su casa, la','matraca',1),
-(2,'jose','perez','leon','esta, donde, su','canton',1);
+(2,'jose','perez','leon','esta, donde, su','canton',1),
+(3,'ferreplom','maz','salasa','v carranza, av de las americas , 1780','xaxx010101000',1);
 
 /*Table structure for table `telefonos` */
 
@@ -268,19 +267,24 @@ CREATE TABLE `telefonos` (
   `tipo` enum('Empleado','Proveedor','Cliente') COLLATE utf8_spanish2_ci NOT NULL DEFAULT 'Proveedor' COMMENT 'tipo de telefono, si es usuario o proveedor',
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 /*Data for the table `telefonos` */
 
 insert  into `telefonos`(`id`,`numero`,`id_person`,`tipo`,`status`) values 
-(1,'56783325567',1,'Proveedor',1),
-(2,'876544332233',1,'Proveedor',1),
+(1,'1234567890',1,'Proveedor',1),
+(2,'0987654321',1,'Proveedor',1),
 (3,'1231231233',2,'Proveedor',1),
 (4,'7897897896',2,'Proveedor',1),
 (5,'4564564565',2,'Proveedor',1),
-(6,'',1,'Cliente',1),
-(7,'e',2,'Cliente',1),
-(8,'-',3,'',1);
+(6,'3458671242',1,'Cliente',1),
+(7,'8762234871',2,'Cliente',1),
+(8,'2349876120',3,'',1),
+(9,'1234567895',2,'Empleado',1),
+(11,'4353452343',3,'Proveedor',1),
+(12,'5674556565',1,'Cliente',1),
+(13,'5932259954',3,'Empleado',1),
+(14,'4443334464',2,'Cliente',1);
 
 /*Table structure for table `tipo_movimientos` */
 
@@ -313,12 +317,14 @@ CREATE TABLE `users` (
   `email` varchar(130) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `users` */
 
 insert  into `users`(`id`,`user`,`tipo`,`pssw`,`email`,`status`) values 
-(1,'daniel','Administrador','110d46fcd978c24f306cd7fa23464d73','jesusperez@solemti.com',1);
+(1,'daniel','Administrador','110d46fcd978c24f306cd7fa23464d73','2015030282@upsin.edu.mx',1),
+(2,'jose','','662eaa47199461d01a623884080934ab','jose@gmail.com',1),
+(3,'charly','','dc599a9972fde3045dab59dbd1ae170b','qwe12@asd.com',1);
 
 /*Table structure for table `ventas` */
 
@@ -337,18 +343,8 @@ CREATE TABLE `ventas` (
 /*Data for the table `ventas` */
 
 insert  into `ventas`(`folio`,`fecha`,`total`,`id_empleado`,`id_cliente`,`status`) values 
-('V001-300718','2018-07-30 10:32:05',186,1,0,1),
-('V002-040818','2018-08-03 21:39:11',279,1,0,1),
-('V003-070818','2018-08-07 08:10:11',40,1,0,1),
-('V004-070818','2018-08-07 08:11:57',98,1,0,1),
-('V005-070818','2018-08-07 08:23:52',40,1,0,1),
-('V006-070818','2018-08-07 08:26:35',28,1,0,1),
-('V007-070818','2018-08-07 08:41:04',20,1,0,1),
-('V008-070818','2018-08-07 08:41:47',50,1,0,1),
-('V009-070818','2018-08-07 08:43:20',30,1,0,1),
-('V010-070818','2018-08-07 08:44:24',50,1,0,1),
-('V011-070818','2018-08-07 08:56:47',20,1,0,1),
-('V012-070818','2018-08-07 08:58:01',66,1,0,1);
+('V001-170818','2018-08-16 21:43:08',46,1,0,1),
+('V002-170818','2018-08-17 01:14:49',76.5,1,0,1);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

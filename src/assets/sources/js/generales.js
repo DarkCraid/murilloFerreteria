@@ -113,6 +113,18 @@ function validCaracteres(e,id){
     teclado=String.fromCharCode(key).toLowerCase();
     var caracteres;
     especiales = "8-09";
+
+    if($(`#${id}`).attr('limit')){
+      if($(`#${id}`).val().length >= parseInt($(`#${id}`).attr('limit')))
+        return false;
+    }
+
+    if($(`#${id}`).attr('rol')){
+      switch($(`#${id}`).attr('rol')){
+        //case "phone":
+      }
+    }
+
     switch($("#"+id).attr('type')){
         case 'text-number': caracteres = " abcdefghijklmnopqrstuvwxyz1234567890"; break;
         case 'text':        caracteres = " abcdefghijklmnopqrstuvwxyzáéíóúü";     break;
@@ -137,6 +149,7 @@ function validCaracteres(e,id){
           break;
 
         case 'prices':      caracteres = "0123456789.";                           break;
+        case 'email': caracteres = "abcdefghijklmnopqrstuvwxyz.-_1234567890@";    break;
         default: caracteres = " abcdefghijklmnopqrstuvwxyz.,;:áéíóúü1234567890";  break;
     }
     teclado_especial=false;

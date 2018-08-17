@@ -89,7 +89,7 @@
     .select-proveedor{margin-left: -15px;}
     #nuevoProve,#agregar{right: -45px !important; width: 110%;
     position: relative;}
-    #nuevoProve{left: 0px !important; width: 120%;}
+    #nuevoProve{left: 0px !important; width: auto;}
 </style>
 
 <script src="<?= base_url('assets/sources/js/content/pedidos.js'); ?>"></script>

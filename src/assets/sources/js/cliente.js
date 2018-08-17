@@ -42,7 +42,7 @@ function openModal(id,param1,param2,param3,param4,param5,param6)
                            +' <label for="rfc_" class="col-form-label mr-2 control-label">Calle: </label>'
                        +' </div>'
                        +' <div class="col-md-8 col-lg-3">'
-                            +'<input type="text" name="telefono" id="calle" class="form-control" value="'+param5+'" >'
+                            +'<input type="text-number" name="telefono" id="calle" class="form-control" value="'+param5+'" >'
                         +'</div>'
                     +'</div>'
           +'<div class="row form-group">'
@@ -56,10 +56,10 @@ function openModal(id,param1,param2,param3,param4,param5,param6)
                            +' <label for="rfc_" class="col-form-label mr-2 control-label">Telefono: </label>'
                        +' </div>'
                        +' <div class="col-md-8 col-lg-3">'
-                            +'<input type="text" name="telefono" id="telefono" class="form-control" value="'+param1+'" >'
+                            +'<input type="number" limit="10" name="telefono" id="telefono" class="form-control" value="'+param1+'" >'
                         +'</div>'
                     +'</div>'
-        +'</form>';
+        +'</form><script>$("input").keypress(function(event){return validCaracteres(event,this.id);});</script>';
 
     BootstrapDialog.show({
     title: 'Usuario: #Cl-'+id,
@@ -174,7 +174,7 @@ $('#Agregar').click(function(event) {
                            +' <label for="rfc_" class="col-form-label mr-2 control-label">Calle: </label>'
                        +' </div>'
                        +' <div class="col-md-8 col-lg-3">'
-                            +'<input type="text" name="telefono" id="calle" class="form-control" placeholder="" >'
+                            +'<input type="text-number" name="telefono" id="calle" class="form-control" placeholder="" >'
                         +'</div>'
                     +'</div>'
           +'<div class="row form-group">'
@@ -188,10 +188,10 @@ $('#Agregar').click(function(event) {
                            +' <label for="rfc_" class="col-form-label mr-2 control-label">Telefono: </label>'
                        +' </div>'
                        +' <div class="col-md-8 col-lg-3">'
-                            +'<input type="text" name="telefono" id="telefono" class="form-control" placeholder="" >'
+                            +'<input type="number" limit="10" name="telefono" id="telefono" class="form-control" placeholder="" >'
                         +'</div>'
                     +'</div>'
-        +'</form>';
+        +'</form><script>$("input").keypress(function(event){return validCaracteres(event,this.id);});</script>';
 
     BootstrapDialog.show({
     title: 'Nuevo Registro',
