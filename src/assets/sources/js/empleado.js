@@ -3,8 +3,6 @@ $(document).ready(function(){
 pushTable();
 });
 
-
-
 function openModal(empleado,user,param1,param2,param3,param4,param5,param6,param7,param8) 
 {
 
@@ -49,7 +47,7 @@ function openModal(empleado,user,param1,param2,param3,param4,param5,param6,param
                            +' <label class="col-form-label mr-2 control-label">Calle: </label>'
                        +' </div>'
                        +' <div class="col-md-8 col-lg-3">'
-                            +'<input type="text" id="calle" class="form-control" value="'+param5+'" >'
+                            +'<input type="text-number" id="calle" class="form-control" value="'+param5+'" >'
                         +'</div>'
                     +'</div>'
 
@@ -64,7 +62,7 @@ function openModal(empleado,user,param1,param2,param3,param4,param5,param6,param
                            +' <label class="col-form-label mr-2 control-label">Telefono: </label>'
                        +' </div>'
                        +' <div class="col-md-8 col-lg-3">'
-                            +'<input type="text" name="telefono" id="telefono" class="form-control" value="'+param1+'" >'
+                            +'<input type="number" limit="10" name="telefono" id="telefono" class="form-control" value="'+param1+'" >'
                         +'</div>'
                     +'</div>'
 
@@ -91,13 +89,13 @@ function openModal(empleado,user,param1,param2,param3,param4,param5,param6,param
                             +'<label class="col-form-label mr-2 control-label" id="label_ciudad">Contraseña: </label>'
                        +' </div>'
                         +'<div class="col-md-8 col-lg-3">'
-                           +' <input type="text" id="contrasenia" class="form-control" placeholder="" >'
+                           +' <input type="password" id="contrasenia" class="form-control" placeholder="" >'
                        +' </div>'
                         +'<div class="col-sm-4 col-md-3 col-lg-3 text-right">'
                            +' <label class="col-form-label mr-2 control-label">Repetir Contraseña: </label>'
                        +' </div>'
                        +' <div class="col-md-8 col-lg-3">'
-                            +'<input type="text"  id="repContrasenia" class="form-control" placeholder="" >'
+                            +'<input type="password"  id="repContrasenia" class="form-control" placeholder="" >'
                         +'</div>'
                     +'</div>'
 
@@ -107,7 +105,7 @@ function openModal(empleado,user,param1,param2,param3,param4,param5,param6,param
                             +'<label class="col-form-label mr-2 control-label" id="label_ciudad">Correo: </label>'
                        +' </div>'
                         +'<div class="col-md-8 col-lg-3">'
-                           +' <input type="text" id="correo" class="form-control" value="'+param8+'" >'
+                           +' <input type="email" id="correo" class="form-control" value="'+param8+'" >'
                        +' </div>'
                     +'</div>'
 
@@ -116,7 +114,7 @@ function openModal(empleado,user,param1,param2,param3,param4,param5,param6,param
 
 
 
-        +'</form>';
+        +'</form><script>$("input").keypress(function(event){return validCaracteres(event,this.id);});</script>';
 
     BootstrapDialog.show({
     title: '#Em-'+empleado,
@@ -238,7 +236,7 @@ $('#Agregar').click(function(event) {
                            +' <label class="col-form-label mr-2 control-label">Calle: </label>'
                        +' </div>'
                        +' <div class="col-md-8 col-lg-3">'
-                            +'<input type="text" id="calle" class="form-control" placeholder="" >'
+                            +'<input type="text-number" id="calle" class="form-control" placeholder="" >'
                         +'</div>'
                     +'</div>'
 
@@ -253,7 +251,7 @@ $('#Agregar').click(function(event) {
                            +' <label class="col-form-label mr-2 control-label">Telefono: </label>'
                        +' </div>'
                        +' <div class="col-md-8 col-lg-3">'
-                            +'<input type="text" name="telefono" id="telefono" class="form-control" placeholder="" >'
+                            +'<input type="number" limit="10" name="telefono" id="telefono" class="form-control" placeholder="" >'
                         +'</div>'
                     +'</div>'
 
@@ -280,13 +278,13 @@ $('#Agregar').click(function(event) {
                             +'<label class="col-form-label mr-2 control-label" id="label_ciudad">Contraseña: </label>'
                        +' </div>'
                         +'<div class="col-md-8 col-lg-3">'
-                           +' <input type="text" id="contrasenia" class="form-control" placeholder="" >'
+                           +' <input type="password" id="contrasenia" class="form-control" placeholder="" >'
                        +' </div>'
                         +'<div class="col-sm-4 col-md-3 col-lg-3 text-right">'
                            +' <label class="col-form-label mr-2 control-label">Repetir Contraseña: </label>'
                        +' </div>'
                        +' <div class="col-md-8 col-lg-3">'
-                            +'<input type="text"  id="repContrasenia" class="form-control" placeholder="" >'
+                            +'<input type="password"  id="repContrasenia" class="form-control" placeholder="" >'
                         +'</div>'
                     +'</div>'
 
@@ -296,7 +294,7 @@ $('#Agregar').click(function(event) {
                             +'<label class="col-form-label mr-2 control-label" id="label_ciudad">Correo: </label>'
                        +' </div>'
                         +'<div class="col-md-8 col-lg-3">'
-                           +' <input type="text" id="correo" class="form-control" placeholder="" >'
+                           +' <input type="email" id="correo" class="form-control" placeholder="" >'
                        +' </div>'
                     +'</div>'
 
@@ -305,7 +303,7 @@ $('#Agregar').click(function(event) {
 
 
 
-        +'</form>';
+        +'</form><script>$("input").keypress(function(event){return validCaracteres(event,this.id);});</script>';
 
     BootstrapDialog.show({
     title: 'Nuevo Registro',

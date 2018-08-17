@@ -67,7 +67,8 @@
  	});
  	$('.verTel').click(function(){
  		getAjax('POST','Proveedores/getPhonesFrom',{
- 			'id': $(this).parent('td').parent('tr').attr('id')
+ 			'id': 	$(this).parent('td').parent('tr').attr('id'),
+ 			'name': $(this).parent('td').parent('tr').children('.nombreP').text()
  		},'getPhonesFrom');
  	});
  	$('#nuevoProveedor').click(function(){

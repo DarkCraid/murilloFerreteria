@@ -47,7 +47,7 @@ class Proveedores extends CI_Controller
 			$str .="<li>".$t->numero."</li>";
 		}
 		echo json_encode(array(
-			'proveedor' => "nombre",
+			'proveedor' => $this->input->post('name'),
 			'msg'		=> $str
 		));
 	}
