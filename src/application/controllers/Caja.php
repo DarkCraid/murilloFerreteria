@@ -60,7 +60,7 @@ class Caja extends CI_Controller
 				'monto_salida'=> 0,
 				'empleado_id' => $this->session->userdata('id')		
 			);
-			$this->M_caja->setnewRow($Caja);
+ 			$this->M_caja->setnewRow($Caja);
 		}
 		
 	}
